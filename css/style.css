@@ -1,0 +1,153 @@
+:root{
+  --bg:#0b1020;
+  --card:#111936;
+  --card2:#162044;
+  --text:#eef4ff;
+  --muted:#b8c4e6;
+  --primary:#6c63ff;
+  --secondary:#00d4ff;
+  --accent:#21e6c1;
+  --danger:#ff5c8a;
+  --shadow:0 18px 45px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(108,99,255,.35), transparent 35%),
+    radial-gradient(circle at top right, rgba(0,212,255,.2), transparent 30%),
+    var(--bg);
+  color:var(--text);
+}
+a{text-decoration:none}
+.navbar{
+  background:rgba(8,13,30,.9)!important;
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.navbar-brand{font-weight:800;letter-spacing:.5px}
+.nav-link{color:var(--muted)!important;font-weight:600}
+.nav-link:hover,.nav-link.active{color:var(--secondary)!important}
+.hero{
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  padding:90px 0 50px;
+}
+.badge-ai{
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid rgba(0,212,255,.4);
+  border-radius:30px;
+  color:var(--secondary);
+  background:rgba(0,212,255,.08);
+  font-weight:700;
+  margin-bottom:18px;
+}
+.hero h1,.page-title{
+  font-size:clamp(2.3rem,5vw,4.8rem);
+  font-weight:900;
+  line-height:1.05;
+}
+.gradient-text{
+  background:linear-gradient(90deg,var(--secondary),var(--accent),var(--primary));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.hero p,.lead-text{color:var(--muted);font-size:1.12rem;line-height:1.75}
+.btn-ai{
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  color:white;
+  border:0;
+  border-radius:12px;
+  padding:12px 22px;
+  font-weight:800;
+  box-shadow:0 8px 25px rgba(0,212,255,.22);
+}
+.btn-ai:hover{color:white;transform:translateY(-2px)}
+.btn-outline-ai{
+  border:1px solid rgba(255,255,255,.22);
+  color:var(--text);
+  border-radius:12px;
+  padding:12px 22px;
+  font-weight:800;
+}
+.btn-outline-ai:hover{border-color:var(--secondary);color:var(--secondary)}
+.section{padding:75px 0}
+.card-ai{
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px;
+  padding:28px;
+  height:100%;
+  box-shadow:var(--shadow);
+}
+.card-ai h3,.card-ai h4{font-weight:800}
+.card-ai p,.card-ai li{color:var(--muted)}
+.icon-box{
+  width:58px;height:58px;border-radius:18px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  font-size:1.8rem;margin-bottom:18px;
+}
+.page-header{
+  padding:130px 0 60px;
+  text-align:center;
+}
+.image-panel{
+  border-radius:26px;
+  min-height:360px;
+  background:
+    linear-gradient(135deg,rgba(108,99,255,.6),rgba(0,212,255,.28)),
+    url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80') center/cover;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.12);
+}
+.table-ai{
+  --bs-table-bg:transparent;
+  --bs-table-color:var(--text);
+  --bs-table-border-color:rgba(255,255,255,.12);
+}
+.form-control,.form-select{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+  color:var(--text);
+  border-radius:12px;
+}
+.form-control::placeholder{color:#8fa0ce}
+.form-control:focus{
+  background:rgba(255,255,255,.09);
+  color:var(--text);
+  border-color:var(--secondary);
+  box-shadow:0 0 0 .2rem rgba(0,212,255,.15);
+}
+.footer{
+  padding:35px 0;
+  border-top:1px solid rgba(255,255,255,.09);
+  color:var(--muted);
+  background:rgba(8,13,30,.65);
+}
+.social a{
+  display:inline-grid;place-items:center;
+  width:42px;height:42px;margin:5px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:var(--text);
+}
+.social a:hover{background:var(--secondary);color:#07101f}
+.notice{
+  position:fixed;bottom:20px;left:20px;right:20px;z-index:999;
+  background:#111936;border:1px solid rgba(255,255,255,.15);
+  border-radius:16px;padding:16px;box-shadow:var(--shadow);
+  display:none;
+}
+.light-mode{
+  --bg:#f5f8ff;--card:#fff;--card2:#eef3ff;--text:#111936;--muted:#4b587c;
+}
+.light-mode .navbar{background:rgba(255,255,255,.92)!important}
+.light-mode .footer{background:#eef3ff}
+@media(max-width:768px){
+  .hero{min-height:auto;padding-top:110px}
+  .section{padding:50px 0}
+}
