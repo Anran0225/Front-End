@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Resources | AI AWS Club</title>
+<meta name="description" content="A five-stage AI learning roadmap with curated resources retrieved through the GitHub REST API.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="netCanvas"></canvas><div class="scanline"></div>
+<nav class="navbar"><div class="container"><a href="index.html" class="brand"><span class="dot"></span> AI AWS CLUB </a><div class="nav-right"><button class="navToggle" aria-label="Toggle menu">☰</button><ul class="navlinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="ai-intro.html">AI Intro</a></li><li><a href="resources.html">Resources</a></li><li><a href="ml-projects.html">ML Projects</a></li><li><a href="workshops.html">Workshops</a></li><li><a href="challenges.html">Challenges</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Join Us</a></li></ul><div class="mode-switch" aria-label="Toggle dark or light mode"><button data-mode="dark" aria-label="Dark mode">☾</button><button data-mode="light" aria-label="Light mode">☀</button></div></div></div></nav>
+
+<header class="pagehead"><div class="wrap"><div class="breadcrumb">HOME <span class="cyan"> / RESOURCES</span></div><div class="badge-pill"><span class="pdot"></span>PERSONALISED LEARNING SYSTEM</div><h1>Your AI learning journey, <span class="accent">mapped.</span></h1><p style="max-width:680px;">Complete each stage in sequence. NEXUS remembers your progress and assigns three club-curated open-source resources for exactly where you are now.</p></div></header>
+
+<main>
+<section class="section"><div class="wrap learning-shell">
+  <article class="hud learning-path reveal"><span class="corner-tr"></span><span class="corner-bl"></span><div class="eyebrow">Roadmap // progress.log</div><h2>Five stages. One clear path.</h2><div class="learning-meter-copy"><span id="progressLabel">Step 1 of 5</span><strong id="progressPercent">0% complete</strong></div><div class="learning-meter" role="progressbar" aria-label="AI learning progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="learningProgressBar"></span></div>
+    <div id="learningRoadmap" class="learning-roadmap">
+      <button type="button" class="roadmap-step" data-stage="0"><span class="step-no">01</span><span><small>FOUNDATION</small><strong>AI Fundamentals</strong><em>AI, ML and responsible use</em></span><i></i></button>
+      <button type="button" class="roadmap-step" data-stage="1"><span class="step-no">02</span><span><small>TOOLS</small><strong>Python for AI</strong><em>Python and data processing</em></span><i></i></button>
+      <button type="button" class="roadmap-step" data-stage="2"><span class="step-no">03</span><span><small>MODELS</small><strong>Machine Learning</strong><em>Train and evaluate models</em></span><i></i></button>
+      <button type="button" class="roadmap-step" data-stage="3"><span class="step-no">04</span><span><small>GENERATIVE AI</small><strong>Prompt Engineering</strong><em>Reliable, structured prompting</em></span><i></i></button>
+      <button type="button" class="roadmap-step" data-stage="4"><span class="step-no">05</span><span><small>SHIP</small><strong>AI Project Development</strong><em>Build a complete AI project</em></span><i></i></button>
+    </div>
+  </article>
+
+  <article class="learning-recommendation reveal"><div class="eyebrow">Assigned // current.stage</div><div class="stage-heading"><div><span class="tag" id="stageKicker">CURRENT LEARNING STAGE</span><h2 id="recommendationTitle">AI Fundamentals</h2></div><span class="level-badge" id="stageBadge">Beginner</span></div><p id="stageDescription">Start with clear explanations of artificial intelligence and responsible use.</p><div class="learning-actions"><button id="loadStageResources" type="button" class="btn">Load assigned resources</button><button id="completeStage" type="button" class="btn ghost">Mark step complete</button></div><p class="api-disclosure">◆ Each stage is locked to three club-curated repositories. jQuery AJAX calls GitHub REST API repository endpoints only to retrieve their latest public details.</p><div id="githubStatus" class="api-status mono" role="status" aria-live="polite"></div><div id="githubResult" class="resource-grid"></div></article>
+</div></section>
+
+<section class="section alt"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Local collection</div><h2>Saved learning resources</h2><p>Saved with localStorage, so your collection remains available on your next visit.</p></div></div><div id="savedResources" class="saved-resource-grid"><p class="empty-state">No saved resources yet. Load your assigned resources and select SAVE.</p></div></div></section>
+</main>
+
+<footer><div class="wrap"><div class="foot-bottom"><span>© 2026 NEXUS AI AWS CLUB — UCCD2323 GROUP PROJECT</span><span>HTML5 · CSS3 · JS · JQUERY · GITHUB REST API</span></div></div></footer>
+<aside id="cookieNotice" class="cookie-notice" role="dialog" aria-label="Cookie preferences" aria-live="polite"><div><span class="cookie-symbol">◉</span><strong>COOKIE // CONSENT REQUIRED</strong><p>We use one cookie to remember consent and browser storage to save your learning progress.</p></div><div class="cookie-actions"><button id="rejectCookie" class="btn ghost small" type="button">Not now</button><button id="acceptCookie" class="btn small" type="button">Accept</button></div></aside>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="js/main.js"></script>
+</body></html>

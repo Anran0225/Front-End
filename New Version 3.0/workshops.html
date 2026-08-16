@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshops | AI AWS Club</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="netCanvas"></canvas><div class="scanline"></div>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="dot"></span> AI AWS CLUB </a>
+    <div class="nav-right">
+    <button class="navToggle" aria-label="Toggle menu">☰</button>
+    <ul class="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="ai-intro.html">AI Intro</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="ml-projects.html">ML Projects</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="challenges.html">Challenges</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Join Us</a></li>
+    </ul>
+    <div class="mode-switch" aria-label="Toggle dark or light mode"><button data-mode="dark" aria-label="Dark mode">☾</button><button data-mode="light" aria-label="Light mode">☀</button></div>
+    </div>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <div class="breadcrumb">HOME <span class="cyan"> / WORKSHOPS</span></div>
+    <div class="badge-pill"><span class="pdot"></span>Prompt Engineering Track</div>
+    <h1>Learn to talk to machines properly.</h1>
+    <p style="max-width:620px;">Weekly hands-on sessions on getting precise, reliable output from large language models —
+      from zero-shot basics to multi-step agent prompting.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap grid cols-2">
+    <div class="reveal">
+      <div class="eyebrow">Curriculum</div>
+      <h2>Six sessions, in order</h2>
+      <div class="timeline mt">
+        <div class="step" data-i="01"><h3>Prompt Anatomy</h3><p>Instructions, context, examples and constraints — the four building blocks of a good prompt.</p></div>
+        <div class="step" data-i="02"><h3>Zero &amp; Few-Shot</h3><p>Getting a model to perform a task with no examples, then with a handful.</p></div>
+        <div class="step" data-i="03"><h3>Chain-of-Thought</h3><p>Prompting a model to reason step-by-step before answering.</p></div>
+        <div class="step" data-i="04"><h3>Role &amp; System Prompts</h3><p>Shaping tone, persona, and boundaries at the system level.</p></div>
+        <div class="step" data-i="05"><h3>Structured Output</h3><p>Getting reliable JSON / tables out of a model for downstream code.</p></div>
+        <div class="step" data-i="06"><h3>Agentic Prompting</h3><p>Chaining prompts and tools together to complete multi-step tasks.</p></div>
+      </div>
+    </div>
+
+    <!-- Interactive mini prompt lab — sessionStorage progress tracker -->
+    <div class="hud reveal">
+      <span class="corner-tr"></span><span class="corner-bl"></span>
+      <div class="eyebrow" style="margin-bottom:14px;">Interactive // Prompt Lab</div>
+      <p style="margin-bottom:14px;">Try rewriting this vague prompt to be specific. Your attempt is saved for this
+        browser session only (sessionStorage) — refresh the page and it's still there; close the tab and it clears.</p>
+      <div class="field">
+        <label>Vague prompt</label>
+        <input type="text" value="Write something about AI" disabled>
+      </div>
+      <div class="field">
+        <label>Your improved version</label>
+        <textarea id="promptLab" placeholder="e.g. Write a 150-word explainer on transformer attention for a first-year CS student, using one analogy."></textarea>
+      </div>
+      <button class="btn small" id="promptSaveBtn">Save Draft (Session)</button>
+      <p class="form-note" id="promptSaveStatus"></p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Upcoming Sessions</div>
+      <h2>Next three workshops</h2>
+    </div>
+    <div class="grid cols-3">
+      <div class="card reveal"><span class="tag">Session 04</span><h3>Role &amp; System Prompts</h3><p>Thu, 6:00 PM · Lab 3.02</p></div>
+      <div class="card reveal"><span class="tag">Session 05</span><h3>Structured Output</h3><p>Thu, 6:00 PM · Lab 3.02</p></div>
+      <div class="card reveal"><span class="tag">Session 06</span><h3>Agentic Prompting</h3><p>Thu, 6:00 PM · Lab 3.02</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>© 2026 NEXUS AI AWS CLUB — UCCD2323 GROUP PROJECT</span>
+      <span>BUILT WITH HTML5 · CSS3 · JS · JQUERY · BOOTSTRAP</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // sessionStorage demo: prompt-lab draft persists for the tab session only
+  document.addEventListener('DOMContentLoaded', function () {
+    var box = document.getElementById('promptLab');
+    var status = document.getElementById('promptSaveStatus');
+    var saved = sessionStorage.getItem('promptlab_draft');
+    if (saved) { box.value = saved; status.textContent = '> restored from session storage'; }
+    document.getElementById('promptSaveBtn').addEventListener('click', function () {
+      sessionStorage.setItem('promptlab_draft', box.value);
+      status.textContent = '> draft saved to sessionStorage at ' + new Date().toLocaleTimeString();
+    });
+  });
+</script>
+</body>
+</html>
