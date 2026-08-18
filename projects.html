@@ -1,63 +1,210 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Projects | AI AWS Club</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
-<link href="css/style.css" rel="stylesheet"/>
-<meta content="#0d1117" name="theme-color"/>
-<script>document.documentElement.classList.add('js-enabled');try{document.documentElement.setAttribute('data-theme',localStorage.getItem('nexus_mode')||'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}</script>
-</head>
-<body>
-<div aria-hidden="true" class="site-loader aws-logo-loader" id="siteLoader">
-<div aria-label="AI AWS Club loading animation" class="aws-unified-loader" role="img">
-<div class="aws-brand-emblem aws-brand-emblem-loader">
-<span class="aws-brand-ring ring-one"></span><span class="aws-brand-ring ring-two"></span>
-<span class="aws-brand-dot dot-one"></span><span class="aws-brand-dot dot-two"></span><span class="aws-brand-dot dot-three"></span>
-<img alt="" src="assets/aws-club-mark.svg"/>
-</div>
-<strong>AI AWS CLUB</strong><small>ASSEMBLING EXPERIENCE</small>
-</div>
-</div>
-<div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
-<div aria-hidden="true" class="page-transition" id="pageTransition"><span></span></div>
-<canvas id="netCanvas"></canvas><div class="scanline"></div>
-<nav class="navbar"><div class="container"><a class="brand" href="index.html"><img alt="" class="brand-logo" src="assets/aws-club-mark.svg"/> AI AWS CLUB </a><div class="nav-right"><button aria-label="Toggle menu" class="navToggle">☰</button><ul class="navlinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="ai-intro.html">AI Intro</a></li><li><a href="projects.html">Projects</a></li><li><a href="challenges.html">Challenges</a></li><li><a href="resources.html">Resources</a></li><li><a href="ai-news.html">AI News</a></li><li><a href="workshops.html">Workshops</a></li><li><a href="join.html">Join</a></li></ul><button aria-label="Switch to light mode" class="theme-toggle" title="Switch to light mode" type="button"><span aria-hidden="true" class="theme-toggle-icon">☀</span></button></div></div></nav>
-<header class="pagehead projects-pagehead">
-<div aria-hidden="true" class="project-motion-field">
-<span class="project-radar-ring ring-one"></span>
-<span class="project-radar-ring ring-two"></span>
-<span class="project-radar-ring ring-three"></span>
-<span class="project-scan-beam"></span>
-<span class="project-float-dot dot-one"></span>
-<span class="project-float-dot dot-two"></span>
-<span class="project-float-dot dot-three"></span>
-</div>
-<div class="wrap project-head-content">
-<div class="breadcrumb">HOME <span class="cyan"> / PROJECTS</span></div>
-<div class="badge-pill"><span class="pdot"></span>Build · Test · Showcase</div>
-<h1>Projects that turn AI ideas into working systems.</h1>
-<p>Explore student project concepts, open a quick preview, save favourites, or enter a full project detail page.</p>
-</div>
-</header>
-<section class="section">
-<div class="wrap">
-<div class="section-head reveal"><div class="eyebrow">Club Project Lab</div><h2>Featured student project concepts</h2><p>Each card opens a quick view. Select “Full details” for a dedicated project page with technologies, contributors, media and source links.</p></div>
-<div class="project-showcase-grid" id="clubProjectGrid">
-<article class="project-showcase-card reveal" data-project-card="campuseye"><div class="project-cover cover-vision"><i class="bi bi-camera-video"></i><span>COMPUTER VISION</span></div><div class="project-card-body"><div class="project-tags"><span>AI</span><span>CNN</span><span>Dashboard</span></div><h3>CampusEye</h3><p>Detect free library seats from camera frames and publish availability to a lightweight dashboard.</p><div class="project-card-meta"><span><i class="status-dot"></i> In progress</span><span>4 contributors</span></div><div class="project-card-actions"><button class="text-link project-quick-btn" data-project="campuseye" type="button">Quick view →</button><a class="project-details-link" href="project-detail.html?id=campuseye">Full details ↗</a></div></div></article>
-<article class="project-showcase-card reveal" data-project-card="studybuddy"><div class="project-cover cover-nlp"><i class="bi bi-chat-square-text"></i><span>NLP · RAG</span></div><div class="project-card-body"><div class="project-tags"><span>LLM</span><span>RAG</span><span>Citations</span></div><h3>StudyBuddy GPT</h3><p>A retrieval-augmented study assistant that answers revision questions from faculty notes with source references.</p><div class="project-card-meta"><span><i class="status-dot"></i> Shipped</span><span>3 contributors</span></div><div class="project-card-actions"><button class="text-link project-quick-btn" data-project="studybuddy" type="button">Quick view →</button><a class="project-details-link" href="project-detail.html?id=studybuddy">Full details ↗</a></div></div></article>
-<article class="project-showcase-card reveal" data-project-card="clubmatch"><div class="project-cover cover-match"><i class="bi bi-people"></i><span>RECOMMENDER</span></div><div class="project-card-body"><div class="project-tags"><span>ML</span><span>Ranking</span><span>Campus</span></div><h3>ClubMatch</h3><p>Recommend campus clubs by matching student interests with activity profiles and collaborative signals.</p><div class="project-card-meta"><span><i class="status-dot"></i> Shipped</span><span>3 contributors</span></div><div class="project-card-actions"><button class="text-link project-quick-btn" data-project="clubmatch" type="button">Quick view →</button><a class="project-details-link" href="project-detail.html?id=clubmatch">Full details ↗</a></div></div></article>
-<article class="project-showcase-card reveal" data-project-card="linechaser"><div class="project-cover cover-robot"><i class="bi bi-cpu"></i><span>ROBOTICS</span></div><div class="project-card-body"><div class="project-tags"><span>RL</span><span>Simulation</span><span>Robot</span></div><h3>LineChaser Bot</h3><p>Train a reinforcement-learning policy in simulation and transfer it to a physical line-following robot.</p><div class="project-card-meta"><span><i class="status-dot"></i> In progress</span><span>4 contributors</span></div><div class="project-card-actions"><button class="text-link project-quick-btn" data-project="linechaser" type="button">Quick view →</button><a class="project-details-link" href="project-detail.html?id=linechaser">Full details ↗</a></div></div></article>
-<article class="project-showcase-card reveal" data-project-card="lecturescribe"><div class="project-cover cover-audio"><i class="bi bi-mic"></i><span>AUDIO ML</span></div><div class="project-card-body"><div class="project-tags"><span>Speech</span><span>Summary</span><span>Notes</span></div><h3>LectureScribe</h3><p>Transcribe recorded lectures and generate concise revision notes with a speech-to-text pipeline.</p><div class="project-card-meta"><span><i class="status-dot"></i> Shipped</span><span>3 contributors</span></div><div class="project-card-actions"><button class="text-link project-quick-btn" data-project="lecturescribe" type="button">Quick view →</button><a class="project-details-link" href="project-detail.html?id=lecturescribe">Full details ↗</a></div></div></article>
-<article class="project-showcase-card reveal" data-project-card="posterforge"><div class="project-cover cover-gen"><i class="bi bi-stars"></i><span>GENERATIVE AI</span></div><div class="project-card-body"><div class="project-tags"><span>Prompting</span><span>Design</span><span>Automation</span></div><h3>PosterForge</h3><p>Turn an event brief into a structured creative direction and draft poster concept through prompt engineering.</p><div class="project-card-meta"><span><i class="status-dot"></i> In progress</span><span>3 contributors</span></div><div class="project-card-actions"><button class="text-link project-quick-btn" data-project="posterforge" type="button">Quick view →</button><a class="project-details-link" href="project-detail.html?id=posterforge">Full details ↗</a></div></div></article>
-</div>
-</div>
-</section>
 
-<div aria-hidden="true" aria-labelledby="projectModalTitle" class="modal fade project-modal" id="projectQuickView" tabindex="-1"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><button aria-label="Close" class="project-modal-close" data-bs-dismiss="modal" type="button">×</button><div class="project-modal-visual" id="projectModalVisual"><i class="bi bi-stars"></i></div><div class="project-modal-body"><div class="project-tags" id="projectModalTags"></div><h2 id="projectModalTitle">Project</h2><p id="projectModalText"></p><div class="project-modal-grid"><div><small>Status</small><strong id="projectModalStatus"></strong></div><div><small>Contributors</small><strong id="projectModalTeam"></strong></div><div><small>Focus</small><strong id="projectModalFocus"></strong></div></div><div class="project-modal-actions"><a class="btn" href="project-detail.html" id="projectModalDetails">Full details →</a><button class="btn ghost" id="projectModalSave" type="button">☆ Save project</button></div></div></div></div></div>
-<footer><div class="wrap"><div class="foot-bottom"><span>© 2026 AI AWS CLUB — UCCD2323 GROUP PROJECT</span><span>BUILT WITH HTML5 · CSS3 · JS · JQUERY · BOOTSTRAP</span></div></div></footer>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script><script src="js/main.js"></script><script src="js/advanced-ui.js"></script>
-</body></html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Projects | AI AWS Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <meta content="#0d1117" name="theme-color" />
+    <script>document.documentElement.classList.add('js-enabled'); try { document.documentElement.setAttribute('data-theme', localStorage.getItem('nexus_mode') || 'dark'); } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }</script>
+</head>
+
+<body>
+    <div aria-hidden="true" class="site-loader aws-logo-loader" id="siteLoader">
+        <div aria-label="AI AWS Club loading animation" class="aws-unified-loader" role="img">
+            <div class="aws-brand-emblem aws-brand-emblem-loader">
+                <span class="aws-brand-ring ring-one"></span><span class="aws-brand-ring ring-two"></span>
+                <span class="aws-brand-dot dot-one"></span><span class="aws-brand-dot dot-two"></span><span
+                    class="aws-brand-dot dot-three"></span>
+                <img alt="" src="assets/aws-club-mark.svg" />
+            </div>
+            <strong>AI AWS CLUB</strong><small>ASSEMBLING EXPERIENCE</small>
+        </div>
+    </div>
+    <div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
+    <div aria-hidden="true" class="page-transition" id="pageTransition"><span></span></div>
+    <canvas id="netCanvas"></canvas>
+    <div class="scanline"></div>
+    <nav class="navbar">
+        <div class="container"><a class="brand" href="index.html"><img alt="" class="brand-logo"
+                    src="assets/aws-club-mark.svg" /> AI AWS CLUB </a>
+            <div class="nav-right"><button aria-label="Toggle menu" class="navToggle">☰</button>
+                <ul class="navlinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="ai-intro.html">AI Intro</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="challenges.html">Challenges</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="ai-news.html">AI News</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="join.html">Join</a></li>
+                </ul><button aria-label="Switch to light mode" class="theme-toggle" title="Switch to light mode"
+                    type="button"><span aria-hidden="true" class="theme-toggle-icon">☀</span></button>
+            </div>
+        </div>
+    </nav>
+    <header class="pagehead projects-pagehead">
+        <div aria-hidden="true" class="project-motion-field">
+            <span class="project-radar-ring ring-one"></span>
+            <span class="project-radar-ring ring-two"></span>
+            <span class="project-radar-ring ring-three"></span>
+            <span class="project-scan-beam"></span>
+            <span class="project-float-dot dot-one"></span>
+            <span class="project-float-dot dot-two"></span>
+            <span class="project-float-dot dot-three"></span>
+        </div>
+        <div class="wrap project-head-content">
+            <div class="breadcrumb">HOME <span class="cyan"> / PROJECTS</span></div>
+            <div class="badge-pill"><span class="pdot"></span>Build · Test · Showcase</div>
+            <h1>Projects that turn AI ideas into working systems.</h1>
+            <p>Explore student project concepts, open a quick preview, save favourites, or enter a full project detail
+                page.</p>
+        </div>
+    </header>
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div class="eyebrow">Club Project Lab</div>
+                <h2>Featured student project concepts</h2>
+                <p>Each card opens a quick view. Select “Full details” for a dedicated project page with technologies,
+                    contributors, media and source links.</p>
+            </div>
+            <div class="project-showcase-grid" id="clubProjectGrid">
+                <article class="project-showcase-card reveal" data-project-card="campuseye">
+                    <div class="project-cover cover-vision"><i class="bi bi-camera-video"></i><span>COMPUTER
+                            VISION</span></div>
+                    <div class="project-card-body">
+                        <div class="project-tags"><span>AI</span><span>CNN</span><span>Dashboard</span></div>
+                        <h3>CampusEye</h3>
+                        <p>Detect free library seats from camera frames and publish availability to a lightweight
+                            dashboard.</p>
+                        <div class="project-card-meta"><span><i class="status-dot"></i> In progress</span><span>4
+                                contributors</span></div>
+                        <div class="project-card-actions"><button class="text-link project-quick-btn"
+                                data-project="campuseye" type="button">Quick view →</button><a
+                                class="project-details-link" href="project-detail.html?id=campuseye">Full details ↗</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-showcase-card reveal" data-project-card="studybuddy">
+                    <div class="project-cover cover-nlp"><i class="bi bi-chat-square-text"></i><span>NLP · RAG</span>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-tags"><span>LLM</span><span>RAG</span><span>Citations</span></div>
+                        <h3>StudyBuddy GPT</h3>
+                        <p>A retrieval-augmented study assistant that answers revision questions from faculty notes with
+                            source references.</p>
+                        <div class="project-card-meta"><span><i class="status-dot"></i> Shipped</span><span>3
+                                contributors</span></div>
+                        <div class="project-card-actions"><button class="text-link project-quick-btn"
+                                data-project="studybuddy" type="button">Quick view →</button><a
+                                class="project-details-link" href="project-detail.html?id=studybuddy">Full details ↗</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-showcase-card reveal" data-project-card="clubmatch">
+                    <div class="project-cover cover-match"><i class="bi bi-people"></i><span>RECOMMENDER</span></div>
+                    <div class="project-card-body">
+                        <div class="project-tags"><span>ML</span><span>Ranking</span><span>Campus</span></div>
+                        <h3>ClubMatch</h3>
+                        <p>Recommend campus clubs by matching student interests with activity profiles and collaborative
+                            signals.</p>
+                        <div class="project-card-meta"><span><i class="status-dot"></i> Shipped</span><span>3
+                                contributors</span></div>
+                        <div class="project-card-actions"><button class="text-link project-quick-btn"
+                                data-project="clubmatch" type="button">Quick view →</button><a
+                                class="project-details-link" href="project-detail.html?id=clubmatch">Full details ↗</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-showcase-card reveal" data-project-card="linechaser">
+                    <div class="project-cover cover-robot"><i class="bi bi-cpu"></i><span>ROBOTICS</span></div>
+                    <div class="project-card-body">
+                        <div class="project-tags"><span>RL</span><span>Simulation</span><span>Robot</span></div>
+                        <h3>LineChaser Bot</h3>
+                        <p>Train a reinforcement-learning policy in simulation and transfer it to a physical
+                            line-following robot.</p>
+                        <div class="project-card-meta"><span><i class="status-dot"></i> In progress</span><span>4
+                                contributors</span></div>
+                        <div class="project-card-actions"><button class="text-link project-quick-btn"
+                                data-project="linechaser" type="button">Quick view →</button><a
+                                class="project-details-link" href="project-detail.html?id=linechaser">Full details ↗</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-showcase-card reveal" data-project-card="lecturescribe">
+                    <div class="project-cover cover-audio"><i class="bi bi-mic"></i><span>AUDIO ML</span></div>
+                    <div class="project-card-body">
+                        <div class="project-tags"><span>Speech</span><span>Summary</span><span>Notes</span></div>
+                        <h3>LectureScribe</h3>
+                        <p>Transcribe recorded lectures and generate concise revision notes with a speech-to-text
+                            pipeline.</p>
+                        <div class="project-card-meta"><span><i class="status-dot"></i> Shipped</span><span>3
+                                contributors</span></div>
+                        <div class="project-card-actions"><button class="text-link project-quick-btn"
+                                data-project="lecturescribe" type="button">Quick view →</button><a
+                                class="project-details-link" href="project-detail.html?id=lecturescribe">Full details
+                                ↗</a></div>
+                    </div>
+                </article>
+                <article class="project-showcase-card reveal" data-project-card="posterforge">
+                    <div class="project-cover cover-gen"><i class="bi bi-stars"></i><span>GENERATIVE AI</span></div>
+                    <div class="project-card-body">
+                        <div class="project-tags"><span>Prompting</span><span>Design</span><span>Automation</span></div>
+                        <h3>PosterForge</h3>
+                        <p>Turn an event brief into a structured creative direction and draft poster concept through
+                            prompt engineering.</p>
+                        <div class="project-card-meta"><span><i class="status-dot"></i> In progress</span><span>3
+                                contributors</span></div>
+                        <div class="project-card-actions"><button class="text-link project-quick-btn"
+                                data-project="posterforge" type="button">Quick view →</button><a
+                                class="project-details-link" href="project-detail.html?id=posterforge">Full details
+                                ↗</a></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div aria-hidden="true" aria-labelledby="projectModalTitle" class="modal fade project-modal" id="projectQuickView"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content"><button aria-label="Close" class="project-modal-close" data-bs-dismiss="modal"
+                    type="button">×</button>
+                <div class="project-modal-visual" id="projectModalVisual"><i class="bi bi-stars"></i></div>
+                <div class="project-modal-body">
+                    <div class="project-tags" id="projectModalTags"></div>
+                    <h2 id="projectModalTitle">Project</h2>
+                    <p id="projectModalText"></p>
+                    <div class="project-modal-grid">
+                        <div><small>Status</small><strong id="projectModalStatus"></strong></div>
+                        <div><small>Contributors</small><strong id="projectModalTeam"></strong></div>
+                        <div><small>Focus</small><strong id="projectModalFocus"></strong></div>
+                    </div>
+                    <div class="project-modal-actions"><a class="btn" href="project-detail.html"
+                            id="projectModalDetails">Full details →</a><button class="btn ghost" id="projectModalSave"
+                            type="button">☆ Save project</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="wrap">
+            <div class="foot-bottom"><span>© 2026 AI AWS CLUB — UCCD2323 GROUP PROJECT</span><span>BUILT WITH HTML5 ·
+                    CSS3 · JS · JQUERY · BOOTSTRAP</span></div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/advanced-ui.js"></script>
+</body>
+
+</html>
