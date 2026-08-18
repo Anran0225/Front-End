@@ -40,7 +40,7 @@
 <div class="breadcrumb">HOME <span class="cyan"> / PROJECTS</span></div>
 <div class="badge-pill"><span class="pdot"></span>Build · Test · Showcase</div>
 <h1>Projects that turn AI ideas into working systems.</h1>
-<p>Explore student project concepts, open a quick preview, save favourites, or enter a full project detail page. The live section below uses the GitHub REST API through jQuery.</p>
+<p>Explore student project concepts, open a quick preview, save favourites, or enter a full project detail page.</p>
 </div>
 </header>
 <section class="section">
@@ -56,13 +56,8 @@
 </div>
 </div>
 </section>
-<section class="section alt">
-<div class="wrap">
-<div class="flex-between reveal"><div><div class="eyebrow">Live Feed // GitHub REST API</div><h2>Open-source AI projects, live from GitHub</h2><p style="max-width:620px;">These cards are actual API data loaded with jQuery <span class="mono">$.ajax()</span>. Open “Details” to load a dedicated subpage, or go directly to GitHub.</p></div><button class="btn ghost" onclick="loadTrendingAIRepos()">↻ Refresh feed</button></div>
-<div class="grid cols-3 mt" id="repoList"></div>
-</div>
-</section>
+
 <div aria-hidden="true" aria-labelledby="projectModalTitle" class="modal fade project-modal" id="projectQuickView" tabindex="-1"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><button aria-label="Close" class="project-modal-close" data-bs-dismiss="modal" type="button">×</button><div class="project-modal-visual" id="projectModalVisual"><i class="bi bi-stars"></i></div><div class="project-modal-body"><div class="project-tags" id="projectModalTags"></div><h2 id="projectModalTitle">Project</h2><p id="projectModalText"></p><div class="project-modal-grid"><div><small>Status</small><strong id="projectModalStatus"></strong></div><div><small>Contributors</small><strong id="projectModalTeam"></strong></div><div><small>Focus</small><strong id="projectModalFocus"></strong></div></div><div class="project-modal-actions"><a class="btn" href="project-detail.html" id="projectModalDetails">Full details →</a><button class="btn ghost" id="projectModalSave" type="button">☆ Save project</button></div></div></div></div></div>
 <footer><div class="wrap"><div class="foot-bottom"><span>© 2026 AI AWS CLUB — UCCD2323 GROUP PROJECT</span><span>BUILT WITH HTML5 · CSS3 · JS · JQUERY · BOOTSTRAP</span></div></div></footer>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script><script src="js/main.js"></script><script src="js/advanced-ui.js"></script><script>$(document).ready(function(){ loadTrendingAIRepos(); });</script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script><script src="js/main.js"></script><script src="js/advanced-ui.js"></script>
 </body></html>
