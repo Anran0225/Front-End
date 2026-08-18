@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-labelledby="title desc">
+  <title id="title">AI AWS Club logo</title>
+  <desc id="desc">White AWS wordmark with a warm orange smile underline.</desc>
+  <defs>
+    <linearGradient id="smile" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.55" stop-color="#ffad1f"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <filter id="letterGlow" x="-35%" y="-45%" width="170%" height="190%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#58a6ff" flood-opacity=".22" result="glow"/>
+      <feComposite in="glow" in2="blur" operator="in" result="soft"/>
+      <feMerge><feMergeNode in="soft"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="smileGlow" x="-35%" y="-80%" width="170%" height="260%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <text x="160" y="118" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="104" font-weight="900" letter-spacing="8" fill="#f8fafc" stroke="#0d1117" stroke-opacity=".24" stroke-width="2" paint-order="stroke" filter="url(#letterGlow)">AWS</text>
+  <path d="M82 151 C126 184 206 184 244 148" fill="none" stroke="url(#smile)" stroke-width="11" stroke-linecap="round" filter="url(#smileGlow)"/>
+  <circle cx="244" cy="148" r="5.5" fill="#fbbf24"/>
+</svg>
