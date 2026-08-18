@@ -1,234 +1,541 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI Intro | AI AWS Club</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
-<link href="css/style.css" rel="stylesheet"/>
-<meta content="#0d1117" name="theme-color"/>
-<script>document.documentElement.classList.add('js-enabled');try{document.documentElement.setAttribute('data-theme',localStorage.getItem('nexus_mode')||'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}</script>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>AI Intro | AI AWS Club</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+                rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <meta content="#0d1117" name="theme-color" />
+        <script>document.documentElement.classList.add('js-enabled'); try { document.documentElement.setAttribute('data-theme', localStorage.getItem('nexus_mode') || 'dark'); } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }</script>
 </head>
+
 <body>
-<div aria-hidden="true" class="site-loader aws-logo-loader" id="siteLoader">
-<div aria-label="AI AWS Club loading animation" class="aws-unified-loader" role="img">
-<div class="aws-brand-emblem aws-brand-emblem-loader">
-<span class="aws-brand-ring ring-one"></span><span class="aws-brand-ring ring-two"></span>
-<span class="aws-brand-dot dot-one"></span><span class="aws-brand-dot dot-two"></span><span class="aws-brand-dot dot-three"></span>
-<img alt="" src="assets/aws-club-mark.svg"/>
-</div>
-<strong>AI AWS CLUB</strong><small>ASSEMBLING EXPERIENCE</small>
-</div>
-</div>
-<div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
-<div aria-hidden="true" class="page-transition" id="pageTransition"><span></span></div>
-<canvas id="netCanvas"></canvas><div class="scanline"></div>
-<nav class="navbar">
-<div class="container">
-<a class="brand" href="index.html"><img alt="" class="brand-logo" src="assets/aws-club-mark.svg"/> AI AWS CLUB </a>
-<div class="nav-right">
-<button aria-label="Toggle menu" class="navToggle">☰</button>
-<ul class="navlinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="ai-intro.html">AI Intro</a></li><li><a href="projects.html">Projects</a></li><li><a href="challenges.html">Challenges</a></li><li><a href="resources.html">Resources</a></li><li><a href="ai-news.html">AI News</a></li><li><a href="workshops.html">Workshops</a></li><li><a href="join.html">Join</a></li></ul>
-<button aria-label="Switch to light mode" class="theme-toggle" title="Switch to light mode" type="button"><span aria-hidden="true" class="theme-toggle-icon">☀</span></button>
-</div>
-</div>
-</nav>
-<header class="pagehead">
-<div class="wrap">
-<div class="breadcrumb">HOME <span class="cyan"> / AI INTRO</span></div>
-<div class="badge-pill"><span class="pdot"></span>Knowledge Base</div>
-<h1>What Artificial Intelligence actually is.</h1>
-<p style="max-width:620px;">A plain-language primer for members starting from zero — no jargon left unexplained.</p>
-</div>
-</header>
-<section class="section ai-video-explainer" id="ai-explained">
-<div class="wrap ai-video-layout">
-<div class="ai-video-copy reveal">
-<div class="eyebrow">Watch · AI Explained</div>
-<h2>See how AI, machine learning and deep learning connect.</h2>
-<p>A short explainer gives beginners a visual starting point before they explore the live AI ecosystem below.</p>
-<div class="ai-video-points"><span><i class="bi bi-play-circle"></i> Replay anytime</span><span><i class="bi bi-lightbulb"></i> Beginner friendly</span><span><i class="bi bi-box-arrow-up-right"></i> External educational media</span></div>
-<a class="text-link" href="https://www.ibm.com/think/topics/artificial-intelligence" rel="noopener" target="_blank">Read an AI explainer ↗</a><a class="text-link ai-video-youtube" href="https://www.youtube.com/watch?v=4RixMPF4xis" rel="noopener" target="_blank">Watch on YouTube ↗</a>   
-</div>
-<div class="ai-video-shell reveal">
-<div class="ai-video-browserbar"><span></span><span></span><span></span><b>AI EXPLAINER // IBM TECHNOLOGY</b></div>
-<div class="ai-video-frame">
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/4RixMPF4xis?rel=0" title="AI vs Machine Learning explained by IBM Technology"></iframe>
-</div>
-</div>
-</div>
-</section><section class="section ai-ecosystem-section">
-<div class="wrap">
-<div class="section-head reveal ai-ecosystem-copy">
-<div class="eyebrow">AI Ecosystem</div>
-<h2>Meet the tools shaping today's AI landscape</h2>
-<p>A rotating visual map of popular AI platforms students are likely to encounter while learning, building and experimenting.</p>
-</div>
-<div aria-label="Interactive AI ecosystem orbit" class="ai-orbit-stage reveal">
-<div aria-hidden="true" class="ai-orbit-grid"></div>
-<div aria-label="AI ecosystem core" class="ai-core" tabindex="0">
-<span class="ai-core-pulse"></span>
-<span class="ai-core-breath"></span>
-<strong>AI</strong>
-<small>ECOSYSTEM</small>
-</div>
-<div aria-label="Popular AI platforms" class="ai-orbit-track ai-orbit-track-single">
-<div aria-label="Open ChatGPT official website" class="ai-orbit-node" data-detail="Conversational AI for reasoning, writing and multimodal tasks." data-url="https://chatgpt.com/" role="link" style="--angle:0deg" tabindex="0"><span class="ai-logo"><img alt="ChatGPT logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/openai.svg"/><b>GPT</b></span><em>ChatGPT</em><span class="ai-node-detail">Conversational AI · reasoning · multimodal<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Gemini official website" class="ai-orbit-node" data-detail="Google's multimodal AI family for text, images, code and research." data-url="https://gemini.google.com/" role="link" style="--angle:27.7deg" tabindex="0"><span class="ai-logo"><img alt="Gemini logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/googlegemini.svg"/><b>GEM</b></span><em>Gemini</em><span class="ai-node-detail">Google multimodal AI · research · code<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Claude official website" class="ai-orbit-node" data-detail="Anthropic's AI assistant focused on reasoning, analysis and long context." data-url="https://claude.ai/" role="link" style="--angle:55.4deg" tabindex="0"><span class="ai-logo"><img alt="Claude logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/claude.svg"/><b>CL</b></span><em>Claude</em><span class="ai-node-detail">Reasoning · analysis · long context<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Copilot official website" class="ai-orbit-node" data-detail="Microsoft AI assistant integrated across productivity and developer tools." data-url="https://github.com/features/copilot" role="link" style="--angle:83.1deg" tabindex="0"><span class="ai-logo"><img alt="Copilot logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/githubcopilot.svg"/><b>CP</b></span><em>Copilot</em><span class="ai-node-detail">Microsoft assistant · productivity · code<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Perplexity official website" class="ai-orbit-node" data-detail="AI-powered answer engine that combines web search with cited responses." data-url="https://www.perplexity.ai/" role="link" style="--angle:110.8deg" tabindex="0"><span class="ai-logo"><img alt="Perplexity logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/perplexity.svg"/><b>PPLX</b></span><em>Perplexity</em><span class="ai-node-detail">Answer engine · web search · citations<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open DeepSeek official website" class="ai-orbit-node" data-detail="DeepSeek develops open and efficient models for reasoning and coding." data-url="https://chat.deepseek.com/" role="link" style="--angle:138.5deg" tabindex="0"><span class="ai-logo"><img alt="DeepSeek logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/deepseek.svg"/><b>DS</b></span><em>DeepSeek</em><span class="ai-node-detail">Reasoning · coding · open models<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Meta AI official website" class="ai-orbit-node" data-detail="Meta's AI assistant and open model ecosystem built around Llama." data-url="https://www.meta.ai/" role="link" style="--angle:166.2deg" tabindex="0"><span class="ai-logo"><img alt="Meta AI logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/meta.svg"/><b>META</b></span><em>Meta AI</em><span class="ai-node-detail">Llama ecosystem · assistant · open models<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Hugging Face official website" class="ai-orbit-node" data-detail="Community platform for discovering, sharing and running machine-learning models." data-url="https://huggingface.co/" role="link" style="--angle:193.9deg" tabindex="0"><span class="ai-logo"><img alt="Hugging Face logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/huggingface.svg"/><b>HF</b></span><em>Hugging Face</em><span class="ai-node-detail">Models · datasets · community<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Kimi official website" class="ai-orbit-node" data-detail="Kimi is an AI assistant known for long-context reading and productivity workflows." data-url="https://www.kimi.com/en" role="link" style="--angle:221.6deg" tabindex="0"><span class="ai-logo ai-text-logo kimi-logo"><b>K</b></span><em>Kimi</em><span class="ai-node-detail">Long context · reading · productivity<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Grok official website" class="ai-orbit-node" data-detail="Grok is xAI's assistant for conversational reasoning and real-time information use." data-url="https://grok.com/" role="link" style="--angle:249.3deg" tabindex="0"><span class="ai-logo ai-text-logo grok-logo"><b>G</b></span><em>Grok</em><span class="ai-node-detail">Conversational AI · reasoning · real-time<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Mistral official website" class="ai-orbit-node" data-detail="Mistral develops efficient open and commercial AI models for builders." data-url="https://chat.mistral.ai/" role="link" style="--angle:277deg" tabindex="0"><span class="ai-logo"><img alt="Mistral AI logo" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/mistralai.svg"/><b>M</b></span><em>Mistral</em><span class="ai-node-detail">Efficient models · open AI · developers<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Qwen official website" class="ai-orbit-node" data-detail="Qwen is Alibaba's model family covering language, vision, code and reasoning." data-url="https://chat.qwen.ai/" role="link" style="--angle:304.7deg" tabindex="0"><span class="ai-logo ai-text-logo qwen-logo"><b>Q</b></span><em>Qwen</em><span class="ai-node-detail">Language · vision · code · reasoning<small class="ai-node-open">Open official site ↗</small></span></div>
-<div aria-label="Open Codex official website" class="ai-orbit-node" data-detail="Codex represents AI-assisted software engineering and coding-agent workflows." data-url="https://openai.com/codex/" role="link" style="--angle:332.4deg" tabindex="0"><span class="ai-logo codex-logo"><i aria-hidden="true" class="bi bi-code-square"></i><b>CODEX</b></span><em>Codex</em><span class="ai-node-detail">Coding agent · software engineering · automation<small class="ai-node-open">Open official site ↗</small></span></div>
-</div>
-</div>
-<div aria-label="AI ecosystem statistics" class="ai-ecosystem-stats reveal">
-<div class="ecosystem-stat"><strong>500+</strong><span>AI Models</span></div>
-<div class="ecosystem-stat"><strong>10K+</strong><span>Creators</span></div>
-<div class="ecosystem-stat"><strong class="infinity">∞</strong><span>Creativity</span></div>
-</div>
-<p class="orbit-caption reveal">One continuous orbit represents the fast-moving AI ecosystem. Platform cards travel around the ring while staying upright; hover or focus one to enlarge it and reveal a short description.</p>
-</div>
-</section>
-<section class="section">
-<div class="wrap grid cols-2">
-<div class="reveal">
-<div class="eyebrow">Definition</div>
-<h2>AI, in one sentence</h2>
-<p>Artificial Intelligence is software that learns patterns from data (or is designed to reason over rules) so it
-        can make decisions or predictions without being explicitly programmed for every case.</p>
-<p>Most of what people call "AI" today falls under <strong>Machine Learning</strong> — systems that improve at a
-        task by training on examples rather than following hard-coded instructions.</p>
-</div>
-<div class="hud reveal">
-<span class="corner-tr"></span><span class="corner-bl"></span>
-<div class="eyebrow" style="margin-bottom:16px;">Glossary</div>
-<div class="datapanel">
-<div class="row"><span class="k">Machine Learning</span><span class="v">Learns from data</span></div>
-<div class="row"><span class="k">Neural Network</span><span class="v">Layered math model</span></div>
-<div class="row"><span class="k">Deep Learning</span><span class="v">Many-layer networks</span></div>
-<div class="row"><span class="k">LLM</span><span class="v">Text-trained model</span></div>
-<div class="row"><span class="k">Training</span><span class="v">Fitting on examples</span></div>
-<div class="row"><span class="k">Inference</span><span class="v">Using a trained model</span></div>
-</div>
-</div>
-</div>
-</section>
-<section class="section alt ai-tech-section" id="ai-technologies">
-<div class="wrap">
-<div class="section-head reveal ai-tech-head">
-<div>
-<div class="eyebrow">AI Technologies</div>
-<h2>Tap a technology. Watch the system respond.</h2>
-<p>Explore six core AI areas through an interactive signal board. Select a card to update the live technology panel.</p>
-</div>
-<div class="tech-live-chip"><span></span> INTERACTIVE MODE</div>
-</div>
-<div class="ai-tech-layout reveal">
-<div aria-label="AI technology explorer" class="ai-tech-nav" role="tablist">
-<button aria-selected="true" class="ai-tech-tab active" data-tech="ml" role="tab" type="button"><i class="bi bi-diagram-3"></i><span>Machine Learning</span><small>Patterns from data</small><em class="tech-activity"><b></b><b></b><b></b></em></button>
-<button class="ai-tech-tab" data-tech="deep" role="tab" type="button"><i class="bi bi-layers"></i><span>Deep Learning</span><small>Neural networks</small><em class="tech-activity"><b></b><b></b><b></b></em></button>
-<button class="ai-tech-tab" data-tech="gen" role="tab" type="button"><i class="bi bi-stars"></i><span>Generative AI</span><small>Create new content</small><em class="tech-activity"><b></b><b></b><b></b></em></button>
-<button class="ai-tech-tab" data-tech="vision" role="tab" type="button"><i class="bi bi-eye"></i><span>Computer Vision</span><small>Understand images</small><em class="tech-activity"><b></b><b></b><b></b></em></button>
-<button class="ai-tech-tab" data-tech="nlp" role="tab" type="button"><i class="bi bi-chat-square-text"></i><span>NLP</span><small>Understand language</small><em class="tech-activity"><b></b><b></b><b></b></em></button>
-<button class="ai-tech-tab" data-tech="robotics" role="tab" type="button"><i class="bi bi-cpu"></i><span>Robotics</span><small>Sense, plan, act</small><em class="tech-activity"><b></b><b></b><b></b></em></button>
-</div>
-<article aria-live="polite" class="ai-tech-detail" id="aiTechDetail">
-<div class="tech-detail-top">
-<div aria-hidden="true" class="tech-orbital-visual"><span class="tech-orbit-ring r1"></span><span class="tech-orbit-ring r2"></span><span class="tech-orbit-dot d1"></span><span class="tech-orbit-dot d2"></span><div class="ai-tech-detail-icon"><i class="bi bi-diagram-3"></i></div></div>
-<div class="tech-detail-copy"><div class="eyebrow">Selected technology</div><h3>Machine Learning</h3><p class="ai-tech-summary">Systems learn patterns from examples instead of being programmed with a rule for every situation.</p></div>
-</div>
-<div class="tech-signal-line"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div class="ai-tech-facts">
-<div><small>Student example</small><strong>Predict house prices from past data</strong></div>
-<div><small>Common tools</small><strong>Python · scikit-learn · pandas</strong></div>
-<div><small>Good first project</small><strong>Classification or recommendation system</strong></div>
-</div>
-</article>
-</div>
-</div>
-</section>
-<section class="section ai-how-section" id="how-ai-works">
-<div class="wrap">
-<div class="section-head reveal">
-<div class="eyebrow">How AI Works</div>
-<h2>From raw information to a useful result.</h2>
-<p>Click each stage to follow a simplified AI workflow. Real systems are more complex, but this is the core idea.</p>
-</div>
-<div class="ai-flow reveal" id="aiFlow">
-<button class="ai-flow-step active" data-flow="data" type="button"><span>01</span><i class="bi bi-database"></i><strong>Data</strong><small>Examples enter the system</small></button>
-<div class="ai-flow-arrow"><i class="bi bi-arrow-right"></i></div>
-<button class="ai-flow-step" data-flow="train" type="button"><span>02</span><i class="bi bi-gear-wide-connected"></i><strong>Training</strong><small>Patterns are adjusted</small></button>
-<div class="ai-flow-arrow"><i class="bi bi-arrow-right"></i></div>
-<button class="ai-flow-step" data-flow="model" type="button"><span>03</span><i class="bi bi-cpu"></i><strong>Model</strong><small>Learned behaviour is stored</small></button>
-<div class="ai-flow-arrow"><i class="bi bi-arrow-right"></i></div>
-<button class="ai-flow-step" data-flow="output" type="button"><span>04</span><i class="bi bi-lightning-charge"></i><strong>Output</strong><small>Prediction or generation</small></button>
-</div>
-<div class="ai-flow-explain reveal" id="aiFlowExplain"><strong>01 · Data</strong><p>AI starts with examples such as text, images, sensor readings or labelled records. Better-quality data usually produces more useful learning.</p></div>
-</div>
-</section><section class="section alt ai-real-section" id="ai-real-life">
-<div class="wrap">
-<div class="section-head reveal">
-<div class="eyebrow">AI in Real Life</div>
-<h2>See where AI already appears around you.</h2>
-</div>
-<div class="ai-usecase-shell reveal">
-<div aria-label="Real-life AI examples" class="ai-usecase-tabs" role="tablist">
-<button class="ai-usecase-tab active" data-case="education" type="button">Education</button>
-<button class="ai-usecase-tab" data-case="health" type="button">Healthcare</button>
-<button class="ai-usecase-tab" data-case="finance" type="button">Finance</button>
-<button class="ai-usecase-tab" data-case="creative" type="button">Creative Work</button>
-<button class="ai-usecase-tab" data-case="campus" type="button">Smart Campus</button>
-</div>
-<div aria-live="polite" class="ai-usecase-panel" id="aiUsecasePanel">
-<div class="ai-usecase-icon"><i class="bi bi-mortarboard"></i></div>
-<div><span class="tag">Education</span><h3>Personalised learning and study support</h3><p>AI can recommend practice material, summarise difficult content and help students receive feedback at their own pace.</p><small>Example: adaptive quiz recommendations based on previous answers.</small></div>
-</div>
-</div>
-</div>
-</section><section class="section ai-compare-section" id="ai-compare">
-<div class="wrap grid cols-2 ai-compare-grid">
-<div class="reveal">
-<div class="eyebrow">AI vs ML vs Deep Learning</div>
-<h2>Related ideas, different scope.</h2>
-<p><strong>AI</strong> is the broad goal of making machines perform intelligent tasks. <strong>Machine Learning</strong> is one way to achieve AI by learning from data. <strong>Deep Learning</strong> is a specialised type of machine learning using multi-layer neural networks.</p>
-<div class="comparison-key"><span><b>AI</b> broad field</span><span><b>ML</b> learns from data</span><span><b>DL</b> deep neural networks</span></div>
-</div>
-<div aria-label="AI contains machine learning which contains deep learning" class="ai-nested-map reveal">
-<div class="ai-scope scope-ai"><strong>Artificial Intelligence</strong><small>Reasoning · planning · perception · learning</small>
-<div class="ai-scope scope-ml"><strong>Machine Learning</strong><small>Models learn patterns from data</small>
-<div class="ai-scope scope-dl"><strong>Deep Learning</strong><small>Multi-layer neural networks</small></div>
-</div>
-</div>
-</div>
-</div>
-</section><section class="section alt ai-next-section">
-<div class="wrap grid cols-2">
-<div class="reveal"><div class="eyebrow">Why it matters</div><h2>AI literacy turns tools into judgement.</h2><p>From spam filters and translation to recommendations and generative assistants, AI already shapes daily software. Understanding its strengths and limitations helps members use it critically rather than treating every output as automatically correct.</p></div>
-<div class="reveal"><div class="eyebrow">Where to start</div><h2>Your first three club actions</h2><ol class="ai-next-list"><li>Explore a live <a class="pill cyan" href="projects.html">Project</a> and inspect how the technology is applied.</li><li>Join an <a class="pill cyan" href="workshops.html">AI workshop</a> for hands-on practice, teamwork and networking.</li><li>Use the <a class="pill cyan" href="resources.html">Resources</a> roadmap to continue learning.</li></ol></div>
-</div>
-</section>
-<section class="section alt ai-explore-more" id="explore-more"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">Explore More</div><h2>Continue learning with live GitHub resources.</h2><p>These starter resources are loaded with <span class="mono">jQuery $.ajax()</span> from the GitHub REST API. Repository details and owner images are refreshed from GitHub when the page loads.</p></div><div class="intro-resource-grid" id="introResourceGrid"><article class="intro-resource-card skeleton-card" data-label="AI Learning Resources" data-repo="microsoft/AI-For-Beginners"><div class="intro-resource-media"><span class="resource-image-placeholder"><i class="bi bi-stars"></i></span></div><div class="intro-resource-body"><span class="intro-resource-type">AI Learning Resources</span><h3>Loading resource…</h3><p>Fetching a beginner-friendly AI learning repository.</p></div></article><article class="intro-resource-card skeleton-card" data-label="Recommended AI Tools" data-repo="huggingface/transformers"><div class="intro-resource-media"><span class="resource-image-placeholder"><i class="bi bi-tools"></i></span></div><div class="intro-resource-body"><span class="intro-resource-type">Recommended AI Tools</span><h3>Loading resource…</h3><p>Fetching a widely used open-source AI tool repository.</p></div></article><article class="intro-resource-card skeleton-card" data-label="Beginner Tutorials" data-repo="microsoft/ML-For-Beginners"><div class="intro-resource-media"><span class="resource-image-placeholder"><i class="bi bi-mortarboard"></i></span></div><div class="intro-resource-body"><span class="intro-resource-type">Beginner Tutorials</span><h3>Loading resource…</h3><p>Fetching a practical machine-learning tutorial repository.</p></div></article></div><div class="explore-more-actions reveal"><a class="btn" href="resources.html">Open Full Resources</a><a class="btn ghost" href="workshops.html">Practise in Workshops</a></div></div></section><footer>
-<div class="wrap">
-<div class="foot-bottom">
-<span>© 2026 AI AWS CLUB — UCCD2323 GROUP PROJECT</span>
-<span>BUILT WITH HTML5 · CSS3 · JS · JQUERY · BOOTSTRAP</span>
-</div>
-</div>
-</footer>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/advanced-ui.js"></script>
+        <div aria-hidden="true" class="site-loader aws-logo-loader" id="siteLoader">
+                <div aria-label="AI AWS Club loading animation" class="aws-unified-loader" role="img">
+                        <div class="aws-brand-emblem aws-brand-emblem-loader">
+                                <span class="aws-brand-ring ring-one"></span><span
+                                        class="aws-brand-ring ring-two"></span>
+                                <span class="aws-brand-dot dot-one"></span><span
+                                        class="aws-brand-dot dot-two"></span><span
+                                        class="aws-brand-dot dot-three"></span>
+                                <img alt="" src="assets/aws-club-mark.svg" />
+                        </div>
+                        <strong>AI AWS CLUB</strong><small>ASSEMBLING EXPERIENCE</small>
+                </div>
+        </div>
+        <div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
+        <div aria-hidden="true" class="page-transition" id="pageTransition"><span></span></div>
+        <canvas id="netCanvas"></canvas>
+        <div class="scanline"></div>
+        <nav class="navbar">
+                <div class="container">
+                        <a class="brand" href="index.html"><img alt="" class="brand-logo"
+                                        src="assets/aws-club-mark.svg" /> AI AWS CLUB </a>
+                        <div class="nav-right">
+                                <button aria-label="Toggle menu" class="navToggle">☰</button>
+                                <ul class="navlinks">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="ai-intro.html">AI Intro</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="challenges.html">Challenges</a></li>
+                                        <li><a href="resources.html">Resources</a></li>
+                                        <li><a href="workshops.html">Workshops</a></li>
+                                        <li><a href="join.html">Join</a></li>
+                                </ul>
+                                <button aria-label="Switch to light mode" class="theme-toggle"
+                                        title="Switch to light mode" type="button"><span aria-hidden="true"
+                                                class="theme-toggle-icon">☀</span></button>
+                        </div>
+                </div>
+        </nav>
+        <header class="pagehead">
+                <div class="wrap">
+                        <div class="breadcrumb">HOME <span class="cyan"> / AI INTRO</span></div>
+                        <div class="badge-pill"><span class="pdot"></span>Knowledge Base</div>
+                        <h1>What Artificial Intelligence actually is?</h1>
+                        <p style="max-width:900px;">Artificial Intelligence (AI) is a branch of computer science that
+                                enables machines to perform human-like tasks such as learning, reasoning,
+                                problem-solving, decision-making, and pattern recognition using data and algorithms.</p>
+                </div>
+        </header>
+        <section class="section ai-video-explainer" id="ai-explained">
+                <div class="wrap ai-video-layout">
+                        <div class="ai-video-copy reveal">
+                                <div class="eyebrow">Watch · AI Explained</div>
+                                <h2>See how AI, machine learning and deep learning connect.</h2>
+                                <p>A short explainer gives beginners a visual starting point before they explore the
+                                        live AI ecosystem below.</p>
+                                <div class="ai-video-points"><span><i class="bi bi-play-circle"></i> Replay
+                                                anytime</span><span><i class="bi bi-lightbulb"></i> Beginner
+                                                friendly</span><span><i class="bi bi-box-arrow-up-right"></i> External
+                                                educational media</span></div>
+                                <a class="text-link" href="https://www.ibm.com/think/topics/artificial-intelligence"
+                                        rel="noopener" target="_blank">Read an AI explainer ↗</a><a
+                                        class="text-link ai-video-youtube"
+                                        href="https://www.youtube.com/watch?v=4RixMPF4xis" rel="noopener"
+                                        target="_blank">Watch on YouTube ↗</a>
+                        </div>
+                        <div class="ai-video-shell reveal">
+                                <div class="ai-video-browserbar"><span></span><span></span><span></span><b>AI EXPLAINER
+                                                // IBM TECHNOLOGY</b></div>
+                                <div class="ai-video-frame">
+                                        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowfullscreen="" loading="lazy"
+                                                referrerpolicy="strict-origin-when-cross-origin"
+                                                src="https://www.youtube-nocookie.com/embed/4RixMPF4xis?rel=0"
+                                                title="AI vs Machine Learning explained by IBM Technology"></iframe>
+                                </div>
+                        </div>
+                </div>
+        </section>
+        <section class="section ai-ecosystem-section">
+                <div class="wrap">
+                        <div class="section-head reveal ai-ecosystem-copy">
+                                <div class="eyebrow">AI Ecosystem</div>
+                                <h2>Explore the AI Tools Shaping Our Future</h2>
+                                <p>Discover popular AI platforms students can use to learn, create, build, and
+                                        experiment.</p>
+                        </div>
+                        <div aria-label="Interactive AI ecosystem orbit" class="ai-orbit-stage reveal">
+                                <div aria-hidden="true" class="ai-orbit-grid"></div>
+                                <div aria-label="AI ecosystem core" class="ai-core" tabindex="0">
+                                        <span class="ai-core-pulse"></span>
+                                        <span class="ai-core-breath"></span>
+                                        <strong>AI</strong>
+                                        <small>ECOSYSTEM</small>
+                                </div>
+                                <div aria-label="Popular AI platforms" class="ai-orbit-track ai-orbit-track-single">
+                                        <div aria-label="Open ChatGPT official website" class="ai-orbit-node"
+                                                data-detail="Conversational AI for reasoning, writing and multimodal tasks."
+                                                data-url="https://chatgpt.com/" role="link" style="--angle:0deg"
+                                                tabindex="0"><span class="ai-logo"><img alt="ChatGPT logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/openai.svg" /><b>GPT</b></span><em>ChatGPT</em><span
+                                                        class="ai-node-detail">Conversational AI · reasoning ·
+                                                        multimodal<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Gemini official website" class="ai-orbit-node"
+                                                data-detail="Google's multimodal AI family for text, images, code and research."
+                                                data-url="https://gemini.google.com/" role="link"
+                                                style="--angle:27.7deg" tabindex="0"><span class="ai-logo"><img
+                                                                alt="Gemini logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/googlegemini.svg" /><b>GEM</b></span><em>Gemini</em><span
+                                                        class="ai-node-detail">Google multimodal AI · research ·
+                                                        code<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Claude official website" class="ai-orbit-node"
+                                                data-detail="Anthropic's AI assistant focused on reasoning, analysis and long context."
+                                                data-url="https://claude.ai/" role="link" style="--angle:55.4deg"
+                                                tabindex="0"><span class="ai-logo"><img alt="Claude logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/claude.svg" /><b>CL</b></span><em>Claude</em><span
+                                                        class="ai-node-detail">Reasoning · analysis · long context<small
+                                                                class="ai-node-open">Open official site ↗</small></span>
+                                        </div>
+                                        <div aria-label="Open Copilot official website" class="ai-orbit-node"
+                                                data-detail="Microsoft AI assistant integrated across productivity and developer tools."
+                                                data-url="https://github.com/features/copilot" role="link"
+                                                style="--angle:83.1deg" tabindex="0"><span class="ai-logo"><img
+                                                                alt="Copilot logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/githubcopilot.svg" /><b>CP</b></span><em>Copilot</em><span
+                                                        class="ai-node-detail">Microsoft assistant · productivity ·
+                                                        code<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Perplexity official website" class="ai-orbit-node"
+                                                data-detail="AI-powered answer engine that combines web search with cited responses."
+                                                data-url="https://www.perplexity.ai/" role="link"
+                                                style="--angle:110.8deg" tabindex="0"><span class="ai-logo"><img
+                                                                alt="Perplexity logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/perplexity.svg" /><b>PPLX</b></span><em>Perplexity</em><span
+                                                        class="ai-node-detail">Answer engine · web search ·
+                                                        citations<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open DeepSeek official website" class="ai-orbit-node"
+                                                data-detail="DeepSeek develops open and efficient models for reasoning and coding."
+                                                data-url="https://chat.deepseek.com/" role="link"
+                                                style="--angle:138.5deg" tabindex="0"><span class="ai-logo"><img
+                                                                alt="DeepSeek logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/deepseek.svg" /><b>DS</b></span><em>DeepSeek</em><span
+                                                        class="ai-node-detail">Reasoning · coding · open models<small
+                                                                class="ai-node-open">Open official site ↗</small></span>
+                                        </div>
+                                        <div aria-label="Open Meta AI official website" class="ai-orbit-node"
+                                                data-detail="Meta's AI assistant and open model ecosystem built around Llama."
+                                                data-url="https://www.meta.ai/" role="link" style="--angle:166.2deg"
+                                                tabindex="0"><span class="ai-logo"><img alt="Meta AI logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/meta.svg" /><b>META</b></span><em>Meta
+                                                        AI</em><span class="ai-node-detail">Llama ecosystem · assistant
+                                                        · open models<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Hugging Face official website" class="ai-orbit-node"
+                                                data-detail="Community platform for discovering, sharing and running machine-learning models."
+                                                data-url="https://huggingface.co/" role="link" style="--angle:193.9deg"
+                                                tabindex="0"><span class="ai-logo"><img alt="Hugging Face logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/huggingface.svg" /><b>HF</b></span><em>Hugging
+                                                        Face</em><span class="ai-node-detail">Models · datasets ·
+                                                        community<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Kimi official website" class="ai-orbit-node"
+                                                data-detail="Kimi is an AI assistant known for long-context reading and productivity workflows."
+                                                data-url="https://www.kimi.com/en" role="link" style="--angle:221.6deg"
+                                                tabindex="0"><span
+                                                        class="ai-logo ai-text-logo kimi-logo"><b>K</b></span><em>Kimi</em><span
+                                                        class="ai-node-detail">Long context · reading ·
+                                                        productivity<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Grok official website" class="ai-orbit-node"
+                                                data-detail="Grok is xAI's assistant for conversational reasoning and real-time information use."
+                                                data-url="https://grok.com/" role="link" style="--angle:249.3deg"
+                                                tabindex="0"><span
+                                                        class="ai-logo ai-text-logo grok-logo"><b>G</b></span><em>Grok</em><span
+                                                        class="ai-node-detail">Conversational AI · reasoning ·
+                                                        real-time<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Mistral official website" class="ai-orbit-node"
+                                                data-detail="Mistral develops efficient open and commercial AI models for builders."
+                                                data-url="https://chat.mistral.ai/" role="link" style="--angle:277deg"
+                                                tabindex="0"><span class="ai-logo"><img alt="Mistral AI logo"
+                                                                onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid';"
+                                                                src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/mistralai.svg" /><b>M</b></span><em>Mistral</em><span
+                                                        class="ai-node-detail">Efficient models · open AI ·
+                                                        developers<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Qwen official website" class="ai-orbit-node"
+                                                data-detail="Qwen is Alibaba's model family covering language, vision, code and reasoning."
+                                                data-url="https://chat.qwen.ai/" role="link" style="--angle:304.7deg"
+                                                tabindex="0"><span
+                                                        class="ai-logo ai-text-logo qwen-logo"><b>Q</b></span><em>Qwen</em><span
+                                                        class="ai-node-detail">Language · vision · code ·
+                                                        reasoning<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                        <div aria-label="Open Codex official website" class="ai-orbit-node"
+                                                data-detail="Codex represents AI-assisted software engineering and coding-agent workflows."
+                                                data-url="https://openai.com/codex/" role="link"
+                                                style="--angle:332.4deg" tabindex="0"><span
+                                                        class="ai-logo codex-logo"><i aria-hidden="true"
+                                                                class="bi bi-code-square"></i><b>CODEX</b></span><em>Codex</em><span
+                                                        class="ai-node-detail">Coding agent · software engineering ·
+                                                        automation<small class="ai-node-open">Open official site
+                                                                ↗</small></span></div>
+                                </div>
+                        </div>
+                        <div aria-label="AI ecosystem statistics" class="ai-ecosystem-stats reveal">
+                                <div class="ecosystem-stat"><strong>500+</strong><span>AI Models</span></div>
+                                <div class="ecosystem-stat"><strong>10K+</strong><span>Creators</span></div>
+                                <div class="ecosystem-stat"><strong class="infinity">∞</strong><span>Creativity</span>
+                                </div>
+                        </div>
+
+                </div>
+        </section>
+        <section class="section">
+                <div class="wrap grid cols-2">
+                        <div class="reveal">
+                                <div class="eyebrow">Definition</div>
+                                <h2>AI, in one sentence</h2>
+                                <p>Artificial Intelligence is software that learns patterns from data (or is designed to
+                                        reason over rules) so it
+                                        can make decisions or predictions without being explicitly programmed for every
+                                        case.</p>
+                                <p>Most of what people call "AI" today falls under <strong>Machine Learning</strong> —
+                                        systems that improve at a
+                                        task by training on examples rather than following hard-coded instructions.</p>
+                        </div>
+                        <div class="ai-glossary-card reveal">
+                                <div class="glossary-visual-head">
+                                        <div>
+                                                <div class="eyebrow">Quick Glossary</div>
+                                                <h3>AI terms at a glance.</h3>
+                                                <p>Short definitions for the words you will meet across the club
+                                                        website.</p>
+                                        </div>
+                                        <span class="glossary-badge">BEGINNER FRIENDLY</span>
+                                </div>
+                                <div class="glossary-grid">
+                                        <article><span class="glossary-icon">ML</span>
+                                                <div><strong>Machine Learning</strong><small>Systems learn useful
+                                                                patterns from data and examples.</small></div>
+                                        </article>
+                                        <article><span class="glossary-icon">NN</span>
+                                                <div><strong>Neural Network</strong><small>A layered mathematical model
+                                                                inspired by connected neurons.</small></div>
+                                        </article>
+                                        <article><span class="glossary-icon">DL</span>
+                                                <div><strong>Deep Learning</strong><small>Machine learning that uses
+                                                                neural networks with many layers.</small></div>
+                                        </article>
+                                        <article><span class="glossary-icon">LLM</span>
+                                                <div><strong>Large Language Model</strong><small>A model trained on
+                                                                large amounts of text to work with language.</small>
+                                                </div>
+                                        </article>
+                                        <article><span class="glossary-icon">TR</span>
+                                                <div><strong>Training</strong><small>The process of adjusting a model
+                                                                using examples or feedback.</small></div>
+                                        </article>
+                                        <article><span class="glossary-icon">IN</span>
+                                                <div><strong>Inference</strong><small>Using a trained model to produce a
+                                                                prediction or response.</small></div>
+                                        </article>
+                                </div>
+                        </div>
+                </div>
+        </section>
+        <section class="section alt ai-tech-section" id="ai-technologies">
+                <div class="wrap">
+                        <div class="section-head reveal ai-tech-head">
+                                <div>
+                                        <div class="eyebrow">AI Technologies</div>
+                                        <h2>Explore the World of AI</h2>
+                                        <p>Discover the technologies behind the AI tools and applications we use every
+                                                day. Click a topic to explore.</p>
+                                </div>
+                                <div class="tech-live-chip"><span></span> INTERACTIVE MODE</div>
+                        </div>
+                        <div class="ai-tech-layout reveal">
+                                <div aria-label="AI technology explorer" class="ai-tech-nav" role="tablist">
+                                        <button aria-selected="true" class="ai-tech-tab active" data-tech="ml"
+                                                role="tab" type="button"><i class="bi bi-diagram-3"></i><span>Machine
+                                                        Learning</span><small>Patterns from data</small><em
+                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
+                                        <button class="ai-tech-tab" data-tech="deep" role="tab" type="button"><i
+                                                        class="bi bi-layers"></i><span>Deep Learning</span><small>Neural
+                                                        networks</small><em
+                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
+                                        <button class="ai-tech-tab" data-tech="gen" role="tab" type="button"><i
+                                                        class="bi bi-stars"></i><span>Generative AI</span><small>Create
+                                                        new content</small><em
+                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
+                                        <button class="ai-tech-tab" data-tech="vision" role="tab" type="button"><i
+                                                        class="bi bi-eye"></i><span>Computer
+                                                        Vision</span><small>Understand images</small><em
+                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
+                                        <button class="ai-tech-tab" data-tech="nlp" role="tab" type="button"><i
+                                                        class="bi bi-chat-square-text"></i><span>NLP</span><small>Understand
+                                                        language</small><em
+                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
+                                        <button class="ai-tech-tab" data-tech="rl" role="tab" type="button"><i
+                                                        class="bi bi-arrow-repeat"></i><span>Reinforcement
+                                                        Learning</span><small>Learn from rewards</small><em
+                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
+                                </div>
+                                <article aria-live="polite" class="ai-tech-detail ai-tech-detail-video-panel"
+                                        id="aiTechDetail">
+                                        <div class="tech-video-pane">
+                                                <div class="tech-video-frame">
+                                                        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                                allowfullscreen id="aiTechVideo" loading="lazy"
+                                                                referrerpolicy="strict-origin-when-cross-origin"
+                                                                src="https://www.youtube-nocookie.com/embed/znF2U_3Z210?rel=0"
+                                                                title="Machine Learning Explained: A Guide to ML, AI, &amp; Deep Learning"></iframe>
+                                                </div>
+                                                <div class="tech-video-meta">
+                                                        <span><i class="bi bi-play-circle"></i> <strong
+                                                                        id="aiTechVideoSource">IBM
+                                                                        Technology</strong></span>
+                                                        <a href="https://www.youtube.com/watch?v=znF2U_3Z210"
+                                                                id="aiTechVideoLink" rel="noopener noreferrer"
+                                                                target="_blank">Watch on YouTube <i
+                                                                        class="bi bi-box-arrow-up-right"></i></a>
+                                                </div>
+                                        </div>
+                                        <div class="tech-detail-content">
+                                                <div class="eyebrow">Selected Technology</div>
+                                                <h3>Machine Learning</h3>
+                                                <p class="ai-tech-summary">Systems learn patterns from examples instead
+                                                        of being programmed with a rule for every situation.</p>
+                                                <div class="tech-how-card">
+                                                        <small>How it works</small>
+                                                        <strong id="aiTechHow">Data → Training → Model →
+                                                                Prediction</strong>
+                                                </div>
+                                                <div class="ai-tech-facts">
+                                                        <div><small>Student example</small><strong>Predict house prices
+                                                                        from past data</strong></div>
+                                                        <div><small>Common tools</small><strong>Python · scikit-learn ·
+                                                                        pandas</strong></div>
+                                                        <div><small>Good first project</small><strong>Classification or
+                                                                        recommendation system</strong></div>
+                                                </div>
+                                        </div>
+                                </article>
+                        </div>
+                </div>
+        </section>
+        <section class="section ai-how-section" id="how-ai-works">
+                <div class="wrap">
+                        <div class="section-head reveal">
+                                <div class="eyebrow">How AI Works</div>
+                                <h2>See How AI Turns Data Into Results</h2>
+                                <p>Explore the basic steps behind AI. Click each stage to see how data is collected,
+                                        processed, learned from, and turned into a result.</p>
+                        </div>
+                        <div class="ai-flow reveal" id="aiFlow">
+                                <button class="ai-flow-step active" data-flow="data" type="button">
+                                        <img alt="Data collection illustration" class="ai-flow-visual"
+                                                src="assets/ai-visuals/flow-data.svg" />
+                                        <span>01</span><strong>Data</strong><small>Examples enter the system</small>
+                                </button>
+                                <div class="ai-flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                                <button class="ai-flow-step" data-flow="train" type="button">
+                                        <img alt="AI training illustration" class="ai-flow-visual"
+                                                src="assets/ai-visuals/flow-train.svg" />
+                                        <span>02</span><strong>Training</strong><small>Patterns are learned</small>
+                                </button>
+                                <div class="ai-flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                                <button class="ai-flow-step" data-flow="model" type="button">
+                                        <img alt="AI model illustration" class="ai-flow-visual"
+                                                src="assets/ai-visuals/flow-model.svg" />
+                                        <span>03</span><strong>Model</strong><small>Learned behaviour is stored</small>
+                                </button>
+                                <div class="ai-flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                                <button class="ai-flow-step" data-flow="output" type="button">
+                                        <img alt="AI output illustration" class="ai-flow-visual"
+                                                src="assets/ai-visuals/flow-output.svg" />
+                                        <span>04</span><strong>Result</strong><small>Prediction or generation</small>
+                                </button>
+                        </div>
+                        <div class="ai-flow-explain reveal" id="aiFlowExplain"><strong>01 · Data</strong>
+                                <p>AI starts with examples such as text, images, sensor readings or labelled records.
+                                        Better-quality data usually produces more useful learning.</p>
+                        </div>
+                </div>
+        </section>
+        <section class="section alt ai-real-section" id="ai-real-life">
+                <div class="wrap">
+                        <div class="section-head reveal">
+                                <div class="eyebrow">AI in Real Life</div>
+                                <h2>See Where AI Already Appears Around You</h2>
+                        </div>
+                        <div class="ai-usecase-shell reveal">
+                                <div aria-label="Real-life AI examples" class="ai-usecase-tabs" role="tablist">
+                                        <button class="ai-usecase-tab active" data-case="education"
+                                                type="button">Education</button>
+                                        <button class="ai-usecase-tab" data-case="health"
+                                                type="button">Healthcare</button>
+                                        <button class="ai-usecase-tab" data-case="finance"
+                                                type="button">Finance</button>
+                                        <button class="ai-usecase-tab" data-case="creative" type="button">Creative
+                                                Work</button>
+                                        <button class="ai-usecase-tab" data-case="campus" type="button">Smart
+                                                Campus</button>
+                                </div>
+                                <div aria-live="polite" class="ai-usecase-panel" id="aiUsecasePanel">
+                                        <figure class="ai-usecase-image real-photo-frame">
+                                                <img alt="University students collaborating around a laptop"
+                                                        id="aiUsecaseImage" loading="lazy"
+                                                        src="https://images.unsplash.com/photo-1758270705317-3ef6142d306f?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" />
+                                                <figcaption><i class="bi bi-camera"></i> Real-world example</figcaption>
+                                        </figure>
+                                        <div class="ai-usecase-copy">
+                                                <span class="tag">Education</span>
+                                                <h3>Personalised learning and study support</h3>
+                                                <p>AI can recommend practice material, summarise difficult content and
+                                                        help students receive feedback at their own pace.</p>
+                                                <small>Example: adaptive quiz recommendations based on previous
+                                                        answers.</small>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+        <section class="section ai-compare-section" id="ai-compare">
+                <div class="wrap grid cols-2 ai-compare-grid">
+                        <div class="reveal">
+                                <div class="eyebrow">AI vs ML vs Deep Learning</div>
+                                <h2>Related ideas, different scope.</h2>
+                                <p><strong>AI</strong> is the broad goal of making machines perform intelligent tasks.
+                                        <strong>Machine Learning</strong> is one way to achieve AI by learning from
+                                        data. <strong>Deep Learning</strong> is a specialised type of machine learning
+                                        using multi-layer neural networks.</p>
+                                <div class="comparison-key"><span><b>AI</b> broad field</span><span><b>ML</b> learns
+                                                from data</span><span><b>DL</b> deep neural networks</span></div>
+                        </div>
+                        <div aria-label="AI contains machine learning which contains deep learning"
+                                class="ai-nested-map reveal">
+                                <div class="ai-scope scope-ai"><strong>Artificial Intelligence</strong><small>Reasoning
+                                                · planning · perception · learning</small>
+                                        <div class="ai-scope scope-ml"><strong>Machine Learning</strong><small>Models
+                                                        learn patterns from data</small>
+                                                <div class="ai-scope scope-dl"><strong>Deep
+                                                                Learning</strong><small>Multi-layer neural
+                                                                networks</small></div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+        <section class="section alt ai-explore-more" id="explore-more">
+                <div class="wrap">
+                        <div class="section-head reveal">
+                                <div class="eyebrow">Explore More</div>
+                                <h2>Keep Learning Beyond the Basics</h2>
+                                <p class="explore-more-intro"><em>Discover live GitHub resources, projects, and tools to
+                                                continue your AI learning journey.</em></p>
+                        </div>
+                        <div class="intro-resource-grid" id="introResourceGrid">
+                                <article class="intro-resource-card skeleton-card" data-label="AI Learning Resources"
+                                        data-repo="microsoft/AI-For-Beginners">
+                                        <div class="intro-resource-media"><span class="resource-image-placeholder"><i
+                                                                class="bi bi-stars"></i></span></div>
+                                        <div class="intro-resource-body"><span class="intro-resource-type">AI Learning
+                                                        Resources</span>
+                                                <h3>Loading resource…</h3>
+                                                <p>Fetching a beginner-friendly AI learning repository.</p>
+                                        </div>
+                                </article>
+                                <article class="intro-resource-card skeleton-card" data-label="Recommended AI Tools"
+                                        data-repo="huggingface/transformers">
+                                        <div class="intro-resource-media"><span class="resource-image-placeholder"><i
+                                                                class="bi bi-tools"></i></span></div>
+                                        <div class="intro-resource-body"><span class="intro-resource-type">Recommended
+                                                        AI Tools</span>
+                                                <h3>Loading resource…</h3>
+                                                <p>Fetching a widely used open-source AI tool repository.</p>
+                                        </div>
+                                </article>
+                                <article class="intro-resource-card skeleton-card" data-label="Beginner Tutorials"
+                                        data-repo="microsoft/ML-For-Beginners">
+                                        <div class="intro-resource-media"><span class="resource-image-placeholder"><i
+                                                                class="bi bi-mortarboard"></i></span></div>
+                                        <div class="intro-resource-body"><span class="intro-resource-type">Beginner
+                                                        Tutorials</span>
+                                                <h3>Loading resource…</h3>
+                                                <p>Fetching a practical machine-learning tutorial repository.</p>
+                                        </div>
+                                </article>
+                        </div>
+                        <div class="explore-more-actions reveal"><a class="btn" href="resources.html">Open Full
+                                        Resources</a><a class="btn ghost" href="workshops.html">Practise in
+                                        Workshops</a></div>
+                </div>
+        </section>
+        <footer>
+                <div class="wrap">
+                        <div class="foot-bottom">
+                                <span>© 2026 AI AWS CLUB — UCCD2323 GROUP PROJECT</span>
+                                <span>BUILT WITH HTML5 · CSS3 · JS · JQUERY · BOOTSTRAP</span>
+                        </div>
+                </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/advanced-ui.js"></script>
 </body>
+
 </html>

@@ -364,11 +364,11 @@ function initLearningResources() {
   if (!document.getElementById('learningRoadmap')) return;
 
   var stages = [
-    { slug:'ai-fundamentals', title:'AI Fundamentals', level:'Beginner', description:'Start with clear explanations of artificial intelligence, data science, generative AI, and responsible use.', repositories:['microsoft/AI-For-Beginners','microsoft/Data-Science-For-Beginners','microsoft/generative-ai-for-beginners'] },
-    { slug:'python-ai', title:'Python for AI', level:'Beginner', description:'Practise Python syntax, numerical computing, and data handling with structured examples and notebooks.', repositories:['jakevdp/PythonDataScienceHandbook','numpy/numpy-tutorials','realpython/materials'] },
-    { slug:'machine-learning', title:'Machine Learning', level:'Intermediate', description:'Learn how common algorithms work, train models, and evaluate results through practical examples.', repositories:['microsoft/ML-For-Beginners','ageron/handson-ml3','scikit-learn/scikit-learn'] },
-    { slug:'prompt-engineering', title:'Prompt Engineering', level:'Intermediate', description:'Explore structured prompting, evaluation methods, and responsible generative AI workflows.', repositories:['dair-ai/Prompt-Engineering-Guide','microsoft/prompt-engineering','openai/openai-cookbook'] },
-    { slug:'ai-projects', title:'AI Project Development', level:'Builder', description:'Combine your skills to study working AI applications and build a complete project of your own.', repositories:['streamlit/llm-examples','openai/openai-quickstart-python','Azure-Samples/azure-search-openai-demo'] }
+    { slug: 'ai-fundamentals', title: 'AI Fundamentals', level: 'Beginner', description: 'Start with clear explanations of artificial intelligence, data science, generative AI, and responsible use.', repositories: ['microsoft/AI-For-Beginners', 'microsoft/Data-Science-For-Beginners', 'microsoft/generative-ai-for-beginners'] },
+    { slug: 'python-ai', title: 'Python for AI', level: 'Beginner', description: 'Practise Python syntax, numerical computing, and data handling with structured examples and notebooks.', repositories: ['jakevdp/PythonDataScienceHandbook', 'numpy/numpy-tutorials', 'realpython/materials'] },
+    { slug: 'machine-learning', title: 'Machine Learning', level: 'Intermediate', description: 'Learn how common algorithms work, train models, and evaluate results through practical examples.', repositories: ['microsoft/ML-For-Beginners', 'ageron/handson-ml3', 'scikit-learn/scikit-learn'] },
+    { slug: 'prompt-engineering', title: 'Prompt Engineering', level: 'Intermediate', description: 'Explore structured prompting, evaluation methods, and responsible generative AI workflows.', repositories: ['dair-ai/Prompt-Engineering-Guide', 'microsoft/prompt-engineering', 'openai/openai-cookbook'] },
+    { slug: 'ai-projects', title: 'AI Project Development', level: 'Builder', description: 'Combine your skills to study working AI applications and build a complete project of your own.', repositories: ['streamlit/llm-examples', 'openai/openai-quickstart-python', 'Azure-Samples/azure-search-openai-demo'] }
   ];
   var storedSlug = localStorage.getItem('nexus_learning_stage');
   var currentStage = Math.max(0, stages.findIndex(function (stage) { return stage.slug === storedSlug; }));
@@ -398,7 +398,7 @@ function initLearningResources() {
     var saved = savedResources();
     var html = items.map(function (repo, index) {
       var isSaved = saved.some(function (item) { return item.id === repo.id; });
-      var updated = new Date(repo.updated_at).toLocaleDateString('en-MY', { day:'numeric', month:'short', year:'numeric' });
+      var updated = new Date(repo.updated_at).toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' });
       var owner = repo.owner || {};
       var avatar = owner.avatar_url || '';
       return '<article class="learning-resource">' +
@@ -421,12 +421,12 @@ function initLearningResources() {
   $('#loadStageResources').on('click', function () {
     var $button = $(this); var stage = stages[currentStage];
     $button.prop('disabled', true).text('LOADING ASSIGNED RESOURCES...'); $('#githubStatus').text('> GET fixed repositories for ' + stage.title + ' ...'); $('#githubResult').empty();
-    var requests = stage.repositories.map(function (repository) { return $.ajax({ url:'https://api.github.com/repos/' + repository, method:'GET', dataType:'json', timeout:10000 }); });
+    var requests = stage.repositories.map(function (repository) { return $.ajax({ url: 'https://api.github.com/repos/' + repository, method: 'GET', dataType: 'json', timeout: 10000 }); });
     $.when.apply($, requests).done(function () { latestResources = Array.prototype.map.call(arguments, function (response) { return response[0]; }); $('#githubStatus').text('> SUCCESS // 3 FIXED RESOURCES LOADED'); renderRecommendations(latestResources); })
       .fail(function (xhr) { var msg = xhr.status === 403 || xhr.status === 429 ? 'GitHub public API rate limit reached. Try again later.' : 'Unable to load assigned resources. Check your connection.'; $('#githubStatus').empty(); $('#githubResult').html('<div class="api-error">> ERROR // ' + msg + '</div>'); })
       .always(function () { $button.prop('disabled', false).text('LOAD ASSIGNED RESOURCES'); });
   });
-  $(document).on('click', '.save-resource', function () { var repo = latestResources[Number($(this).data('resource'))]; if (!repo) return; var saved = savedResources(); var exists = saved.some(function (item) { return item.id === repo.id; }); saved = exists ? saved.filter(function (item) { return item.id !== repo.id; }) : saved.concat([{ id:repo.id, name:repo.name.replace(/-/g, ' '), url:repo.html_url }]); localStorage.setItem('nexus_saved_resources', JSON.stringify(saved)); renderRecommendations(latestResources); renderSaved(); });
+  $(document).on('click', '.save-resource', function () { var repo = latestResources[Number($(this).data('resource'))]; if (!repo) return; var saved = savedResources(); var exists = saved.some(function (item) { return item.id === repo.id; }); saved = exists ? saved.filter(function (item) { return item.id !== repo.id; }) : saved.concat([{ id: repo.id, name: repo.name.replace(/-/g, ' '), url: repo.html_url }]); localStorage.setItem('nexus_saved_resources', JSON.stringify(saved)); renderRecommendations(latestResources); renderSaved(); });
   $(document).on('click', '.remove-saved', function () { var id = Number($(this).data('id')); localStorage.setItem('nexus_saved_resources', JSON.stringify(savedResources().filter(function (item) { return item.id !== id; }))); renderSaved(); if (latestResources.length) renderRecommendations(latestResources); });
   renderStage(); renderSaved();
 }
@@ -446,21 +446,21 @@ function initCookieNotice() {
     notice.setAttribute('aria-labelledby', 'cookieTitle');
     notice.innerHTML =
       '<div class="cookie-card">' +
-        '<button class="cookie-close" id="closeCookie" type="button" aria-label="Close cookie preferences">×</button>' +
-        '<div class="cookie-kicker">PRIVACY // PREFERENCES</div>' +
-        '<h2 id="cookieTitle">Cookies on this site</h2>' +
-        '<p>We use a small consent cookie and browser storage to make this AI Club website easier to use.</p>' +
-        '<ul class="cookie-list">' +
-          '<li><strong>Remember your settings</strong> — theme, saved learning resources and project favourites.</li>' +
-          '<li><strong>Keep session progress</strong> — pages viewed and unfinished form content during this browser session.</li>' +
-          '<li><strong>Support interactive features</strong> — GitHub API resources and social sharing controls.</li>' +
-          '<li><strong>Load optional social plugins</strong> — X, Facebook and Discord embeds are loaded only after you accept.</li>' +
-        '</ul>' +
-        '<p class="cookie-note">No advertising cookies are used in this coursework demo. Your choice is shared across all pages on this site.</p>' +
-        '<div class="cookie-actions">' +
-          '<button id="acceptCookie" class="btn" type="button">Accept</button>' +
-          '<button id="rejectCookie" class="btn ghost" type="button">Decline &amp; clear</button>' +
-        '</div>' +
+      '<button class="cookie-close" id="closeCookie" type="button" aria-label="Close cookie preferences">×</button>' +
+      '<div class="cookie-kicker">PRIVACY // PREFERENCES</div>' +
+      '<h2 id="cookieTitle">Cookies on this site</h2>' +
+      '<p>We use a small consent cookie and browser storage to make this AI Club website easier to use.</p>' +
+      '<ul class="cookie-list">' +
+      '<li><strong>Remember your settings</strong> — theme, saved learning resources and project favourites.</li>' +
+      '<li><strong>Keep session progress</strong> — pages viewed and unfinished form content during this browser session.</li>' +
+      '<li><strong>Support interactive features</strong> — GitHub API resources and social sharing controls.</li>' +
+      '<li><strong>Load optional social plugins</strong> — X, Facebook and Discord embeds are loaded only after you accept.</li>' +
+      '</ul>' +
+      '<p class="cookie-note">No advertising cookies are used in this coursework demo. Your choice is shared across all pages on this site.</p>' +
+      '<div class="cookie-actions">' +
+      '<button id="acceptCookie" class="btn" type="button">Accept</button>' +
+      '<button id="rejectCookie" class="btn ghost" type="button">Decline &amp; clear</button>' +
+      '</div>' +
       '</div>';
     document.body.appendChild(notice);
   }
@@ -469,7 +469,7 @@ function initCookieNotice() {
     notice.classList.add('show');
     document.body.classList.add('cookie-open');
     if (markPrompted !== false) {
-      try { sessionStorage.setItem(promptedKey, '1'); } catch(e) {}
+      try { sessionStorage.setItem(promptedKey, '1'); } catch (e) { }
     }
     var acceptBtn = notice.querySelector('#acceptCookie');
     if (acceptBtn) setTimeout(function () { acceptBtn.focus(); }, 50);
@@ -489,7 +489,7 @@ function initCookieNotice() {
   });
 
   document.querySelectorAll('.cookie-preferences-link').forEach(function (button) {
-    button.addEventListener('click', function(){ openPreferences(false); });
+    button.addEventListener('click', function () { openPreferences(false); });
   });
 
   var accept = notice.querySelector('#acceptCookie');
@@ -501,7 +501,7 @@ function initCookieNotice() {
     try {
       localStorage.setItem(consentKey, 'accepted');
       sessionStorage.setItem(promptedKey, '1');
-    } catch(e) {}
+    } catch (e) { }
     closePreferences();
     document.dispatchEvent(new CustomEvent('aiAwsConsentChanged', { detail: { status: 'accepted' } }));
   });
@@ -511,11 +511,11 @@ function initCookieNotice() {
     try {
       localStorage.setItem(consentKey, 'declined');
       sessionStorage.setItem(promptedKey, '1');
-    } catch(e) {}
-    ['nexus_favorites','nexus_saved_resources','nexus_learning_stage','nexus_learning_completed'].forEach(function (key) {
+    } catch (e) { }
+    ['nexus_favorites', 'nexus_saved_resources', 'nexus_learning_stage', 'nexus_learning_completed'].forEach(function (key) {
       localStorage.removeItem(key);
     });
-    ['join_draft_name','join_draft_email','join_draft_aiExperience','join_draft_interest','join_draft_bio'].forEach(function (key) {
+    ['join_draft_name', 'join_draft_email', 'join_draft_aiExperience', 'join_draft_interest', 'join_draft_bio'].forEach(function (key) {
       sessionStorage.removeItem(key);
     });
     closePreferences();
@@ -529,16 +529,16 @@ function initCookieNotice() {
   });
 
   var consent = getCookie(consentKey);
-  try { consent = localStorage.getItem(consentKey) || consent; } catch(e) {}
+  try { consent = localStorage.getItem(consentKey) || consent; } catch (e) { }
   var prompted = false;
-  try { prompted = sessionStorage.getItem(promptedKey) === '1'; } catch(e) {}
+  try { prompted = sessionStorage.getItem(promptedKey) === '1'; } catch (e) { }
 
   // Do not mark the prompt as shown until it actually opens.
   // This fixes the fast-navigation bug where a visitor changed pages before the timer fired.
   if (!consent && !prompted) {
     setTimeout(function () {
       var latestConsent = getCookie(consentKey);
-      try { latestConsent = localStorage.getItem(consentKey) || latestConsent; } catch(e) {}
+      try { latestConsent = localStorage.getItem(consentKey) || latestConsent; } catch (e) { }
       if (!latestConsent) openPreferences(true);
     }, 650);
   }
@@ -558,11 +558,11 @@ function initFooterSocials() {
     socials.innerHTML =
       '<div class="footer-social-copy"><span class="eyebrow">Connect // Share</span><strong>Follow the build beyond this page.</strong></div>' +
       '<div class="footer-social-links">' +
-        '<a class="social-link" href="https://x.com/socaisociety" target="_blank" rel="noopener" aria-label="NUS SoC AI Society on X"><i class="bi bi-twitter-x"></i><span>X</span></a>' +
-        '<a class="social-link" href="https://www.facebook.com/AISoc.ucl/" target="_blank" rel="noopener" aria-label="UCL AI Society on Facebook"><i class="bi bi-facebook"></i><span>Facebook</span></a>' +
-        '<a class="social-link" href="https://discord.com/invite/yazkAEsjww" target="_blank" rel="noopener" aria-label="NUS SoC AI Society Discord"><i class="bi bi-discord"></i><span>Discord</span></a>' +
-        '<a class="social-link" href="https://www.instagram.com/uclaisociety/" target="_blank" rel="noopener" aria-label="UCL AI Society on Instagram"><i class="bi bi-instagram"></i><span>Instagram</span></a>' +
-        '<a class="social-link" href="https://github.com/NUSAISoc" target="_blank" rel="noopener" aria-label="NUS SoC AI Society on GitHub"><i class="bi bi-github"></i><span>GitHub</span></a>' +
+      '<a class="social-link" href="https://x.com/socaisociety" target="_blank" rel="noopener" aria-label="NUS SoC AI Society on X"><i class="bi bi-twitter-x"></i><span>X</span></a>' +
+      '<a class="social-link" href="https://www.facebook.com/AISoc.ucl/" target="_blank" rel="noopener" aria-label="UCL AI Society on Facebook"><i class="bi bi-facebook"></i><span>Facebook</span></a>' +
+      '<a class="social-link" href="https://discord.com/invite/yazkAEsjww" target="_blank" rel="noopener" aria-label="NUS SoC AI Society Discord"><i class="bi bi-discord"></i><span>Discord</span></a>' +
+      '<a class="social-link" href="https://www.instagram.com/uclaisociety/" target="_blank" rel="noopener" aria-label="UCL AI Society on Instagram"><i class="bi bi-instagram"></i><span>Instagram</span></a>' +
+      '<a class="social-link" href="https://github.com/NUSAISoc" target="_blank" rel="noopener" aria-label="NUS SoC AI Society on GitHub"><i class="bi bi-github"></i><span>GitHub</span></a>' +
       '</div>';
     var bottom = wrap.querySelector('.foot-bottom');
     if (bottom) wrap.insertBefore(socials, bottom); else wrap.appendChild(socials);
@@ -592,7 +592,7 @@ function initSocialMediaHub() {
 
   function readConsent() {
     var state = '';
-    try { state = localStorage.getItem(consentKey) || ''; } catch (e) {}
+    try { state = localStorage.getItem(consentKey) || ''; } catch (e) { }
     if (!state && typeof getCookie === 'function') state = getCookie(consentKey) || '';
     return state;
   }
@@ -672,12 +672,12 @@ function initSocialMediaHub() {
 }
 
 var clubProjects = {
-  campuseye: { title:'CampusEye', category:'Computer Vision', status:'In progress', team:'4 contributors', focus:'Smart campus', icon:'bi-camera-video', cover:'cover-vision', tags:['AI','CNN','Dashboard'], tech:['Python','CNN','OpenCV','JavaScript'], description:'CampusEye explores a camera-assisted seat availability system for a university library. A computer-vision pipeline would detect occupied and free seating zones and publish the result to a lightweight web dashboard.', features:['Seat occupancy detection','Privacy-aware zone counting','Live dashboard concept','Mobile-friendly status view'], contributors:['Vision Team','Front-End Team','Project Mentor'], videoId:'nif7FQgB_14', videoDescription:'Watch a related computer-vision example that detects passengers and seat occupancy from live video. It demonstrates a similar visual-analysis idea to CampusEye identifying free and occupied library seats.' },
-  studybuddy: { title:'StudyBuddy GPT', category:'NLP · RAG', status:'Shipped concept', team:'3 contributors', focus:'Learning assistant', icon:'bi-chat-square-text', cover:'cover-nlp', tags:['LLM','RAG','Citations'], tech:['Python','RAG','Embeddings','LLM'], description:'StudyBuddy GPT is a retrieval-augmented study assistant concept that searches approved faculty notes before generating an answer. The design focuses on source-aware responses so students can trace where an explanation came from.', features:['Document retrieval','Source citations','Revision Q&A','Conversation history'], contributors:['NLP Developer','UI Developer','Content Reviewer'], videoId:'LpKGm1jJXv4', videoDescription:'See how Retrieval-Augmented Generation finds relevant source content before an LLM produces an answer. This is the core learning concept behind StudyBuddy GPT.' },
-  clubmatch: { title:'ClubMatch', category:'Recommender', status:'Shipped concept', team:'3 contributors', focus:'Student discovery', icon:'bi-people', cover:'cover-match', tags:['ML','Ranking','Campus'], tech:['Python','Similarity','Ranking','Bootstrap'], description:'ClubMatch recommends campus clubs based on interests, activity preferences and similarity signals. It demonstrates how a recommendation workflow can reduce information overload for new students.', features:['Interest matching','Ranked recommendations','Explainable match reasons','Responsive results'], contributors:['ML Developer','Data Analyst','UI Developer'], videoId:'v90un9ALRzw', videoDescription:'Learn how content-based and collaborative filtering use preferences and item information to generate recommendations, closely matching the recommendation concept used by ClubMatch.' },
-  linechaser: { title:'LineChaser Bot', category:'Robotics', status:'In progress', team:'4 contributors', focus:'Reinforcement learning', icon:'bi-cpu', cover:'cover-robot', tags:['RL','Simulation','Robot'], tech:['Python','RL','Simulation','Sensors'], description:'LineChaser Bot studies how a policy trained in simulation could be transferred to a physical line-following robot. The project is designed around experimentation, reward design and repeated evaluation.', features:['Simulation training','Reward tuning','Sensor integration','Physical prototype'], contributors:['RL Developer','Hardware Builder','Tester','Mentor'], videoId:'bPtiN8MS-LE', videoDescription:'Explore how a reinforcement-learning policy can be trained in simulation and moved toward real-world robot deployment, which reflects the sim-to-real idea behind LineChaser Bot.' },
-  lecturescribe: { title:'LectureScribe', category:'Audio ML', status:'Shipped concept', team:'3 contributors', focus:'Study productivity', icon:'bi-mic', cover:'cover-audio', tags:['Speech','Summary','Notes'], tech:['Speech-to-text','NLP','JavaScript','Audio'], description:'LectureScribe combines speech-to-text with summarisation to transform a recorded lecture into structured revision notes. The concept highlights accessibility, searchability and post-class review.', features:['Audio transcription','Section summaries','Keyword extraction','Downloadable notes'], contributors:['Audio Developer','NLP Developer','UI Developer'], videoId:'HceKUGguai0', videoDescription:'See a related AI workflow combining speech transcription with LLM summarisation, similar to LectureScribe turning recorded lectures into concise revision notes.' },
-  posterforge: { title:'PosterForge', category:'Generative AI', status:'In progress', team:'3 contributors', focus:'Creative automation', icon:'bi-stars', cover:'cover-gen', tags:['Prompting','Design','Automation'], tech:['Prompt engineering','Generative AI','JavaScript','Design'], description:'PosterForge turns a short event brief into a structured creative direction and draft visual concept. It demonstrates how prompt structure, constraints and iteration can improve generative-AI output.', features:['Prompt templates','Creative brief parser','Style constraints','Iteration workflow'], contributors:['Prompt Designer','UI Developer','Content Designer'], videoId:'3pzrIMXA8J4', videoDescription:'Explore how generative AI can support graphic-design ideation, prompt refinement and iterative visual concepts—the same creative direction explored by PosterForge.' }
+  campuseye: { title: 'CampusEye', category: 'Computer Vision', status: 'In progress', team: '4 contributors', focus: 'Smart campus', icon: 'bi-camera-video', cover: 'cover-vision', tags: ['AI', 'CNN', 'Dashboard'], tech: ['Python', 'CNN', 'OpenCV', 'JavaScript'], description: 'CampusEye explores a camera-assisted seat availability system for a university library. A computer-vision pipeline would detect occupied and free seating zones and publish the result to a lightweight web dashboard.', features: ['Seat occupancy detection', 'Privacy-aware zone counting', 'Live dashboard concept', 'Mobile-friendly status view'], contributors: ['Vision Team', 'Front-End Team', 'Project Mentor'], videoId: 'nif7FQgB_14', videoDescription: 'Watch a related computer-vision example that detects passengers and seat occupancy from live video. It demonstrates a similar visual-analysis idea to CampusEye identifying free and occupied library seats.' },
+  studybuddy: { title: 'StudyBuddy GPT', category: 'NLP · RAG', status: 'Shipped concept', team: '3 contributors', focus: 'Learning assistant', icon: 'bi-chat-square-text', cover: 'cover-nlp', tags: ['LLM', 'RAG', 'Citations'], tech: ['Python', 'RAG', 'Embeddings', 'LLM'], description: 'StudyBuddy GPT is a retrieval-augmented study assistant concept that searches approved faculty notes before generating an answer. The design focuses on source-aware responses so students can trace where an explanation came from.', features: ['Document retrieval', 'Source citations', 'Revision Q&A', 'Conversation history'], contributors: ['NLP Developer', 'UI Developer', 'Content Reviewer'], videoId: 'LpKGm1jJXv4', videoDescription: 'See how Retrieval-Augmented Generation finds relevant source content before an LLM produces an answer. This is the core learning concept behind StudyBuddy GPT.' },
+  clubmatch: { title: 'ClubMatch', category: 'Recommender', status: 'Shipped concept', team: '3 contributors', focus: 'Student discovery', icon: 'bi-people', cover: 'cover-match', tags: ['ML', 'Ranking', 'Campus'], tech: ['Python', 'Similarity', 'Ranking', 'Bootstrap'], description: 'ClubMatch recommends campus clubs based on interests, activity preferences and similarity signals. It demonstrates how a recommendation workflow can reduce information overload for new students.', features: ['Interest matching', 'Ranked recommendations', 'Explainable match reasons', 'Responsive results'], contributors: ['ML Developer', 'Data Analyst', 'UI Developer'], videoId: 'v90un9ALRzw', videoDescription: 'Learn how content-based and collaborative filtering use preferences and item information to generate recommendations, closely matching the recommendation concept used by ClubMatch.' },
+  linechaser: { title: 'LineChaser Bot', category: 'Robotics', status: 'In progress', team: '4 contributors', focus: 'Reinforcement learning', icon: 'bi-cpu', cover: 'cover-robot', tags: ['RL', 'Simulation', 'Robot'], tech: ['Python', 'RL', 'Simulation', 'Sensors'], description: 'LineChaser Bot studies how a policy trained in simulation could be transferred to a physical line-following robot. The project is designed around experimentation, reward design and repeated evaluation.', features: ['Simulation training', 'Reward tuning', 'Sensor integration', 'Physical prototype'], contributors: ['RL Developer', 'Hardware Builder', 'Tester', 'Mentor'], videoId: 'bPtiN8MS-LE', videoDescription: 'Explore how a reinforcement-learning policy can be trained in simulation and moved toward real-world robot deployment, which reflects the sim-to-real idea behind LineChaser Bot.' },
+  lecturescribe: { title: 'LectureScribe', category: 'Audio ML', status: 'Shipped concept', team: '3 contributors', focus: 'Study productivity', icon: 'bi-mic', cover: 'cover-audio', tags: ['Speech', 'Summary', 'Notes'], tech: ['Speech-to-text', 'NLP', 'JavaScript', 'Audio'], description: 'LectureScribe combines speech-to-text with summarisation to transform a recorded lecture into structured revision notes. The concept highlights accessibility, searchability and post-class review.', features: ['Audio transcription', 'Section summaries', 'Keyword extraction', 'Downloadable notes'], contributors: ['Audio Developer', 'NLP Developer', 'UI Developer'], videoId: 'HceKUGguai0', videoDescription: 'See a related AI workflow combining speech transcription with LLM summarisation, similar to LectureScribe turning recorded lectures into concise revision notes.' },
+  posterforge: { title: 'PosterForge', category: 'Generative AI', status: 'In progress', team: '3 contributors', focus: 'Creative automation', icon: 'bi-stars', cover: 'cover-gen', tags: ['Prompting', 'Design', 'Automation'], tech: ['Prompt engineering', 'Generative AI', 'JavaScript', 'Design'], description: 'PosterForge turns a short event brief into a structured creative direction and draft visual concept. It demonstrates how prompt structure, constraints and iteration can improve generative-AI output.', features: ['Prompt templates', 'Creative brief parser', 'Style constraints', 'Iteration workflow'], contributors: ['Prompt Designer', 'UI Developer', 'Content Designer'], videoId: '3pzrIMXA8J4', videoDescription: 'Explore how generative AI can support graphic-design ideation, prompt refinement and iterative visual concepts—the same creative direction explored by PosterForge.' }
 };
 
 function initProjectQuickViews() {
@@ -693,12 +693,12 @@ function initProjectQuickViews() {
       document.getElementById('projectModalStatus').textContent = project.status;
       document.getElementById('projectModalTeam').textContent = project.team;
       document.getElementById('projectModalFocus').textContent = project.focus;
-      document.getElementById('projectModalTags').innerHTML = project.tags.map(function (tag) { return '<span>'+tag+'</span>'; }).join('');
-      var visual = document.getElementById('projectModalVisual'); visual.className = 'project-modal-visual ' + project.cover; visual.innerHTML = '<i class="bi '+project.icon+'"></i>';
+      document.getElementById('projectModalTags').innerHTML = project.tags.map(function (tag) { return '<span>' + tag + '</span>'; }).join('');
+      var visual = document.getElementById('projectModalVisual'); visual.className = 'project-modal-visual ' + project.cover; visual.innerHTML = '<i class="bi ' + project.icon + '"></i>';
       document.getElementById('projectModalDetails').href = 'project-detail.html?id=' + encodeURIComponent(id);
       var save = document.getElementById('projectModalSave');
-      function syncSave(){ var favs=JSON.parse(localStorage.getItem('nexus_favorites')||'[]'); var on=favs.indexOf(id)>-1; save.textContent=on?'★ Saved':'☆ Save project'; save.classList.toggle('on',on); }
-      save.onclick=function(){ var favs=JSON.parse(localStorage.getItem('nexus_favorites')||'[]'); favs=favs.indexOf(id)>-1?favs.filter(function(x){return x!==id;}):favs.concat(id); localStorage.setItem('nexus_favorites',JSON.stringify(favs)); syncSave(); };
+      function syncSave() { var favs = JSON.parse(localStorage.getItem('nexus_favorites') || '[]'); var on = favs.indexOf(id) > -1; save.textContent = on ? '★ Saved' : '☆ Save project'; save.classList.toggle('on', on); }
+      save.onclick = function () { var favs = JSON.parse(localStorage.getItem('nexus_favorites') || '[]'); favs = favs.indexOf(id) > -1 ? favs.filter(function (x) { return x !== id; }) : favs.concat(id); localStorage.setItem('nexus_favorites', JSON.stringify(favs)); syncSave(); };
       syncSave(); modal.show();
     });
   });
@@ -710,25 +710,25 @@ function initProjectDetailPage() {
   if (repoName) loadRepositoryDetail(repoName); else renderClubProjectDetail(clubProjects[id] || clubProjects.studybuddy, id || 'studybuddy');
 }
 
-function detailTags(tags) { return (tags || []).map(function (tag) { return '<span>'+escapeHtml(tag)+'</span>'; }).join(''); }
-function escapeHtml(value) { return String(value == null ? '' : value).replace(/[&<>'"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c];}); }
+function detailTags(tags) { return (tags || []).map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join(''); }
+function escapeHtml(value) { return String(value == null ? '' : value).replace(/[&<>'"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]; }); }
 
 function renderClubProjectDetail(project, id) {
   document.title = project.title + ' | AI AWS Club';
   $('#detailTitle').text(project.title); $('#detailSubtitle').text(project.category + ' · ' + project.focus); $('#detailDescription').text(project.description);
   $('#detailTags').html(detailTags(project.tags)); $('#detailTech').html(detailTags(project.tech));
-  $('#detailInlineMeta').html('<span><i class="status-dot"></i>'+escapeHtml(project.status)+'</span><span><i class="bi bi-people"></i>'+escapeHtml(project.team)+'</span><span><i class="bi bi-star"></i>Featured club concept</span>');
-  $('#detailFeatures').html(project.features.map(function(f){return '<div class="detail-feature"><i class="bi bi-check2-circle"></i><span>'+escapeHtml(f)+'</span></div>';}).join(''));
-  $('#detailContributors').html(project.contributors.map(function(c,i){return '<div class="detail-person"><span class="detail-avatar">'+escapeHtml(c.charAt(0))+'</span><div><strong>'+escapeHtml(c)+'</strong><small>'+(i===0?'Lead contributor':'Project contributor')+'</small></div></div>';}).join(''));
-  $('#detailData').html('<div><span>Type</span><strong>Club project concept</strong></div><div><span>Category</span><strong>'+escapeHtml(project.category)+'</strong></div><div><span>Saved locally</span><strong>localStorage</strong></div>');
-  $('#detailGithub').attr('href','https://github.com/Anran0225/Front-End').html('<i class="bi bi-github"></i> Website source on GitHub');
+  $('#detailInlineMeta').html('<span><i class="status-dot"></i>' + escapeHtml(project.status) + '</span><span><i class="bi bi-people"></i>' + escapeHtml(project.team) + '</span><span><i class="bi bi-star"></i>Featured club concept</span>');
+  $('#detailFeatures').html(project.features.map(function (f) { return '<div class="detail-feature"><i class="bi bi-check2-circle"></i><span>' + escapeHtml(f) + '</span></div>'; }).join(''));
+  $('#detailContributors').html(project.contributors.map(function (c, i) { return '<div class="detail-person"><span class="detail-avatar">' + escapeHtml(c.charAt(0)) + '</span><div><strong>' + escapeHtml(c) + '</strong><small>' + (i === 0 ? 'Lead contributor' : 'Project contributor') + '</small></div></div>'; }).join(''));
+  $('#detailData').html('<div><span>Type</span><strong>Club project concept</strong></div><div><span>Category</span><strong>' + escapeHtml(project.category) + '</strong></div><div><span>Saved locally</span><strong>localStorage</strong></div>');
+  $('#detailGithub').attr('href', 'https://github.com/Anran0225/Front-End').html('<i class="bi bi-github"></i> Website source on GitHub');
 
   // Project concept video: fixed curated YouTube video, no YouTube API key required.
   if (project.videoId) {
     $('#projectDemoPanel').show();
     $('#detailVideoDescription').text(project.videoDescription || 'Watch a related video to understand the project concept.');
-    $('#detailVideo').attr('src','https://www.youtube-nocookie.com/embed/' + encodeURIComponent(project.videoId) + '?rel=0');
-    $('#detailYoutubeLink').attr('href','https://www.youtube.com/watch?v=' + encodeURIComponent(project.videoId));
+    $('#detailVideo').attr('src', 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(project.videoId) + '?rel=0');
+    $('#detailYoutubeLink').attr('href', 'https://www.youtube.com/watch?v=' + encodeURIComponent(project.videoId));
   } else {
     $('#projectDemoPanel').hide();
   }
@@ -738,21 +738,21 @@ function renderClubProjectDetail(project, id) {
 
 function loadRepositoryDetail(repoName) {
   $('#projectDemoPanel').hide();
-  $('#detailVideo').attr('src','');
+  $('#detailVideo').attr('src', '');
   $('#detailTitle').text('Loading ' + repoName + '…');
-  $.ajax({ url:'https://api.github.com/repos/' + repoName, dataType:'json', timeout:10000 }).done(function(repo){
+  $.ajax({ url: 'https://api.github.com/repos/' + repoName, dataType: 'json', timeout: 10000 }).done(function (repo) {
     document.title = repo.name + ' | GitHub Project Detail';
     $('#detailTitle').text(repo.name); $('#detailSubtitle').text(repo.full_name); $('#detailDescription').text(repo.description || 'No repository description provided.');
-    $('#detailTags').html(detailTags((repo.topics || []).slice(0,4).length ? (repo.topics || []).slice(0,4) : ['Open source','GitHub API']));
-    $('#detailTech').html(detailTags([repo.language || 'Mixed'].concat((repo.topics || []).slice(0,5))));
-    $('#detailInlineMeta').html('<span><i class="status-dot"></i>LIVE GITHUB DATA</span><span><i class="bi bi-star"></i>'+repo.stargazers_count.toLocaleString()+' stars</span><span><i class="bi bi-diagram-2"></i>'+repo.forks_count.toLocaleString()+' forks</span>');
-    $('#detailFeatures').html(['Public repository metadata','Live star and fork counts','Direct GitHub source access','API-powered detail page'].map(function(f){return '<div class="detail-feature"><i class="bi bi-check2-circle"></i><span>'+f+'</span></div>';}).join(''));
-    $('#detailContributors').html('<div class="detail-person"><img class="detail-avatar image" src="'+escapeHtml(repo.owner.avatar_url)+'" alt=""><div><strong>'+escapeHtml(repo.owner.login)+'</strong><small>Repository owner</small></div></div>');
-    var updated = new Date(repo.updated_at).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'});
-    $('#detailData').html('<div><span>Primary language</span><strong>'+escapeHtml(repo.language || 'N/A')+'</strong></div><div><span>Open issues</span><strong>'+repo.open_issues_count.toLocaleString()+'</strong></div><div><span>Updated</span><strong>'+escapeHtml(updated)+'</strong></div>');
-    $('#detailGithub').attr('href',repo.html_url).html('<i class="bi bi-github"></i> View on GitHub');
-    $('#projectDetailHero').css('background-image','linear-gradient(90deg,rgba(13,17,23,.96),rgba(13,17,23,.68)),url("https://opengraph.githubassets.com/1/'+encodeURI(repo.full_name)+'")');
-  }).fail(function(){ $('#detailTitle').text('Project could not be loaded'); $('#detailSubtitle').text('The GitHub API may be rate-limited.'); $('#detailDescription').text('Return to the Projects page and try again shortly.'); });
+    $('#detailTags').html(detailTags((repo.topics || []).slice(0, 4).length ? (repo.topics || []).slice(0, 4) : ['Open source', 'GitHub API']));
+    $('#detailTech').html(detailTags([repo.language || 'Mixed'].concat((repo.topics || []).slice(0, 5))));
+    $('#detailInlineMeta').html('<span><i class="status-dot"></i>LIVE GITHUB DATA</span><span><i class="bi bi-star"></i>' + repo.stargazers_count.toLocaleString() + ' stars</span><span><i class="bi bi-diagram-2"></i>' + repo.forks_count.toLocaleString() + ' forks</span>');
+    $('#detailFeatures').html(['Public repository metadata', 'Live star and fork counts', 'Direct GitHub source access', 'API-powered detail page'].map(function (f) { return '<div class="detail-feature"><i class="bi bi-check2-circle"></i><span>' + f + '</span></div>'; }).join(''));
+    $('#detailContributors').html('<div class="detail-person"><img class="detail-avatar image" src="' + escapeHtml(repo.owner.avatar_url) + '" alt=""><div><strong>' + escapeHtml(repo.owner.login) + '</strong><small>Repository owner</small></div></div>');
+    var updated = new Date(repo.updated_at).toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' });
+    $('#detailData').html('<div><span>Primary language</span><strong>' + escapeHtml(repo.language || 'N/A') + '</strong></div><div><span>Open issues</span><strong>' + repo.open_issues_count.toLocaleString() + '</strong></div><div><span>Updated</span><strong>' + escapeHtml(updated) + '</strong></div>');
+    $('#detailGithub').attr('href', repo.html_url).html('<i class="bi bi-github"></i> View on GitHub');
+    $('#projectDetailHero').css('background-image', 'linear-gradient(90deg,rgba(13,17,23,.96),rgba(13,17,23,.68)),url("https://opengraph.githubassets.com/1/' + encodeURI(repo.full_name) + '")');
+  }).fail(function () { $('#detailTitle').text('Project could not be loaded'); $('#detailSubtitle').text('The GitHub API may be rate-limited.'); $('#detailDescription').text('Return to the Projects page and try again shortly.'); });
 }
 
 
@@ -837,7 +837,7 @@ function initAINews() {
         var card = $('<article class="news-card"></article>');
         card.html(
           '<a class="news-card-media" href="' + storyUrl + '" target="_blank" rel="noopener" aria-label="Open story from ' + cleanTitle(domain) + '">' +
-            '<div class="news-media-grid"></div><div class="news-media-orb"></div><img src="' + favicon + '" alt="' + cleanTitle(domain) + ' logo" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\';"><span class="news-media-fallback">' + cleanTitle((domain || 'AI').slice(0,2).toUpperCase()) + '</span><em>LIVE STORY</em>' +
+          '<div class="news-media-grid"></div><div class="news-media-orb"></div><img src="' + favicon + '" alt="' + cleanTitle(domain) + ' logo" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\';"><span class="news-media-fallback">' + cleanTitle((domain || 'AI').slice(0, 2).toUpperCase()) + '</span><em>LIVE STORY</em>' +
           '</a>' +
           '<div class="news-card-body"><div class="news-card-top"><span class="news-source">' + cleanTitle(domain) + '</span><span class="news-age">' + cleanTitle(relativeDate(hit.created_at)) + '</span></div>' +
           '<h3>' + cleanTitle(hit.title) + '</h3>' +
@@ -846,7 +846,7 @@ function initAINews() {
         );
         $grid.append(card);
       });
-      if (window.gsap) gsap.from('#aiNewsGrid .news-card', { opacity:0, y:24, duration:.55, stagger:.06, ease:'power3.out' });
+      if (window.gsap) gsap.from('#aiNewsGrid .news-card', { opacity: 0, y: 24, duration: .55, stagger: .06, ease: 'power3.out' });
     }).fail(function () {
       $grid.html('<div class="api-error">The public news feed could not be reached. Check your connection and try Refresh.</div>');
     });
@@ -869,7 +869,7 @@ function initJoinForm() {
   var form = document.getElementById('joinForm');
   if (!form) return;
   var status = document.getElementById('formStatus');
-  var draftFields = ['name','email','aiExperience','interest','bio'];
+  var draftFields = ['name', 'email', 'aiExperience', 'interest', 'bio'];
   var password = form.elements.password;
   var confirm = form.elements.confirm;
 
@@ -887,7 +887,7 @@ function initJoinForm() {
       validateField(name, false);
       renderPreviewFromForm();
     });
-    el.addEventListener('blur', function(){ validateField(name, true); });
+    el.addEventListener('blur', function () { validateField(name, true); });
   });
 
   function fieldWrap(name) {
@@ -936,10 +936,10 @@ function initJoinForm() {
     return passwordOK && match;
   }
 
-  password.addEventListener('input', function(){ validatePassword(false); });
-  confirm.addEventListener('input', function(){ validatePassword(false); });
-  password.addEventListener('blur', function(){ validatePassword(true); });
-  confirm.addEventListener('blur', function(){ validatePassword(true); });
+  password.addEventListener('input', function () { validatePassword(false); });
+  confirm.addEventListener('input', function () { validatePassword(false); });
+  password.addEventListener('blur', function () { validatePassword(true); });
+  confirm.addEventListener('blur', function () { validatePassword(true); });
 
   document.querySelectorAll('[data-password-toggle]').forEach(function (button) {
     button.addEventListener('click', function () {
@@ -951,7 +951,7 @@ function initJoinForm() {
   });
 
   function validateAll(showError) {
-    var fieldsOK = ['name','email','aiExperience','interest','bio'].every(function(name){
+    var fieldsOK = ['name', 'email', 'aiExperience', 'interest', 'bio'].every(function (name) {
       return validateField(name, showError);
     });
     var passOK = validatePassword(showError);
@@ -969,9 +969,9 @@ function initJoinForm() {
     if (!control) return;
     var wrap = control.closest('.field') || control;
     wrap.classList.add('needs-attention');
-    wrap.scrollIntoView({ behavior:'smooth', block:'center' });
-    window.setTimeout(function(){
-      try { control.focus({ preventScroll:true }); } catch(e) { control.focus(); }
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.setTimeout(function () {
+      try { control.focus({ preventScroll: true }); } catch (e) { control.focus(); }
       wrap.classList.remove('needs-attention');
     }, 520);
   }
@@ -989,10 +989,10 @@ function initJoinForm() {
   }
   function renderPreviewFromForm() {
     renderProfile({
-      name:form.elements.name.value,
-      email:form.elements.email.value,
-      aiExperience:form.elements.aiExperience.value,
-      interest:form.elements.interest.value
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      aiExperience: form.elements.aiExperience.value,
+      interest: form.elements.interest.value
     });
   }
   try {
@@ -1000,7 +1000,7 @@ function initJoinForm() {
     if (stored) renderProfile(stored); else renderPreviewFromForm();
   } catch (e) { renderPreviewFromForm(); }
 
-  ['name','email','aiExperience','interest','bio'].forEach(function(name){ validateField(name, false); });
+  ['name', 'email', 'aiExperience', 'interest', 'bio'].forEach(function (name) { validateField(name, false); });
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -1010,12 +1010,12 @@ function initJoinForm() {
       return;
     }
     var profile = {
-      name:form.elements.name.value.trim(),
-      email:form.elements.email.value.trim(),
-      aiExperience:form.elements.aiExperience.value,
-      interest:form.elements.interest.value,
-      bio:form.elements.bio.value.trim(),
-      joinedAt:new Date().toISOString()
+      name: form.elements.name.value.trim(),
+      email: form.elements.email.value.trim(),
+      aiExperience: form.elements.aiExperience.value,
+      interest: form.elements.interest.value,
+      bio: form.elements.bio.value.trim(),
+      joinedAt: new Date().toISOString()
     };
     localStorage.setItem('nexus_member_profile', JSON.stringify(profile));
     draftFields.forEach(function (name) { sessionStorage.removeItem('join_draft_' + name); });
@@ -1027,8 +1027,8 @@ function initJoinForm() {
   document.getElementById('clearJoinForm')?.addEventListener('click', function () {
     form.reset();
     draftFields.forEach(function (name) { sessionStorage.removeItem('join_draft_' + name); });
-    form.querySelectorAll('.field').forEach(function(field){ field.classList.remove('is-valid','is-invalid','needs-attention'); });
-    form.querySelectorAll('.field-error').forEach(function(err){ err.classList.remove('show'); });
+    form.querySelectorAll('.field').forEach(function (field) { field.classList.remove('is-valid', 'is-invalid', 'needs-attention'); });
+    form.querySelectorAll('.field-error').forEach(function (err) { err.classList.remove('show'); });
     validatePassword(false); renderPreviewFromForm();
     if (status) status.textContent = '> FORM CLEARED // SAVED BROWSER PROFILE UNCHANGED.';
   });
@@ -1052,14 +1052,14 @@ function initEventsPage() {
     $filters.removeClass('active').filter('[data-event-filter="' + filter + '"]').addClass('active');
     $cards.each(function () {
       var show = filter === 'All' || $(this).data('category') === filter;
-      $(this).stop(true,true)[show ? 'fadeIn' : 'fadeOut'](220);
+      $(this).stop(true, true)[show ? 'fadeIn' : 'fadeOut'](220);
     });
   }
   $filters.on('click', function () { applyFilter($(this).data('event-filter')); });
   try {
     var fromQuery = new URLSearchParams(location.search).get('filter');
     if (fromQuery && $filters.filter('[data-event-filter="' + fromQuery + '"]').length) applyFilter(fromQuery);
-  } catch (e) {}
+  } catch (e) { }
 
   var countdown = document.getElementById('eventCountdown');
   var countdownCard = document.querySelector('[data-countdown-target]');
@@ -1067,8 +1067,8 @@ function initEventsPage() {
     if (!countdown || !countdownCard) return;
     var target = new Date(countdownCard.getAttribute('data-countdown-target')).getTime();
     var diff = Math.max(0, target - Date.now());
-    var values = [Math.floor(diff/86400000), Math.floor(diff%86400000/3600000), Math.floor(diff%3600000/60000), Math.floor(diff%60000/1000)];
-    countdown.querySelectorAll('b').forEach(function (el,i) { el.textContent = String(values[i] || 0).padStart(2,'0'); });
+    var values = [Math.floor(diff / 86400000), Math.floor(diff % 86400000 / 3600000), Math.floor(diff % 3600000 / 60000), Math.floor(diff % 60000 / 1000)];
+    countdown.querySelectorAll('b').forEach(function (el, i) { el.textContent = String(values[i] || 0).padStart(2, '0'); });
     if (diff <= 0) countdownCard.classList.add('is-live');
   }
   tickCountdown(); window.setInterval(tickCountdown, 1000);
@@ -1085,39 +1085,39 @@ function initEventsPage() {
     var loc = document.getElementById('eventModalLocation'); if (loc) loc.innerHTML = '<i class="bi bi-geo-alt"></i> ' + (card.dataset.eventLocation || '');
     var desc = document.getElementById('eventModalDescription'); if (desc) desc.textContent = card.dataset.eventDescription || '';
   }
-  $(document).on('click','.event-details-btn',function(){ var card=this.closest('.event-card'); if(!card)return; fillDetail(card); if(detailModal) detailModal.show(); });
+  $(document).on('click', '.event-details-btn', function () { var card = this.closest('.event-card'); if (!card) return; fillDetail(card); if (detailModal) detailModal.show(); });
 
   function selectForRegistration(name) {
     var select = document.getElementById('eventRegSelect'); if (select) select.value = name || '';
-    var section = document.querySelector('.event-registration-section'); if (section) section.scrollIntoView({behavior:'smooth',block:'start'});
-    window.setTimeout(function(){ var nameInput=document.getElementById('eventRegName'); if(nameInput) nameInput.focus({preventScroll:true}); }, 500);
+    var section = document.querySelector('.event-registration-section'); if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.setTimeout(function () { var nameInput = document.getElementById('eventRegName'); if (nameInput) nameInput.focus({ preventScroll: true }); }, 500);
   }
-  $(document).on('click','.event-register-btn',function(){ var card=this.closest('.event-card'); if(card) selectForRegistration(card.dataset.eventName); });
-  var modalRegister = document.getElementById('eventModalRegister'); if (modalRegister) modalRegister.addEventListener('click',function(){ selectForRegistration(selectedEvent); });
+  $(document).on('click', '.event-register-btn', function () { var card = this.closest('.event-card'); if (card) selectForRegistration(card.dataset.eventName); });
+  var modalRegister = document.getElementById('eventModalRegister'); if (modalRegister) modalRegister.addEventListener('click', function () { selectForRegistration(selectedEvent); });
 
   var form = document.getElementById('eventRegisterForm');
   var status = document.getElementById('eventRegisterStatus');
   var summary = document.getElementById('eventRegistrationSummary');
   var registrationKey = document.body.getAttribute('data-registration-key') || 'nexus_event_registrations';
-  function registrations() { try { return JSON.parse(localStorage.getItem(registrationKey) || '[]'); } catch(e) { return []; } }
+  function registrations() { try { return JSON.parse(localStorage.getItem(registrationKey) || '[]'); } catch (e) { return []; } }
   function updateSummary() {
     var list = registrations();
-    if (summary) summary.innerHTML = '<span class="status-dot"></span><strong>' + list.length + ' saved registration' + (list.length===1?'':'s') + '</strong>' + (list.length ? '<small>Latest: ' + escapeHtml(list[list.length-1].event) + '</small>' : '<small>Register for an event to demonstrate localStorage.</small>');
+    if (summary) summary.innerHTML = '<span class="status-dot"></span><strong>' + list.length + ' saved registration' + (list.length === 1 ? '' : 's') + '</strong>' + (list.length ? '<small>Latest: ' + escapeHtml(list[list.length - 1].event) + '</small>' : '<small>Register for an event to demonstrate localStorage.</small>');
   }
   updateSummary();
   if (form) {
-    form.addEventListener('submit', function(e){
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var data = { name:form.elements.name.value.trim(), studentId:form.elements.studentId.value.trim(), email:form.elements.email.value.trim(), event:form.elements.event.value, registeredAt:new Date().toISOString() };
-      if (!data.name || !data.studentId || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) || !data.event) { if(status)status.textContent='> CHECK REQUIRED FIELDS BEFORE SAVING.'; return; }
-      var list=registrations();
-      var duplicate=list.some(function(item){return item.studentId===data.studentId && item.event===data.event;});
+      var data = { name: form.elements.name.value.trim(), studentId: form.elements.studentId.value.trim(), email: form.elements.email.value.trim(), event: form.elements.event.value, registeredAt: new Date().toISOString() };
+      if (!data.name || !data.studentId || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) || !data.event) { if (status) status.textContent = '> CHECK REQUIRED FIELDS BEFORE SAVING.'; return; }
+      var list = registrations();
+      var duplicate = list.some(function (item) { return item.studentId === data.studentId && item.event === data.event; });
       if (!duplicate) { list.push(data); localStorage.setItem(registrationKey, JSON.stringify(list)); }
-      if(status)status.textContent=duplicate?'> ALREADY REGISTERED // saved record found.':'> SUCCESS // REGISTRATION SAVED TO LOCALSTORAGE.';
+      if (status) status.textContent = duplicate ? '> ALREADY REGISTERED // saved record found.' : '> SUCCESS // REGISTRATION SAVED TO LOCALSTORAGE.';
       updateSummary();
-      if(window.gsap) gsap.fromTo(summary,{scale:.97},{scale:1,duration:.35,ease:'back.out(2)'});
+      if (window.gsap) gsap.fromTo(summary, { scale: .97 }, { scale: 1, duration: .35, ease: 'back.out(2)' });
     });
-    form.addEventListener('reset', function(){ window.setTimeout(function(){ if(status)status.textContent='> FORM CLEARED // saved registrations unchanged.'; },0); });
+    form.addEventListener('reset', function () { window.setTimeout(function () { if (status) status.textContent = '> FORM CLEARED // saved registrations unchanged.'; }, 0); });
   }
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initEventsPage); else initEventsPage();
@@ -1126,83 +1126,176 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 /* ============================================================
    V10 — upright AI orbit + AI Intro member interactions
    ============================================================ */
-(function(){
-  function initUprightOrbit(){
-    var stage=document.querySelector('.ai-orbit-stage');
-    var track=stage && stage.querySelector('.ai-orbit-track-single');
-    if(!stage || !track) return;
-    var nodes=Array.from(track.querySelectorAll('.ai-orbit-node'));
-    if(!nodes.length) return;
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var bases=nodes.map(function(node,index){
-      var raw=getComputedStyle(node).getPropertyValue('--angle').trim();
-      var n=parseFloat(raw); return Number.isFinite(n)?n:index*(360/nodes.length);
+(function () {
+  function initUprightOrbit() {
+    var stage = document.querySelector('.ai-orbit-stage');
+    var track = stage && stage.querySelector('.ai-orbit-track-single');
+    if (!stage || !track) return;
+    var nodes = Array.from(track.querySelectorAll('.ai-orbit-node'));
+    if (!nodes.length) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bases = nodes.map(function (node, index) {
+      var raw = getComputedStyle(node).getPropertyValue('--angle').trim();
+      var n = parseFloat(raw); return Number.isFinite(n) ? n : index * (360 / nodes.length);
     });
-    var phase=0,last=performance.now(),speed=360/32000;
-    function layout(now){
-      var dt=Math.min(60,now-last); last=now;
-      if(!reduce && !stage.classList.contains('orbit-paused')) phase=(phase+dt*speed)%360;
-      var radius=track.clientWidth/2;
-      nodes.forEach(function(node,i){
-        var a=(bases[i]+phase)*Math.PI/180;
-        var x=Math.cos(a)*radius, y=Math.sin(a)*radius;
-        node.style.transform='translate(-50%, -50%) translate('+x.toFixed(2)+'px,'+y.toFixed(2)+'px)';
+    var phase = 0, last = performance.now(), speed = 360 / 32000;
+    function layout(now) {
+      var dt = Math.min(60, now - last); last = now;
+      if (!reduce && !stage.classList.contains('orbit-paused')) phase = (phase + dt * speed) % 360;
+      var radius = track.clientWidth / 2;
+      nodes.forEach(function (node, i) {
+        var a = (bases[i] + phase) * Math.PI / 180;
+        var x = Math.cos(a) * radius, y = Math.sin(a) * radius;
+        node.style.transform = 'translate(-50%, -50%) translate(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px)';
       });
-      if(!reduce) requestAnimationFrame(layout);
+      if (!reduce) requestAnimationFrame(layout);
     }
-    if(reduce){layout(performance.now());}else{requestAnimationFrame(layout);}
-    window.addEventListener('resize',function(){ if(reduce) layout(performance.now()); });
+    if (reduce) { layout(performance.now()); } else { requestAnimationFrame(layout); }
+    window.addEventListener('resize', function () { if (reduce) layout(performance.now()); });
   }
 
   var techData={
-    ml:{icon:'bi-diagram-3',title:'Machine Learning',summary:'Systems learn patterns from examples instead of being programmed with a rule for every situation.',facts:['Predict house prices from past data','Python · scikit-learn · pandas','Classification or recommendation system']},
-    deep:{icon:'bi-layers',title:'Deep Learning',summary:'Deep learning uses neural networks with many layers to learn complex patterns from large amounts of data.',facts:['Recognise objects in images','PyTorch · TensorFlow · GPUs','Image classifier or speech recogniser']},
-    gen:{icon:'bi-stars',title:'Generative AI',summary:'Generative AI creates new text, images, audio, video or code by learning patterns from existing examples.',facts:['Generate a study explanation or image','LLMs · diffusion models · prompts','Campus assistant or content generator']},
-    vision:{icon:'bi-eye',title:'Computer Vision',summary:'Computer Vision helps machines interpret visual information such as images, video frames and camera streams.',facts:['Detect vehicles or recognise objects','OpenCV · YOLO · CNNs','Smart attendance or object detector']},
-    nlp:{icon:'bi-chat-square-text',title:'Natural Language Processing',summary:'NLP enables software to analyse, understand and generate human language.',facts:['Classify feedback or answer questions','Transformers · embeddings · tokenisation','FAQ bot or sentiment analyser']},
-    robotics:{icon:'bi-cpu',title:'Robotics',summary:'AI-powered robotics combines perception, planning and control so machines can respond to the physical world.',facts:['Navigate around obstacles','Sensors · control · computer vision','Line follower or campus delivery prototype']}
+    ml:{
+      videoId:'znF2U_3Z210',
+      videoTitle:'Machine Learning Explained: A Guide to ML, AI, & Deep Learning',
+      videoSource:'IBM Technology',
+      videoUrl:'https://www.youtube.com/watch?v=znF2U_3Z210',
+      title:'Machine Learning',
+      summary:'Systems learn patterns from examples instead of being programmed with a rule for every situation.',
+      how:'Data → Training → Model → Prediction',
+      facts:['Predict house prices from past data','Python · scikit-learn · pandas','Classification or recommendation system']
+    },
+    deep:{
+      videoId:'Beh13Cd_QbY',
+      videoTitle:'Machine Learning vs. Deep Learning vs. Foundation Models',
+      videoSource:'IBM Technology',
+      videoUrl:'https://www.youtube.com/watch?v=Beh13Cd_QbY',
+      title:'Deep Learning',
+      summary:'Deep learning uses neural networks with many layers to learn complex patterns from large amounts of data.',
+      how:'Large datasets → Neural layers → Features → Prediction',
+      facts:['Recognise objects in images','PyTorch · TensorFlow · GPUs','Image classifier or speech recogniser']
+    },
+    gen:{
+      videoId:'qYNweeDHiyU',
+      videoTitle:'What Are AI, ML, DL, and Generative AI?',
+      videoSource:'IBM Technology',
+      videoUrl:'https://www.youtube.com/watch?v=qYNweeDHiyU',
+      title:'Generative AI',
+      summary:'Generative AI creates new text, images, audio, video or code by learning patterns from existing examples.',
+      how:'Prompt → Model context → Generation → Review',
+      facts:['Generate a study explanation or image','LLMs · diffusion models · prompts','Campus assistant or content generator']
+    },
+    vision:{
+      videoId:'lOD_EE96jhM',
+      videoTitle:'What Are Vision Language Models? How AI Sees & Understands Images',
+      videoSource:'IBM Technology',
+      videoUrl:'https://www.youtube.com/watch?v=lOD_EE96jhM',
+      title:'Computer Vision',
+      summary:'Computer Vision helps machines interpret visual information such as images, video frames and camera streams.',
+      how:'Image → Feature detection → Recognition → Action',
+      facts:['Detect vehicles or recognise objects','OpenCV · YOLO · CNNs','Smart attendance or object detector']
+    },
+    nlp:{
+      videoId:'fLvJ8VdHLA0',
+      videoTitle:'What is NLP (Natural Language Processing)?',
+      videoSource:'IBM Technology',
+      videoUrl:'https://www.youtube.com/watch?v=fLvJ8VdHLA0',
+      title:'Natural Language Processing',
+      summary:'NLP enables software to analyse, understand and generate human language.',
+      how:'Text → Tokens → Language model → Meaning / response',
+      facts:['Classify feedback or answer questions','Transformers · embeddings · tokenisation','FAQ bot or sentiment analyser']
+    },
+    rl:{
+      videoId:'Z-T0iJEXiwM',
+      videoTitle:'Reinforcement Learning: Essential Concepts',
+      videoSource:'StatQuest with Josh Starmer',
+      videoUrl:'https://www.youtube.com/watch?v=Z-T0iJEXiwM',
+      title:'Reinforcement Learning',
+      summary:'Reinforcement Learning trains an agent to choose better actions by learning from rewards and penalties while interacting with an environment.',
+      how:'State → Action → Reward → Policy update',
+      facts:['Train an agent to balance a pole or play a simple game','Python · Gymnasium · Stable-Baselines3','CartPole agent or grid-world navigation']
+    }
   };
-  function initTechExplorer(){
+
+
+   function initTechExplorer(){
     var detail=document.getElementById('aiTechDetail'); if(!detail) return;
     var buttons=[].slice.call(document.querySelectorAll('.ai-tech-tab'));
+    var video=detail.querySelector('#aiTechVideo');
+    var videoLink=detail.querySelector('#aiTechVideoLink');
+    var videoSource=detail.querySelector('#aiTechVideoSource');
+    var how=detail.querySelector('#aiTechHow');
     function activate(btn){
       buttons.forEach(function(b){b.classList.remove('active');b.setAttribute('aria-selected','false')});
-      btn.classList.add('active');btn.setAttribute('aria-selected','true');var d=techData[btn.dataset.tech];if(!d)return;
-      detail.querySelector('.ai-tech-detail-icon i').className='bi '+d.icon;
-      detail.querySelector('h3').textContent=d.title;detail.querySelector('.ai-tech-summary').textContent=d.summary;
+      btn.classList.add('active');btn.setAttribute('aria-selected','true');
+      var d=techData[btn.dataset.tech];if(!d)return;
+      if(video){
+        video.src='https://www.youtube-nocookie.com/embed/'+d.videoId+'?rel=0';
+        video.title=d.videoTitle;
+      }
+      if(videoLink){videoLink.href=d.videoUrl;videoLink.setAttribute('aria-label','Watch '+d.videoTitle+' on YouTube');}
+      if(videoSource) videoSource.textContent=d.videoSource;
+      detail.querySelector('h3').textContent=d.title;
+      detail.querySelector('.ai-tech-summary').textContent=d.summary;
+      if(how) how.textContent=d.how;
       detail.querySelectorAll('.ai-tech-facts strong').forEach(function(el,i){el.textContent=d.facts[i]});
       if(window.gsap){
-        gsap.fromTo(detail,{opacity:.68,y:10,scale:.992},{opacity:1,y:0,scale:1,duration:.38,ease:'power2.out'});
-        gsap.fromTo(detail.querySelector('.ai-tech-detail-icon'),{rotate:-8,scale:.82},{rotate:0,scale:1,duration:.46,ease:'back.out(1.7)'});
+        gsap.fromTo(detail,{opacity:.72,y:10},{opacity:1,y:0,duration:.34,ease:'power2.out'});
+        if(video) gsap.fromTo(video.closest('.tech-video-frame'),{opacity:.45,scale:.985},{opacity:1,scale:1,duration:.42,ease:'power2.out'});
       }
     }
-    buttons.forEach(function(btn){btn.addEventListener('click',function(){activate(btn)});btn.addEventListener('focus',function(){if(!btn.classList.contains('active'))activate(btn)});});
+    buttons.forEach(function(btn){
+      btn.addEventListener('click',function(){activate(btn)});
+      btn.addEventListener('focus',function(){if(!btn.classList.contains('active'))activate(btn)});
+    });
   }
 
-  var flowData={
-    data:['01 · Data','AI starts with examples such as text, images, sensor readings or labelled records. Better-quality data usually produces more useful learning.'],
-    train:['02 · Training','During training, an algorithm adjusts internal parameters so its outputs become closer to the desired pattern or objective.'],
-    model:['03 · Model','The trained model stores the learned relationships. It is not a database of perfect answers; it is a mathematical system that estimates useful outputs.'],
-    output:['04 · Output','During inference, the model uses new input to produce a prediction, classification, recommendation or generated result.']
+  var flowData = {
+    data: ['01 · Data', 'AI starts with examples such as text, images, sensor readings or labelled records. Better-quality data usually produces more useful learning.'],
+    train: ['02 · Training', 'During training, an algorithm adjusts internal parameters so its outputs become closer to the desired pattern or objective.'],
+    model: ['03 · Model', 'The trained model stores the learned relationships. It is not a database of perfect answers; it is a mathematical system that estimates useful outputs.'],
+    output: ['04 · Output', 'During inference, the model uses new input to produce a prediction, classification, recommendation or generated result.']
   };
-  function initFlow(){var box=document.getElementById('aiFlowExplain');if(!box)return;document.querySelectorAll('.ai-flow-step').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.ai-flow-step').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');var d=flowData[btn.dataset.flow];box.querySelector('strong').textContent=d[0];box.querySelector('p').textContent=d[1];if(window.gsap)gsap.fromTo(box,{opacity:.55,x:-8},{opacity:1,x:0,duration:.25})})})}
+  function initFlow() { var box = document.getElementById('aiFlowExplain'); if (!box) return; document.querySelectorAll('.ai-flow-step').forEach(function (btn) { btn.addEventListener('click', function () { document.querySelectorAll('.ai-flow-step').forEach(function (b) { b.classList.remove('active') }); btn.classList.add('active'); var d = flowData[btn.dataset.flow]; box.querySelector('strong').textContent = d[0]; box.querySelector('p').textContent = d[1]; if (window.gsap) gsap.fromTo(box, { opacity: .55, x: -8 }, { opacity: 1, x: 0, duration: .25 }) }) }) }
 
-  var cases={
-    education:['bi-mortarboard','Education','Personalised learning and study support','AI can recommend practice material, summarise difficult content and help students receive feedback at their own pace.','Example: adaptive quiz recommendations based on previous answers.'],
-    health:['bi-heart-pulse','Healthcare','Assist clinicians with patterns in medical data','AI can help analyse scans, prioritise cases and identify patterns, while qualified professionals remain responsible for decisions.','Example: highlighting suspicious regions in medical images for review.'],
-    finance:['bi-graph-up-arrow','Finance','Detect patterns, risk and unusual activity','Financial systems use machine learning for fraud detection, credit-risk support and market analysis.','Example: flagging a transaction that differs strongly from normal behaviour.'],
-    creative:['bi-palette','Creative Work','Generate and refine ideas across media','Generative AI can support writing, images, audio, video and design ideation when users provide clear goals and evaluate outputs.','Example: generating concept variations for a campaign poster.'],
-    campus:['bi-buildings','Smart Campus','Use AI to improve campus services','AI can support scheduling, smart facilities, student services and campus operations when privacy and responsible-use requirements are considered.','Example: an FAQ assistant that routes students to the correct university service.']
+  var cases = {
+    education: ['https://images.unsplash.com/photo-1758270705317-3ef6142d306f?auto=format&fit=crop&w=1400&q=80', 'University students collaborating around a laptop', 'Education', 'Personalised learning and study support', 'AI can recommend practice material, summarise difficult content and help students receive feedback at their own pace.', 'Example: adaptive quiz recommendations based on previous answers.', 'assets/ai-visuals/usecase-education.svg'],
+    health: ['https://images.unsplash.com/photo-1758691461932-d0aa0ebf6b31?auto=format&fit=crop&w=1400&q=80', 'Doctor consulting a patient through a laptop', 'Healthcare', 'Assist clinicians with patterns in medical data', 'AI can help analyse scans, prioritise cases and identify patterns, while qualified professionals remain responsible for decisions.', 'Example: highlighting suspicious regions in medical images for review.', 'assets/ai-visuals/usecase-health.svg'],
+    finance: ['https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?auto=format&fit=crop&w=1400&q=80', 'Stock-market chart displayed on a laptop', 'Finance', 'Detect patterns, risk and unusual activity', 'Financial systems use machine learning for fraud detection, credit-risk support and market analysis.', 'Example: flagging a transaction that differs strongly from normal behaviour.', 'assets/ai-visuals/usecase-finance.svg'],
+    creative: ['https://images.unsplash.com/photo-1753164597967-b41945a05e89?auto=format&fit=crop&w=1400&q=80', 'Designer working with a laptop in a creative studio', 'Creative Work', 'Generate and refine ideas across media', 'Generative AI can support writing, images, audio, video and design ideation when users provide clear goals and evaluate outputs.', 'Example: generating concept variations for a campaign poster.', 'assets/ai-visuals/usecase-creative.svg'],
+    campus: ['https://images.unsplash.com/photo-1753613648120-d2c8d1d49002?auto=format&fit=crop&w=1400&q=80', 'University student working on a laptop in a library', 'Smart Campus', 'Use AI to improve campus services', 'AI can support scheduling, smart facilities, student services and campus operations when privacy and responsible-use requirements are considered.', 'Example: an FAQ assistant that routes students to the correct university service.', 'assets/ai-visuals/usecase-campus.svg']
   };
-  function initUsecases(){var panel=document.getElementById('aiUsecasePanel');if(!panel)return;document.querySelectorAll('.ai-usecase-tab').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.ai-usecase-tab').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');var d=cases[btn.dataset.case];panel.querySelector('.ai-usecase-icon i').className='bi '+d[0];panel.querySelector('.tag').textContent=d[1];panel.querySelector('h3').textContent=d[2];panel.querySelector('p').textContent=d[3];panel.querySelector('small').textContent=d[4];if(window.gsap)gsap.fromTo(panel,{opacity:.55,y:7},{opacity:1,y:0,duration:.3})})})}
-
-  function initPromptBuilder(){
-    var btn=document.getElementById('buildPrompt'),out=document.getElementById('promptOutput');if(!btn||!out)return;
-    btn.addEventListener('click',function(){var goal=(document.getElementById('promptGoal').value||'Explain the selected topic').trim();var audience=(document.getElementById('promptAudience').value||'a university student').trim();var format=document.getElementById('promptFormat').value;out.textContent='Act as a clear and accurate AI tutor.\\n\\nAudience: '+audience+'\\nTask: '+goal+'\\nOutput: '+format+'\\nRequirements: Define unfamiliar terms, use one practical example, separate facts from assumptions, and end with two key takeaways. If information is uncertain, say so rather than inventing details.';if(window.gsap)gsap.fromTo(out,{opacity:.5},{opacity:1,duration:.3})});
-    var copy=document.getElementById('copyPrompt');if(copy)copy.addEventListener('click',function(){var text=out.textContent;navigator.clipboard&&navigator.clipboard.writeText(text).then(function(){copy.innerHTML='<i class="bi bi-check2"></i> Copied';setTimeout(function(){copy.innerHTML='<i class="bi bi-copy"></i> Copy'},1200)})});
+  function initUsecases(){
+    var panel=document.getElementById('aiUsecasePanel');if(!panel)return;
+    document.querySelectorAll('.ai-usecase-tab').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        document.querySelectorAll('.ai-usecase-tab').forEach(function(b){b.classList.remove('active')});
+        btn.classList.add('active');
+        var d=cases[btn.dataset.case];
+        var img=panel.querySelector('#aiUsecaseImage');
+        if(img){
+          img.onerror=function(){img.onerror=null;img.src=d[6];};
+          img.src=d[0];
+          img.alt=d[1];
+        }
+        panel.querySelector('.tag').textContent=d[2];
+        panel.querySelector('h3').textContent=d[3];
+        panel.querySelector('p').textContent=d[4];
+        panel.querySelector('small').textContent=d[5];
+        if(window.gsap){
+          gsap.fromTo(panel,{opacity:.62,y:8},{opacity:1,y:0,duration:.3});
+          if(img) gsap.fromTo(img,{opacity:.3,scale:1.03},{opacity:1,scale:1,duration:.4});
+        }
+      })
+    })
+  }
+  function initPromptBuilder() {
+    var btn = document.getElementById('buildPrompt'), out = document.getElementById('promptOutput'); if (!btn || !out) return;
+    btn.addEventListener('click', function () { var goal = (document.getElementById('promptGoal').value || 'Explain the selected topic').trim(); var audience = (document.getElementById('promptAudience').value || 'a university student').trim(); var format = document.getElementById('promptFormat').value; out.textContent = 'Act as a clear and accurate AI tutor.\\n\\nAudience: ' + audience + '\\nTask: ' + goal + '\\nOutput: ' + format + '\\nRequirements: Define unfamiliar terms, use one practical example, separate facts from assumptions, and end with two key takeaways. If information is uncertain, say so rather than inventing details.'; if (window.gsap) gsap.fromTo(out, { opacity: .5 }, { opacity: 1, duration: .3 }) });
+    var copy = document.getElementById('copyPrompt'); if (copy) copy.addEventListener('click', function () { var text = out.textContent; navigator.clipboard && navigator.clipboard.writeText(text).then(function () { copy.innerHTML = '<i class="bi bi-check2"></i> Copied'; setTimeout(function () { copy.innerHTML = '<i class="bi bi-copy"></i> Copy' }, 1200) }) });
   }
 
-  function initAboutCounters(){
+    function initAboutCounters(){
     var counters=[].slice.call(document.querySelectorAll('.about-count'));
     if(!counters.length)return;
     function run(el){
@@ -1223,9 +1316,8 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
       counters.forEach(function(c){io.observe(c)});
     }else counters.forEach(run);
   }
-
-  function init(){initUprightOrbit();initTechExplorer();initFlow();initUsecases();initAboutCounters();}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+  function init() { initUprightOrbit(); initTechExplorer(); initFlow(); initUsecases(); initAboutCounters(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 
 
@@ -1238,18 +1330,18 @@ function initIntroResourcePreview() {
   if (!grid || typeof window.jQuery === 'undefined') return;
   $(grid).find('.intro-resource-card[data-repo]').each(function () {
     var $card = $(this), repo = $card.data('repo'), label = $card.data('label') || 'Resource';
-    $.ajax({ url:'https://api.github.com/repos/' + repo, method:'GET', dataType:'json', timeout:10000 })
+    $.ajax({ url: 'https://api.github.com/repos/' + repo, method: 'GET', dataType: 'json', timeout: 10000 })
       .done(function (data) {
-        var updated = data.updated_at ? new Date(data.updated_at).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'}) : 'Recently';
+        var updated = data.updated_at ? new Date(data.updated_at).toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Recently';
         var avatar = data.owner && data.owner.avatar_url ? data.owner.avatar_url : 'assets/nexus-motion-poster.jpg';
         $card.removeClass('skeleton-card').html(
-          '<div class="intro-resource-media"><img src="'+escapeHtml(avatar)+'" alt="'+escapeHtml((data.owner&&data.owner.login)||'GitHub')+' profile image" loading="lazy"><span class="resource-api-badge"><i class="bi bi-github"></i> LIVE GITHUB</span></div>'+
-          '<div class="intro-resource-body"><span class="intro-resource-type">'+escapeHtml(label)+'</span><h3>'+escapeHtml((data.name||repo).replace(/-/g,' '))+'</h3><p>'+escapeHtml(data.description||'Open-source learning resource on GitHub.')+'</p>'+
-          '<div class="intro-resource-meta"><span><i class="bi bi-star"></i> '+Number(data.stargazers_count||0).toLocaleString()+'</span><span>'+escapeHtml(data.language||'Mixed')+'</span><span>Updated '+escapeHtml(updated)+'</span></div>'+
-          '<div class="intro-resource-actions"><a class="btn small" href="'+escapeHtml(data.html_url)+'" target="_blank" rel="noopener">View Resource ↗</a><a class="text-link" href="resources.html">Learning roadmap →</a></div></div>'
+          '<div class="intro-resource-media"><img src="' + escapeHtml(avatar) + '" alt="' + escapeHtml((data.owner && data.owner.login) || 'GitHub') + ' profile image" loading="lazy"><span class="resource-api-badge"><i class="bi bi-github"></i> LIVE GITHUB</span></div>' +
+          '<div class="intro-resource-body"><span class="intro-resource-type">' + escapeHtml(label) + '</span><h3>' + escapeHtml((data.name || repo).replace(/-/g, ' ')) + '</h3><p>' + escapeHtml(data.description || 'Open-source learning resource on GitHub.') + '</p>' +
+          '<div class="intro-resource-meta"><span><i class="bi bi-star"></i> ' + Number(data.stargazers_count || 0).toLocaleString() + '</span><span>' + escapeHtml(data.language || 'Mixed') + '</span><span>Updated ' + escapeHtml(updated) + '</span></div>' +
+          '<div class="intro-resource-actions"><a class="btn small" href="' + escapeHtml(data.html_url) + '" target="_blank" rel="noopener">View Resource ↗</a><a class="text-link" href="resources.html">Learning roadmap →</a></div></div>'
         );
       }).fail(function () {
-        $card.removeClass('skeleton-card').find('h3').text(repo.split('/')[1].replace(/-/g,' '));
+        $card.removeClass('skeleton-card').find('h3').text(repo.split('/')[1].replace(/-/g, ' '));
         $card.find('p').text('GitHub could not be reached right now. Open the full Resources page to continue.');
       });
   });
@@ -1262,16 +1354,18 @@ function initChallengesPage() {
   if (!document.body.hasAttribute('data-challenges-page')) return;
   var filters = document.querySelectorAll('.challenge-filter');
   var cards = document.querySelectorAll('.challenge-card');
-  filters.forEach(function(btn){ btn.addEventListener('click', function(){
-    filters.forEach(function(b){b.classList.remove('active')}); btn.classList.add('active');
-    var f=btn.getAttribute('data-challenge-filter'); cards.forEach(function(card){ card.hidden = !(f==='All'||card.dataset.category===f); });
-    if(window.gsap) gsap.fromTo(Array.from(cards).filter(function(c){return !c.hidden}),{opacity:.35,y:14},{opacity:1,y:0,duration:.35,stagger:.04});
-  });});
-  var cd=document.getElementById('challengeCountdown');
-  if(cd){ var target=new Date(cd.dataset.target).getTime(); var boxes=cd.querySelectorAll('b'); function tick(){var d=Math.max(0,target-Date.now()),vals=[Math.floor(d/86400000),Math.floor((d%86400000)/3600000),Math.floor((d%3600000)/60000),Math.floor((d%60000)/1000)]; boxes.forEach(function(b,i){b.textContent=String(vals[i]||0).padStart(2,'0')});} tick(); setInterval(tick,1000); }
-  var modalEl=document.getElementById('challengeDetailModal'), modal=modalEl&&window.bootstrap?new bootstrap.Modal(modalEl):null;
-  document.querySelectorAll('.challenge-detail-btn').forEach(function(btn){btn.addEventListener('click',function(){var card=btn.closest('.challenge-card'); if(!card)return; document.getElementById('challengeModalCategory').textContent=card.dataset.category; document.getElementById('challengeModalTitle').textContent=card.dataset.title; document.getElementById('challengeModalDeadline').innerHTML='<i class="bi bi-calendar3"></i> Deadline: '+escapeHtml(card.dataset.deadline); document.getElementById('challengeModalTeam').innerHTML='<i class="bi bi-people"></i> '+escapeHtml(card.dataset.team); document.getElementById('challengeModalLevel').innerHTML='<i class="bi bi-bar-chart"></i> '+escapeHtml(card.dataset.level); document.getElementById('challengeModalDescription').textContent=card.dataset.description; if(modal)modal.show();});});
-  function saved(){try{return JSON.parse(localStorage.getItem('nexus_saved_challenges')||'[]')}catch(e){return[]}}
-  function render(){var list=saved(); document.querySelectorAll('.challenge-save-btn').forEach(function(btn){var on=list.indexOf(btn.dataset.challengeId)>-1;btn.classList.toggle('saved',on);btn.innerHTML=on?'<i class="bi bi-bookmark-check"></i> Saved':'<i class="bi bi-bookmark"></i> Save';}); var s=document.getElementById('savedChallengeSummary');if(s)s.textContent=list.length+' saved challenge'+(list.length===1?'':'s')+' in this browser.';}
-  document.querySelectorAll('.challenge-save-btn').forEach(function(btn){btn.addEventListener('click',function(){var list=saved(),id=btn.dataset.challengeId,i=list.indexOf(id);if(i>-1)list.splice(i,1);else list.push(id);localStorage.setItem('nexus_saved_challenges',JSON.stringify(list));render();});}); render();
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filters.forEach(function (b) { b.classList.remove('active') }); btn.classList.add('active');
+      var f = btn.getAttribute('data-challenge-filter'); cards.forEach(function (card) { card.hidden = !(f === 'All' || card.dataset.category === f); });
+      if (window.gsap) gsap.fromTo(Array.from(cards).filter(function (c) { return !c.hidden }), { opacity: .35, y: 14 }, { opacity: 1, y: 0, duration: .35, stagger: .04 });
+    });
+  });
+  var cd = document.getElementById('challengeCountdown');
+  if (cd) { var target = new Date(cd.dataset.target).getTime(); var boxes = cd.querySelectorAll('b'); function tick() { var d = Math.max(0, target - Date.now()), vals = [Math.floor(d / 86400000), Math.floor((d % 86400000) / 3600000), Math.floor((d % 3600000) / 60000), Math.floor((d % 60000) / 1000)]; boxes.forEach(function (b, i) { b.textContent = String(vals[i] || 0).padStart(2, '0') }); } tick(); setInterval(tick, 1000); }
+  var modalEl = document.getElementById('challengeDetailModal'), modal = modalEl && window.bootstrap ? new bootstrap.Modal(modalEl) : null;
+  document.querySelectorAll('.challenge-detail-btn').forEach(function (btn) { btn.addEventListener('click', function () { var card = btn.closest('.challenge-card'); if (!card) return; document.getElementById('challengeModalCategory').textContent = card.dataset.category; document.getElementById('challengeModalTitle').textContent = card.dataset.title; document.getElementById('challengeModalDeadline').innerHTML = '<i class="bi bi-calendar3"></i> Deadline: ' + escapeHtml(card.dataset.deadline); document.getElementById('challengeModalTeam').innerHTML = '<i class="bi bi-people"></i> ' + escapeHtml(card.dataset.team); document.getElementById('challengeModalLevel').innerHTML = '<i class="bi bi-bar-chart"></i> ' + escapeHtml(card.dataset.level); document.getElementById('challengeModalDescription').textContent = card.dataset.description; if (modal) modal.show(); }); });
+  function saved() { try { return JSON.parse(localStorage.getItem('nexus_saved_challenges') || '[]') } catch (e) { return [] } }
+  function render() { var list = saved(); document.querySelectorAll('.challenge-save-btn').forEach(function (btn) { var on = list.indexOf(btn.dataset.challengeId) > -1; btn.classList.toggle('saved', on); btn.innerHTML = on ? '<i class="bi bi-bookmark-check"></i> Saved' : '<i class="bi bi-bookmark"></i> Save'; }); var s = document.getElementById('savedChallengeSummary'); if (s) s.textContent = list.length + ' saved challenge' + (list.length === 1 ? '' : 's') + ' in this browser.'; }
+  document.querySelectorAll('.challenge-save-btn').forEach(function (btn) { btn.addEventListener('click', function () { var list = saved(), id = btn.dataset.challengeId, i = list.indexOf(id); if (i > -1) list.splice(i, 1); else list.push(id); localStorage.setItem('nexus_saved_challenges', JSON.stringify(list)); render(); }); }); render();
 }
