@@ -54,14 +54,110 @@
                         </div>
                 </div>
         </nav>
-        <header class="pagehead">
-                <div class="wrap">
+        <header class="pagehead ai-intro-hero">
+                <div class="wrap ai-intro-hero-stack">
                         <div class="breadcrumb">HOME <span class="cyan"> / AI INTRO</span></div>
                         <div class="badge-pill"><span class="pdot"></span>Knowledge Base</div>
                         <h1>What Artificial Intelligence actually is?</h1>
-                        <p style="max-width:900px;">Artificial Intelligence (AI) is a branch of computer science that
-                                enables machines to perform human-like tasks such as learning, reasoning,
-                                problem-solving, decision-making, and pattern recognition using data and algorithms.</p>
+                        <div class="ai-hero-flow-card reveal" aria-label="Animated data flowing into an AI model"
+                                role="img">
+                                <div class="ai-hero-flow-kicker"><span></span> DATA FLOW // AI PIPELINE</div>
+                                <svg class="ai-hero-flow-svg" viewBox="0 28 620 320" preserveAspectRatio="xMidYMid meet"
+                                        aria-hidden="true">
+                                        <defs>
+                                                <linearGradient id="flowGradientA" x1="0" y1="0" x2="1" y2="0">
+                                                        <stop offset="0%" stop-color="#58a6ff" />
+                                                        <stop offset="52%" stop-color="#a371f7" />
+                                                        <stop offset="100%" stop-color="#39d0c8" />
+                                                </linearGradient>
+                                                <linearGradient id="flowGradientB" x1="0" y1="0" x2="1" y2="0">
+                                                        <stop offset="0%" stop-color="#39d0c8" />
+                                                        <stop offset="50%" stop-color="#58a6ff" />
+                                                        <stop offset="100%" stop-color="#a371f7" />
+                                                </linearGradient>
+                                                <radialGradient id="flowCoreGlow">
+                                                        <stop offset="0%" stop-color="#8ec8ff" stop-opacity=".75" />
+                                                        <stop offset="100%" stop-color="#58a6ff" stop-opacity="0" />
+                                                </radialGradient>
+                                                <filter id="softGlow">
+                                                        <feGaussianBlur stdDeviation="6" result="blur" />
+                                                        <feMerge>
+                                                                <feMergeNode in="blur" />
+                                                                <feMergeNode in="SourceGraphic" />
+                                                        </feMerge>
+                                                </filter>
+                                        </defs>
+
+                                        <g class="flow-inputs">
+                                                <text x="32" y="44">INPUT DATA</text>
+                                                <g class="flow-bit-row row-a">
+                                                        <circle cx="42" cy="92" r="5" />
+                                                        <circle cx="64" cy="92" r="5" />
+                                                        <circle cx="86" cy="92" r="5" />
+                                                        <circle cx="108" cy="92" r="5" />
+                                                </g>
+                                                <g class="flow-bit-row row-b">
+                                                        <circle cx="42" cy="195" r="5" />
+                                                        <circle cx="64" cy="195" r="5" />
+                                                        <circle cx="86" cy="195" r="5" />
+                                                        <circle cx="108" cy="195" r="5" />
+                                                </g>
+                                                <g class="flow-bit-row row-c">
+                                                        <circle cx="42" cy="298" r="5" />
+                                                        <circle cx="64" cy="298" r="5" />
+                                                        <circle cx="86" cy="298" r="5" />
+                                                        <circle cx="108" cy="298" r="5" />
+                                                </g>
+                                        </g>
+
+                                        <g class="flow-streams" fill="none" stroke-linecap="round">
+                                                <path d="M115 92 C205 92 212 146 300 176" />
+                                                <path d="M115 112 C202 116 226 158 300 184" />
+                                                <path d="M115 195 C205 195 224 195 300 195" />
+                                                <path d="M115 215 C210 216 228 205 300 201" />
+                                                <path d="M115 298 C205 298 212 244 300 214" />
+                                                <path d="M115 318 C202 314 226 232 300 206" />
+                                        </g>
+
+                                        <g class="flow-neural" filter="url(#softGlow)">
+                                                <circle class="flow-core-halo" cx="325" cy="195" r="72"
+                                                        fill="url(#flowCoreGlow)" />
+                                                <circle class="flow-node n1" cx="294" cy="150" r="9" />
+                                                <circle class="flow-node n2" cx="332" cy="132" r="9" />
+                                                <circle class="flow-node n3" cx="356" cy="171" r="9" />
+                                                <circle class="flow-node n4" cx="307" cy="198" r="9" />
+                                                <circle class="flow-node n5" cx="349" cy="219" r="9" />
+                                                <circle class="flow-node n6" cx="315" cy="247" r="9" />
+                                                <path d="M294 150L332 132L356 171L307 198L349 219L315 247M294 150L307 198M332 132L307 198M356 171L349 219M307 198L315 247"
+                                                        class="flow-neural-links" />
+                                                <text x="271" y="294">PATTERN LEARNING</text>
+                                        </g>
+
+                                        <g class="flow-output">
+                                                <text x="445" y="44">MODEL OUTPUT</text>
+                                                <rect x="432" y="66" width="150" height="264" rx="18"
+                                                        class="flow-matrix-bg" />
+                                                <g class="flow-matrix-lines">
+                                                        <path
+                                                                d="M452 96h42M508 96h54M452 122h74M538 122h24M452 148h28M492 148h70M452 174h62M526 174h36M452 200h96M452 226h38M504 226h58M452 252h68M532 252h30M452 278h44M510 278h52M452 304h88" />
+                                                </g>
+                                                <g class="flow-output-pulse">
+                                                        <circle cx="555" cy="96" r="4" />
+                                                        <circle cx="520" cy="148" r="4" />
+                                                        <circle cx="468" cy="200" r="4" />
+                                                        <circle cx="544" cy="252" r="4" />
+                                                        <circle cx="487" cy="304" r="4" />
+                                                </g>
+                                        </g>
+                                </svg>
+                                <div class="ai-hero-flow-caption">
+                                        <span>DATA</span><i>→</i><span>LEARNING</span><i>→</i><span>RESULTS</span>
+                                </div>
+                        </div>
+                        <p class="ai-intro-hero-description">Artificial Intelligence (AI) is a branch of computer
+                                science that enables machines to
+                                perform human-like tasks such as learning, reasoning, problem-solving, decision-making,
+                                and pattern recognition using data and algorithms.</p>
                 </div>
         </header>
         <section class="section ai-video-explainer" id="ai-explained">
@@ -240,135 +336,135 @@
 
                 </div>
         </section>
-        <section class="section">
-                <div class="wrap grid cols-2">
-                        <div class="reveal">
-                                <div class="eyebrow">Definition</div>
-                                <h2>AI, in one sentence</h2>
-                                <p>Artificial Intelligence is software that learns patterns from data (or is designed to
-                                        reason over rules) so it
-                                        can make decisions or predictions without being explicitly programmed for every
-                                        case.</p>
-                                <p>Most of what people call "AI" today falls under <strong>Machine Learning</strong> —
-                                        systems that improve at a
-                                        task by training on examples rather than following hard-coded instructions.</p>
-                        </div>
-                        <div class="ai-glossary-card reveal">
-                                <div class="glossary-visual-head">
-                                        <div>
-                                                <div class="eyebrow">Quick Glossary</div>
-                                                <h3>AI terms at a glance.</h3>
-                                                <p>Short definitions for the words you will meet across the club
-                                                        website.</p>
-                                        </div>
-                                        <span class="glossary-badge">BEGINNER FRIENDLY</span>
-                                </div>
-                                <div class="glossary-grid">
-                                        <article><span class="glossary-icon">ML</span>
-                                                <div><strong>Machine Learning</strong><small>Systems learn useful
-                                                                patterns from data and examples.</small></div>
-                                        </article>
-                                        <article><span class="glossary-icon">NN</span>
-                                                <div><strong>Neural Network</strong><small>A layered mathematical model
-                                                                inspired by connected neurons.</small></div>
-                                        </article>
-                                        <article><span class="glossary-icon">DL</span>
-                                                <div><strong>Deep Learning</strong><small>Machine learning that uses
-                                                                neural networks with many layers.</small></div>
-                                        </article>
-                                        <article><span class="glossary-icon">LLM</span>
-                                                <div><strong>Large Language Model</strong><small>A model trained on
-                                                                large amounts of text to work with language.</small>
-                                                </div>
-                                        </article>
-                                        <article><span class="glossary-icon">TR</span>
-                                                <div><strong>Training</strong><small>The process of adjusting a model
-                                                                using examples or feedback.</small></div>
-                                        </article>
-                                        <article><span class="glossary-icon">IN</span>
-                                                <div><strong>Inference</strong><small>Using a trained model to produce a
-                                                                prediction or response.</small></div>
-                                        </article>
-                                </div>
-                        </div>
-                </div>
-        </section>
-        <section class="section alt ai-tech-section" id="ai-technologies">
+        <section class="section alt ai-landscape-section" id="ai-technologies">
                 <div class="wrap">
-                        <div class="section-head reveal ai-tech-head">
+                        <div class="section-head reveal ai-landscape-head">
                                 <div>
-                                        <div class="eyebrow">AI Technologies</div>
-                                        <h2>Explore the World of AI</h2>
-                                        <p>Discover the technologies behind the AI tools and applications we use every
-                                                day. Click a topic to explore.</p>
+                                        <div class="eyebrow">AI Landscape</div>
+                                        <h2>Major areas and how they connect.</h2>
+                                        <p>This is a conceptual map of important AI areas. Many of them overlap and
+                                                often work together inside one intelligent system.</p>
                                 </div>
-                                <div class="tech-live-chip"><span></span> INTERACTIVE MODE</div>
                         </div>
-                        <div class="ai-tech-layout reveal">
-                                <div aria-label="AI technology explorer" class="ai-tech-nav" role="tablist">
-                                        <button aria-selected="true" class="ai-tech-tab active" data-tech="ml"
-                                                role="tab" type="button"><i class="bi bi-diagram-3"></i><span>Machine
-                                                        Learning</span><small>Patterns from data</small><em
-                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
-                                        <button class="ai-tech-tab" data-tech="deep" role="tab" type="button"><i
-                                                        class="bi bi-layers"></i><span>Deep Learning</span><small>Neural
-                                                        networks</small><em
-                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
-                                        <button class="ai-tech-tab" data-tech="gen" role="tab" type="button"><i
-                                                        class="bi bi-stars"></i><span>Generative AI</span><small>Create
-                                                        new content</small><em
-                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
-                                        <button class="ai-tech-tab" data-tech="vision" role="tab" type="button"><i
-                                                        class="bi bi-eye"></i><span>Computer
-                                                        Vision</span><small>Understand images</small><em
-                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
-                                        <button class="ai-tech-tab" data-tech="nlp" role="tab" type="button"><i
-                                                        class="bi bi-chat-square-text"></i><span>NLP</span><small>Understand
-                                                        language</small><em
-                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
-                                        <button class="ai-tech-tab" data-tech="rl" role="tab" type="button"><i
-                                                        class="bi bi-arrow-repeat"></i><span>Reinforcement
-                                                        Learning</span><small>Learn from rewards</small><em
-                                                        class="tech-activity"><b></b><b></b><b></b></em></button>
-                                </div>
-                                <article aria-live="polite" class="ai-tech-detail ai-tech-detail-video-panel"
-                                        id="aiTechDetail">
-                                        <div class="tech-video-pane">
-                                                <div class="tech-video-frame">
-                                                        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                                allowfullscreen id="aiTechVideo" loading="lazy"
-                                                                referrerpolicy="strict-origin-when-cross-origin"
-                                                                src="https://www.youtube-nocookie.com/embed/znF2U_3Z210?rel=0"
-                                                                title="Machine Learning Explained: A Guide to ML, AI, &amp; Deep Learning"></iframe>
-                                                </div>
-                                                <div class="tech-video-meta">
-                                                        <span><i class="bi bi-play-circle"></i> <strong
-                                                                        id="aiTechVideoSource">IBM
-                                                                        Technology</strong></span>
-                                                        <a href="https://www.youtube.com/watch?v=znF2U_3Z210"
-                                                                id="aiTechVideoLink" rel="noopener noreferrer"
-                                                                target="_blank">Watch on YouTube <i
-                                                                        class="bi bi-box-arrow-up-right"></i></a>
-                                                </div>
-                                        </div>
-                                        <div class="tech-detail-content">
-                                                <div class="eyebrow">Selected Technology</div>
+                        <div class="ai-landscape-grid reveal">
+                                <article class="ai-landscape-card">
+                                        <div class="ai-landscape-media"><img src="assets/ai-visuals/tech-ml-light.svg"
+                                                        alt="Machine learning visual showing connected data patterns"
+                                                        loading="lazy" /></div>
+                                        <div class="ai-landscape-body">
+                                                <span class="ai-landscape-index">01 · LEARNING FROM DATA</span>
                                                 <h3>Machine Learning</h3>
-                                                <p class="ai-tech-summary">Systems learn patterns from examples instead
-                                                        of being programmed with a rule for every situation.</p>
-                                                <div class="tech-how-card">
-                                                        <small>How it works</small>
-                                                        <strong id="aiTechHow">Data → Training → Model →
-                                                                Prediction</strong>
+                                                <p>Learns patterns from data to make predictions or decisions.</p>
+                                                <ul>
+                                                        <li>Recommendation systems</li>
+                                                        <li>Fraud detection</li>
+                                                        <li>Prediction systems</li>
+                                                </ul>
+                                                <a class="text-link" href="resources.html">Start Learning →
+                                                        Resources</a>
+                                        </div>
+                                </article>
+                                <article class="ai-landscape-card">
+                                        <div class="ai-landscape-media"><img src="assets/ai-visuals/tech-deep-light.svg"
+                                                        alt="Deep learning visual showing multiple neural-network layers"
+                                                        loading="lazy" /></div>
+                                        <div class="ai-landscape-body">
+                                                <span class="ai-landscape-index">02 · NEURAL NETWORKS</span>
+                                                <h3>Deep Learning</h3>
+                                                <p>Uses deep neural networks to learn more complex patterns.</p>
+                                                <ul>
+                                                        <li>Image recognition</li>
+                                                        <li>Speech recognition</li>
+                                                        <li>Advanced language processing</li>
+                                                </ul>
+                                                <a class="text-link" href="resources.html">Start Learning →
+                                                        Resources</a>
+                                        </div>
+                                </article>
+                                <article class="ai-landscape-card">
+                                        <div class="ai-landscape-media"><img
+                                                        src="assets/ai-visuals/tech-vision-light.svg"
+                                                        alt="Computer vision visual showing an eye and detection boxes"
+                                                        loading="lazy" /></div>
+                                        <div class="ai-landscape-body">
+                                                <span class="ai-landscape-index">03 · IMAGES &amp; VIDEO</span>
+                                                <h3>Computer Vision</h3>
+                                                <p>Analyses and understands visual information from images and video.
+                                                </p>
+                                                <ul>
+                                                        <li>Object detection</li>
+                                                        <li>Smart cameras</li>
+                                                        <li>Autonomous systems</li>
+                                                </ul>
+                                                <a class="text-link" href="resources.html">Explore Computer Vision
+                                                        Resources</a>
+                                        </div>
+                                </article>
+                                <article class="ai-landscape-card">
+                                        <div class="ai-landscape-media"><img src="assets/ai-visuals/tech-nlp-light.svg"
+                                                        alt="Natural language processing visual with language symbols"
+                                                        loading="lazy" /></div>
+                                        <div class="ai-landscape-body">
+                                                <span class="ai-landscape-index">04 · HUMAN LANGUAGE</span>
+                                                <h3>Natural Language Processing</h3>
+                                                <p>Processes, understands and generates human language.</p>
+                                                <ul>
+                                                        <li>Translation</li>
+                                                        <li>Sentiment analysis</li>
+                                                        <li>Chatbots and classification</li>
+                                                </ul>
+                                                <a class="text-link" href="resources.html">Explore NLP Resources</a>
+                                        </div>
+                                </article>
+                                <article class="ai-landscape-card">
+                                        <div class="ai-landscape-media"><img src="assets/ai-visuals/tech-gen-light.svg"
+                                                        alt="Generative AI visual representing creation of text and media"
+                                                        loading="lazy" /></div>
+                                        <div class="ai-landscape-body">
+                                                <span class="ai-landscape-index">05 · CONTENT CREATION</span>
+                                                <h3>Generative AI</h3>
+                                                <p>Generates new text, images, audio or code based on learned patterns.
+                                                </p>
+                                                <ul>
+                                                        <li>Text and image generation</li>
+                                                        <li>Audio generation</li>
+                                                        <li>Code assistance</li>
+                                                </ul>
+                                                <a class="text-link" href="resources.html">Explore Generative AI
+                                                        Resources</a>
+                                        </div>
+                                </article>
+                                <article class="ai-landscape-card">
+                                        <div class="ai-landscape-media"><img src="assets/ai-visuals/tech-llm-light.svg"
+                                                        alt="Large language model visual" loading="lazy" /></div>
+                                        <div class="ai-landscape-body">
+                                                <span class="ai-landscape-index">06 · NLP + GENERATIVE AI</span>
+                                                <h3>Large Language Models</h3>
+                                                <p>Large models trained on extensive text and other data to understand
+                                                        and generate language.</p>
+                                                <ul>
+                                                        <li>AI assistants</li>
+                                                        <li>Question answering</li>
+                                                        <li>Summarisation and coding</li>
+                                                </ul>
+                                                <a class="text-link" href="resources.html">Explore LLM Resources</a>
+                                        </div>
+                                </article>
+                                <article class="ai-landscape-card ai-landscape-card-wide">
+                                        <div class="ai-landscape-media"><img
+                                                        src="assets/ai-visuals/tech-agentic-light.svg"
+                                                        alt="Agentic AI workflow visual showing goals, tools and actions"
+                                                        loading="lazy" /></div>
+                                        <div class="ai-landscape-body">
+                                                <span class="ai-landscape-index">07 · MODELS + TOOLS + ACTIONS</span>
+                                                <h3>Agentic AI</h3>
+                                                <p>Pursues goals through multiple steps by planning, reasoning, using
+                                                        tools, taking actions and evaluating results.</p>
+                                                <div class="agentic-flow" aria-label="Agentic AI process">
+                                                        <span>Goal</span><i>→</i><span>Plan</span><i>→</i><span>Reason</span><i>→</i><span>Tools</span><i>→</i><span>Action</span><i>→</i><span>Evaluate</span>
                                                 </div>
-                                                <div class="ai-tech-facts">
-                                                        <div><small>Student example</small><strong>Predict house prices
-                                                                        from past data</strong></div>
-                                                        <div><small>Common tools</small><strong>Python · scikit-learn ·
-                                                                        pandas</strong></div>
-                                                        <div><small>Good first project</small><strong>Classification or
-                                                                        recommendation system</strong></div>
-                                                </div>
+                                                <a class="text-link" href="resources.html">Explore Agentic AI
+                                                        Resources</a>
                                         </div>
                                 </article>
                         </div>
@@ -459,7 +555,8 @@
                                 <p><strong>AI</strong> is the broad goal of making machines perform intelligent tasks.
                                         <strong>Machine Learning</strong> is one way to achieve AI by learning from
                                         data. <strong>Deep Learning</strong> is a specialised type of machine learning
-                                        using multi-layer neural networks.</p>
+                                        using multi-layer neural networks.
+                                </p>
                                 <div class="comparison-key"><span><b>AI</b> broad field</span><span><b>ML</b> learns
                                                 from data</span><span><b>DL</b> deep neural networks</span></div>
                         </div>
@@ -477,49 +574,15 @@
                         </div>
                 </div>
         </section>
-        <section class="section alt ai-explore-more" id="explore-more">
+        <section class="section alt ai-next-learning" id="explore-more">
                 <div class="wrap">
-                        <div class="section-head reveal">
-                                <div class="eyebrow">Explore More</div>
-                                <h2>Keep Learning Beyond the Basics</h2>
-                                <p class="explore-more-intro"><em>Discover live GitHub resources, projects, and tools to
-                                                continue your AI learning journey.</em></p>
+                        <div class="next-learning-card reveal">
+                                <div class="eyebrow">Next Stage // Learn</div>
+                                <h2>Ready to Start Learning?</h2>
+                                <p>Now that you understand the major areas of AI, choose a learning path and start
+                                        building your skills.</p>
+                                <a class="btn" href="resources.html">Explore Learning Resources →</a>
                         </div>
-                        <div class="intro-resource-grid" id="introResourceGrid">
-                                <article class="intro-resource-card skeleton-card" data-label="AI Learning Resources"
-                                        data-repo="microsoft/AI-For-Beginners">
-                                        <div class="intro-resource-media"><span class="resource-image-placeholder"><i
-                                                                class="bi bi-stars"></i></span></div>
-                                        <div class="intro-resource-body"><span class="intro-resource-type">AI Learning
-                                                        Resources</span>
-                                                <h3>Loading resource…</h3>
-                                                <p>Fetching a beginner-friendly AI learning repository.</p>
-                                        </div>
-                                </article>
-                                <article class="intro-resource-card skeleton-card" data-label="Recommended AI Tools"
-                                        data-repo="huggingface/transformers">
-                                        <div class="intro-resource-media"><span class="resource-image-placeholder"><i
-                                                                class="bi bi-tools"></i></span></div>
-                                        <div class="intro-resource-body"><span class="intro-resource-type">Recommended
-                                                        AI Tools</span>
-                                                <h3>Loading resource…</h3>
-                                                <p>Fetching a widely used open-source AI tool repository.</p>
-                                        </div>
-                                </article>
-                                <article class="intro-resource-card skeleton-card" data-label="Beginner Tutorials"
-                                        data-repo="microsoft/ML-For-Beginners">
-                                        <div class="intro-resource-media"><span class="resource-image-placeholder"><i
-                                                                class="bi bi-mortarboard"></i></span></div>
-                                        <div class="intro-resource-body"><span class="intro-resource-type">Beginner
-                                                        Tutorials</span>
-                                                <h3>Loading resource…</h3>
-                                                <p>Fetching a practical machine-learning tutorial repository.</p>
-                                        </div>
-                                </article>
-                        </div>
-                        <div class="explore-more-actions reveal"><a class="btn" href="resources.html">Open Full
-                                        Resources</a><a class="btn ghost" href="workshops.html">Practise in
-                                        Workshops</a></div>
                 </div>
         </section>
         <footer>
