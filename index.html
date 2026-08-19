@@ -1,245 +1,328 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI AWS Club</title>
-<meta content="AI AWS is a student-run AI & Innovation Club focused on machine learning projects, prompt engineering workshops, and innovation challenges." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
-<link href="css/style.css" rel="stylesheet"/>
-<meta content="#0d1117" name="theme-color"/>
-<script>document.documentElement.classList.add('js-enabled');try{document.documentElement.setAttribute('data-theme',localStorage.getItem('nexus_mode')||'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}</script>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AI AWS Club</title>
+  <meta
+    content="AI AWS is a student-run AI & Innovation Club focused on machine learning projects, prompt engineering workshops, and innovation challenges."
+    name="description" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <meta content="#0d1117" name="theme-color" />
+  <script>document.documentElement.classList.add('js-enabled'); try { document.documentElement.setAttribute('data-theme', localStorage.getItem('nexus_mode') || 'dark'); } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }</script>
 </head>
+
 <body>
-<div aria-hidden="true" class="site-loader aws-logo-loader" id="siteLoader">
-<div aria-label="AI AWS Club loading animation" class="aws-unified-loader" role="img">
-<div class="aws-brand-emblem aws-brand-emblem-loader">
-<span class="aws-brand-ring ring-one"></span><span class="aws-brand-ring ring-two"></span>
-<span class="aws-brand-dot dot-one"></span><span class="aws-brand-dot dot-two"></span><span class="aws-brand-dot dot-three"></span>
-<img alt="" src="assets/aws-club-mark.svg"/>
-</div>
-<strong>AI AWS CLUB</strong><small>ASSEMBLING EXPERIENCE</small>
-</div>
-</div>
-<div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
-<div aria-hidden="true" class="page-transition" id="pageTransition"><span></span></div>
-<canvas id="netCanvas"></canvas>
-<div class="scanline"></div>
-<!-- NAV -->
-<nav class="navbar">
-<div class="container">
-<a class="brand" href="index.html"><img alt="" class="brand-logo" src="assets/aws-club-mark.svg"/> AI AWS CLUB </a>
-<div class="nav-right">
-<button aria-label="Toggle menu" class="navToggle">☰</button>
-<ul class="navlinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="ai-intro.html">AI Intro</a></li><li><a href="projects.html">Projects</a></li><li><a href="challenges.html">Challenges</a></li><li><a href="resources.html">Resources</a></li><li><a href="ai-news.html">AI News</a></li><li><a href="workshops.html">Workshops</a></li><li><a href="join.html">Join</a></li></ul>
-<button aria-label="Switch to light mode" class="theme-toggle" title="Switch to light mode" type="button"><span aria-hidden="true" class="theme-toggle-icon">☀</span></button>
-</div>
-</div>
-</nav>
-<!-- HERO -->
-<header class="hero">
-<div class="wrap">
-<div class="badge-pill"><span class="pdot"></span>SYSTEM ONLINE // WELCOME, EXPLORER</div>
-<h1>We build the <span class="accent">intelligence</span><br/>of tomorrow, today.</h1>
-<p style="max-width:560px;font-size:17px;">AI AWS is a student-run AI & Innovation Club for builders, researchers and curious learners —
-      machine learning projects, prompt engineering workshops, and innovation challenges that turn curiosity into working systems.</p>
-<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;">
-<a class="btn" href="join.html">Join the Club →</a>
-<a class="btn ghost" href="projects.html">View Projects</a>
-</div>
-<div class="terminal">
-<div class="tbar"><span></span><span></span><span></span></div>
-<div class="tbody" data-lines='[
+  <div aria-hidden="true" class="site-loader aws-logo-loader" id="siteLoader">
+    <div aria-label="AI AWS Club loading animation" class="aws-unified-loader" role="img">
+      <div class="aws-brand-emblem aws-brand-emblem-loader">
+        <span class="aws-brand-ring ring-one"></span><span class="aws-brand-ring ring-two"></span>
+        <span class="aws-brand-dot dot-one"></span><span class="aws-brand-dot dot-two"></span><span
+          class="aws-brand-dot dot-three"></span>
+        <img alt="" src="assets/aws-club-mark.svg" />
+      </div>
+      <strong>AI AWS CLUB</strong><small>ASSEMBLING EXPERIENCE</small>
+    </div>
+  </div>
+  <div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
+  <div aria-hidden="true" class="page-transition" id="pageTransition"><span></span></div>
+  <canvas id="netCanvas"></canvas>
+  <div class="scanline"></div>
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="brand" href="index.html"><img alt="" class="brand-logo" src="assets/aws-club-mark.svg" /> AI AWS CLUB
+      </a>
+      <div class="nav-right">
+        <button aria-label="Toggle menu" class="navToggle">☰</button>
+        <ul class="navlinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ai-intro.html">AI Intro</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="workshops.html">Workshops</a></li>
+          <li><a href="challenges.html">Challenges</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="join.html">Join</a></li>
+        </ul>
+        <button aria-label="Switch to light mode" class="theme-toggle" title="Switch to light mode" type="button"><span
+            aria-hidden="true" class="theme-toggle-icon">☀</span></button>
+      </div>
+    </div>
+  </nav>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="badge-pill"><span class="pdot"></span>SYSTEM ONLINE // WELCOME, EXPLORER</div>
+      <h1>We build the <span class="accent">intelligence</span><br />of tomorrow, today.</h1>
+      <p style="max-width:560px;font-size:17px;">AI AWS is a student-run AI & Innovation Club for builders, researchers
+        and curious learners —
+        machine learning projects, prompt engineering workshops, and innovation challenges that turn curiosity into
+        working systems.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;">
+        <a class="btn" href="join.html">Join the Club →</a>
+        <a class="btn ghost" href="projects.html">View Projects</a>
+      </div>
+      <div class="terminal">
+        <div class="tbar"><span></span><span></span><span></span></div>
+        <div class="tbody" data-lines='[
         {"prefix":"$ ","text":"node welcome.js","speed":28},
         {"prefix":"&gt; ","text":"Hello, World!","speed":58},
         {"prefix":"&gt; ","text":"Welcome to AWS AI &amp; Innovation Club.","speed":30},
         {"prefix":"&gt; ","text":"status: READY TO LEARN · BUILD · INNOVATE","speed":20}
       ]'></div>
-</div>
-<div class="stats reveal" id="statsBlock">
-<div class="cell"><span class="stat-number" data-target="148">0</span><small>Active Members</small></div>
-<div class="cell"><span class="stat-number" data-target="23">0</span><small>Projects</small></div>
-<div class="cell"><span class="stat-number" data-target="17">0</span><small>Workshops Held</small></div>
-<div class="cell"><span class="stat-number" data-target="6">0</span><small>Hackathon Wins</small></div>
-</div>
-<p class="stats-source reveal"><i class="bi bi-info-circle"></i> Club snapshot · animated front-end counters</p>
-</div></header>
-<!-- MOTION SHOWCASE -->
-<section class="section showcase-reel">
-<div class="wrap showcase-grid">
-<div class="showcase-copy reveal">
-<div class="eyebrow">Club Highlight // AI in Motion</div>
-<h2>See ideas move from <span class="accent">concept to prototype.</span></h2>
-<p>This short motion reel gives the homepage a multimedia focal point while keeping the layout clean. Replace the local MP4 later with your own workshop, project-demo or event highlight video.</p>
-<div class="build-meta">
-<span><i class="status-dot"></i>BRANCH · version3.0</span>
-<span>REST API · GitHub</span>
-<span>MOTION · GSAP</span>
-</div>
-<a class="text-link" href="projects.html">Open live project feed <span>↗</span></a>
-</div>
-<div class="video-shell reveal" data-video-shell="">
-<div class="video-topbar"><span class="window-dots"><i></i><i></i><i></i></span><span>nexus-motion.mp4</span><span>08s LOOP</span></div>
-<video aria-label="AI and Innovation Club motion highlight" autoplay="" class="showcase-video" controls="" loop="" muted="" playsinline="" poster="assets/nexus-motion-poster.jpg" preload="metadata">
-<source src="assets/nexus-motion.mp4" type="video/mp4"/>
-</video>
-<div class="video-overlay">
-<span>AI CLUB // MOTION HIGHLIGHT</span>
-<span>FRAME SYNC 24 FPS</span>
-</div>
-</div>
-</div>
-</section>
-<!-- PROGRAM PILLARS -->
-<section class="section">
-<div class="wrap">
-<div class="section-head reveal">
-<div class="eyebrow">Core Programs</div>
-<h2>Four ways to plug in</h2>
-<p>Every member enters through one of four tracks — each feeding real projects, real workshops, and real challenges.</p>
-</div>
-<div class="grid cols-3">
-<div class="card reveal">
-<span class="tag">01 · Learn</span>
-<h3>AI Fundamentals</h3>
-<p>From perceptrons to transformers — a guided introduction to how modern AI actually works, no PhD required.</p>
-<a class="pill cyan" href="ai-intro.html">Explore →</a>
-</div>
-<div class="card reveal">
-<span class="tag">02 · Build</span>
-<h3>ML Project Lab</h3>
-<p>Ship real machine learning projects with a team, a mentor, and a demo day deadline.</p>
-<a class="pill cyan" href="projects.html">Explore →</a>
-</div>
-<div class="card reveal">
-<span class="tag">03 · Practice</span>
-<h3>Prompt Engineering</h3>
-<p>Hands-on workshops on getting reliable, precise output from large language models.</p>
-<a class="pill cyan" href="workshops.html#prompt-engineering">Explore →</a>
-</div>
-<div class="card reveal">
-<span class="tag">04 · Compete</span>
-<h3>Innovation Challenges</h3>
-<p>Themed hackathons and challenge sprints — pitch, prototype, and present in 48 hours.</p>
-<a class="pill cyan" href="challenges.html">Explore →</a>
-</div>
-<div class="card reveal">
-<span class="tag">05 · Connect</span>
-<h3>Workshops &amp; Meetups</h3>
-<p>Weekly meetups, guest-speaker sessions, and a full calendar of upcoming activity.</p>
-<a class="pill cyan" href="workshops.html">Explore →</a>
-</div>
-<div class="card reveal">
-<span class="tag">06 · Join</span>
-<h3>Membership</h3>
-<p>No experience required — just curiosity. Apply in under two minutes.</p>
-<a class="pill cyan" href="join.html">Explore →</a>
-</div>
-</div>
-</div>
-</section>
-<!-- LIVE STATUS PANEL -->
-<section class="section alt">
-<div class="wrap">
-<div class="grid cols-2" style="align-items:start;">
-<div class="reveal">
-<div class="eyebrow">Local System Diagnostics</div>
-<h2>Your session, decoded</h2>
-<p>This panel is powered entirely by browser storage — a live demonstration of cookies, sessionStorage and localStorage
-          working together across the site (see Chapter on storage in our report). Visit another page and come back to watch it update.</p>
-</div>
-<div class="hud reveal">
-<span class="corner-tr"></span><span class="corner-bl"></span>
-<div class="eyebrow" style="margin-bottom:16px;">HUD // storage.status</div>
-<div class="datapanel" id="storageStatus">Loading…</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- AI COMMUNITY SOCIAL PLUGINS -->
-<section class="section social-plugin-section" id="socialHub">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <div class="eyebrow">AI Society Network // Social Plugins</div>
-        <h2>Connect with the wider AI community.</h2>
-        <p>Explore real university AI communities through social integrations. These reference profiles can be replaced with your own AI AWS Club accounts when your group creates them.</p>
       </div>
-      <div class="social-consent-state" id="socialConsentState"><i class="bi bi-shield-lock"></i> Checking cookie preference…</div>
+      <div class="stats reveal" id="statsBlock">
+        <div class="cell"><span class="stat-number" data-target="148">0</span><small>Active Members</small></div>
+        <div class="cell"><span class="stat-number" data-target="23">0</span><small>Projects</small></div>
+        <div class="cell"><span class="stat-number" data-target="17">0</span><small>Workshops Held</small></div>
+        <div class="cell"><span class="stat-number" data-target="6">0</span><small>Hackathon Wins</small></div>
+      </div>
+      <p class="stats-source reveal"><i class="bi bi-info-circle"></i> Club snapshot · animated front-end counters</p>
     </div>
-    <div class="social-plugin-strip reveal" id="socialPluginHub">
-      <article class="social-plugin-card social-x-card">
-        <div class="social-plugin-label"><i class="bi bi-twitter-x"></i><span>X</span></div>
-        <div class="social-plugin-mount" id="xPluginMount"></div>
-      </article>
-      <article class="social-plugin-card social-facebook-card">
-        <div class="social-plugin-label"><i class="bi bi-facebook"></i><span>Facebook</span></div>
-        <div class="social-plugin-mount" id="facebookPluginMount"></div>
-      </article>
-      <article class="social-plugin-card social-discord-card">
-        <div class="social-plugin-label"><i class="bi bi-discord"></i><span>Discord</span></div>
-        <div class="social-plugin-mount" id="discordPluginMount"></div>
-      </article>
-      <a class="social-plugin-card social-direct-card social-instagram-card" href="https://www.instagram.com/uclaisociety/" target="_blank" rel="noopener">
-        <div class="social-plugin-label"><i class="bi bi-instagram"></i><span>Instagram</span></div>
-        <div class="social-direct-content"><i class="bi bi-instagram"></i><div><strong>@uclaisociety</strong><span>UCL AI Society community</span></div><b>Open ↗</b></div>
-      </a>
-      <article class="social-plugin-card social-github-card">
-        <div class="social-plugin-label"><i class="bi bi-github"></i><span>GitHub</span></div>
-        <div class="social-plugin-mount" id="githubPluginMount"></div>
-      </article>
+  </header>
+  <!-- MOTION SHOWCASE -->
+  <section class="section showcase-reel">
+    <div class="wrap showcase-grid">
+      <div class="showcase-copy reveal">
+        <div class="eyebrow">Club Highlight // AI in Motion</div>
+        <h2>See ideas move from <span class="accent">concept to prototype.</span></h2>
+        <p>A glimpse of the club cycle: explore an idea, learn the tools, build with a team and share a working
+          prototype.</p>
+        <div class="build-meta">
+          <span><i class="status-dot"></i>BRANCH · version3.0</span>
+          <span>LEARN · BUILD</span>
+          <span>SHARE · IMPROVE</span>
+        </div>
+        <a class="text-link" href="projects.html">Open live project feed <span>↗</span></a>
+      </div>
+      <div class="video-shell reveal" data-video-shell="">
+        <div class="video-topbar"><span
+            class="window-dots"><i></i><i></i><i></i></span><span>nexus-motion.mp4</span><span>08s LOOP</span></div>
+        <video aria-label="AI and Innovation Club motion highlight" autoplay="" class="showcase-video" controls=""
+          loop="" muted="" playsinline="" poster="assets/nexus-motion-poster.jpg" preload="metadata">
+          <source src="assets/nexus-motion.mp4" type="video/mp4" />
+        </video>
+        <div class="video-overlay">
+          <span>AI CLUB // MOTION HIGHLIGHT</span>
+          <span>FRAME SYNC 24 FPS</span>
+        </div>
+      </div>
     </div>
-    <p class="social-plugin-note"><i class="bi bi-info-circle"></i> X and Facebook use third-party website widgets from university AI societies. Discord and Instagram connect to AI-society communities, while GitHub loads live NUS AI Society organisation data. Consent-gating keeps the cookie demo meaningful.</p>
-  </div>
-</section>
+  </section>
+  <!-- PROGRAM PILLARS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Core Programs</div>
+        <h2>Your AI journey starts here</h2>
+        <p>Move from first discovery to a project worth sharing. Enter at the stage that matches your experience.</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <span class="tag">01 · Explore</span>
+          <h3>Understand AI</h3>
+          <p>See how AI, machine learning, deep learning, LLMs, vision and agents relate.</p>
+          <a class="pill cyan" href="ai-intro.html">Explore →</a>
+        </div>
+        <div class="card reveal">
+          <span class="tag">02 · Learn</span>
+          <h3>Build Your Knowledge</h3>
+          <p>Choose a staged path with tutorials, documentation, practice and open-source examples.</p>
+          <a class="pill cyan" href="resources.html">Start Learning →</a>
+        </div>
+        <div class="card reveal">
+          <span class="tag">03 · Participate</span>
+          <h3>Join Workshops</h3>
+          <p>Learn with the club through guided labs, clinics, talks and collaborative build nights.</p>
+          <a class="pill cyan" href="workshops.html">View Workshops →</a>
+        </div>
+        <div class="card reveal">
+          <span class="tag">04 · Challenge</span>
+          <h3>Apply Your Skills</h3>
+          <p>Respond to a real brief, work under constraints and present evidence for your idea.</p>
+          <a class="pill cyan" href="challenges.html">Find a Challenge →</a>
+        </div>
+        <div class="card reveal">
+          <span class="tag">05 · Build</span>
+          <h3>Create Solutions</h3>
+          <p>Turn an AI concept into a prototype through teamwork, testing and iteration.</p>
+          <a class="pill cyan" href="projects.html">Explore Projects →</a>
+        </div>
+        <div class="card reveal">
+          <span class="tag">06 · Showcase</span>
+          <h3>Share Your Work</h3>
+          <p>Document what you learned, demonstrate the result and inspire the next team.</p>
+          <a class="pill cyan" href="projects.html">See the Showcase →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- WORKSHOP PREVIEW -->
+  <section class="section alt home-preview-section">
+    <div class="wrap">
+      <div class="home-preview-heading reveal">
+        <div>
+          <div class="eyebrow">Learn With the Club</div>
+          <h2>Upcoming workshops</h2>
+          <p>Guided sessions that move members from understanding to hands-on practice.</p>
+        </div><a class="see-all-box" href="workshops.html">See all workshops <i class="bi bi-arrow-up-right"></i></a>
+      </div>
+      <div class="home-preview-grid">
+        <article class="home-preview-card reveal"><span>BEGINNER · 12 SEP</span><i class="bi bi-cpu"></i>
+          <h3>AI Fundamentals Bootcamp</h3>
+          <p>Understand core AI ideas and complete a first guided experiment.</p><a class="text-link"
+            href="workshops.html">View session →</a>
+        </article>
+        <article class="home-preview-card reveal"><span>BEGINNER · 26 SEP</span><i class="bi bi-chat-square-text"></i>
+          <h3>Prompt Engineering Lab</h3>
+          <p>Test prompt structures and evaluate output for realistic student tasks.</p><a class="text-link"
+            href="workshops.html">View session →</a>
+        </article>
+        <article class="home-preview-card reveal"><span>INTERMEDIATE · 10 OCT</span><i class="bi bi-code-slash"></i>
+          <h3>Generative AI Build Night</h3>
+          <p>Connect a simple web interface to an AI-assisted workflow.</p><a class="text-link"
+            href="workshops.html">View session →</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<!-- CTA -->
-<section class="section center">
-<div class="wrap">
-<div class="eyebrow" style="justify-content:center;">Ready when you are</div>
-<h2 style="font-size:clamp(26px,5vw,42px);max-width:640px;margin:0 auto 20px;">Your next project starts with one application.</h2>
-<a class="btn" href="join.html">Apply to AI AWS →</a>
-</div>
-</section>
-<!-- FOOTER -->
-<footer>
-<div class="wrap">
-<div class="foot-grid">
-<div>
-<div class="brand" style="margin-bottom:10px;"><img alt="" class="brand-logo" src="assets/aws-club-mark.svg"/> AI AWS CLUB</div>
-<p style="max-width:320px;">The AI AWS Club — a home for students who'd rather build the future than wait for it.</p>
-</div>
-<div>
-<h4>Navigate</h4>
-<ul>
-<li><a href="about.html">About</a></li>
-<li><a href="projects.html">Projects</a></li>
-<li><a href="ai-news.html">AI News</a></li>
-<li><a href="workshops.html">Workshops</a></li>
-</ul>
-</div>
-<div>
-<h4>Connect</h4>
-<ul>
-<li><a href="join.html">Join</a></li>
-</ul>
-</div>
-</div>
-<div class="foot-bottom">
-<span>© 2026 AI AWS CLUB — UCCD2323 GROUP PROJECT</span>
-<span>BUILT WITH HTML5 · CSS3 · JS · JQUERY · BOOTSTRAP</span>
-</div>
-</div>
-</footer>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/advanced-ui.js"></script>
+  <!-- PROJECT PREVIEW -->
+  <section class="section home-preview-section">
+    <div class="wrap">
+      <div class="home-preview-heading reveal">
+        <div>
+          <div class="eyebrow">Student Innovation</div>
+          <h2>Featured projects</h2>
+          <p>Winning challenge solutions and club prototypes built around real student needs.</p>
+        </div><a class="see-all-box" href="projects.html">See all projects <i class="bi bi-arrow-up-right"></i></a>
+      </div>
+      <div class="home-preview-grid">
+        <article class="home-preview-card project-preview reveal"><span>1ST PLACE · COMPUTER VISION</span><i
+            class="bi bi-camera-video"></i>
+          <h3>CampusEye</h3>
+          <p>Privacy-aware study-space availability detection for a smarter campus.</p><a class="text-link"
+            href="project-detail.html?id=campuseye">View project →</a>
+        </article>
+        <article class="home-preview-card project-preview reveal"><span>2ND PLACE · RAG</span><i
+            class="bi bi-chat-square-text"></i>
+          <h3>StudyBuddy GPT</h3>
+          <p>A source-aware study assistant grounded in approved faculty notes.</p><a class="text-link"
+            href="project-detail.html?id=studybuddy">View project →</a>
+        </article>
+        <article class="home-preview-card project-preview reveal"><span>3RD PLACE · RECOMMENDER</span><i
+            class="bi bi-people"></i>
+          <h3>ClubMatch</h3>
+          <p>Explainable club recommendations based on student interests.</p><a class="text-link"
+            href="project-detail.html?id=clubmatch">View project →</a>
+        </article>
+      </div>
+      <details class="technical-status reveal">
+        <summary>How this site remembers your experience</summary>
+        <p>Theme, learning choices, saved resources and registrations use browser storage to keep useful preferences
+          between pages.</p>
+        <div class="datapanel" id="storageStatus">Loading…</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- AI COMMUNITY SOCIAL PLUGINS -->
+  <section class="section social-plugin-section" id="socialHub">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">AI Society Network // Social Plugins</div>
+          <h2>Connect with the wider AI community.</h2>
+          <p>Explore real university AI communities through social integrations. These reference profiles can be
+            replaced with your own AI AWS Club accounts when your group creates them.</p>
+        </div>
+        <div class="social-consent-state" id="socialConsentState"><i class="bi bi-shield-lock"></i> Checking cookie
+          preference…</div>
+      </div>
+      <div class="social-plugin-strip reveal" id="socialPluginHub">
+        <article class="social-plugin-card social-x-card">
+          <div class="social-plugin-label"><i class="bi bi-twitter-x"></i><span>X</span></div>
+          <div class="social-plugin-mount" id="xPluginMount"></div>
+        </article>
+        <article class="social-plugin-card social-facebook-card">
+          <div class="social-plugin-label"><i class="bi bi-facebook"></i><span>Facebook</span></div>
+          <div class="social-plugin-mount" id="facebookPluginMount"></div>
+        </article>
+        <article class="social-plugin-card social-discord-card">
+          <div class="social-plugin-label"><i class="bi bi-discord"></i><span>Discord</span></div>
+          <div class="social-plugin-mount" id="discordPluginMount"></div>
+        </article>
+        <a class="social-plugin-card social-direct-card social-instagram-card"
+          href="https://www.instagram.com/uclaisociety/" target="_blank" rel="noopener">
+          <div class="social-plugin-label"><i class="bi bi-instagram"></i><span>Instagram</span></div>
+          <div class="social-direct-content"><i class="bi bi-instagram"></i>
+            <div><strong>@uclaisociety</strong><span>UCL AI Society community</span></div><b>Open ↗</b>
+          </div>
+        </a>
+        <article class="social-plugin-card social-github-card">
+          <div class="social-plugin-label"><i class="bi bi-github"></i><span>GitHub</span></div>
+          <div class="social-plugin-mount" id="githubPluginMount"></div>
+        </article>
+      </div>
+      <p class="social-plugin-note"><i class="bi bi-info-circle"></i> X and Facebook use third-party website widgets
+        from university AI societies. Discord and Instagram connect to AI-society communities, while GitHub loads live
+        NUS AI Society organisation data. Consent-gating keeps the cookie demo meaningful.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section center">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center;">Ready when you are</div>
+      <h2 style="font-size:clamp(26px,5vw,42px);max-width:640px;margin:0 auto 20px;">Your next project starts with one
+        application.</h2>
+      <a class="btn" href="join.html">Apply to AI AWS →</a>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="brand" style="margin-bottom:10px;"><img alt="" class="brand-logo"
+              src="assets/aws-club-mark.svg" /> AI AWS CLUB</div>
+          <p style="max-width:320px;">The AI AWS Club — a home for students who'd rather build the future than wait for
+            it.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+
+            <li><a href="workshops.html">Workshops</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="join.html">Join</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 AI AWS CLUB — UCCD2323 GROUP PROJECT</span>
+        <span>BUILT WITH HTML5 · CSS3 · JS · JQUERY · BOOTSTRAP</span>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/advanced-ui.js"></script>
 </body>
+
 </html>

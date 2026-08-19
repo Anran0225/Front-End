@@ -37,11 +37,10 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="ai-intro.html">AI Intro</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="challenges.html">Challenges</a></li>
                     <li><a href="resources.html">Resources</a></li>
-                    <li><a href="ai-news.html">AI News</a></li>
                     <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="challenges.html">Challenges</a></li>
+                    <li><a href="projects.html">Projects</a></li>
                     <li><a href="join.html">Join</a></li>
                 </ul><button aria-label="Switch to light mode" class="theme-toggle" title="Switch to light mode"
                     type="button"><span aria-hidden="true" class="theme-toggle-icon">☀</span></button>
@@ -69,16 +68,18 @@
     <section class="section">
         <div class="wrap">
             <div class="section-head reveal">
-                <div class="eyebrow">Club Project Lab</div>
-                <h2>Featured student project concepts</h2>
-                <p>Each card opens a quick view. Select “Full details” for a dedicated project page with technologies,
-                    contributors, media and source links.</p>
+                <div class="eyebrow">Smart Campus AI Challenge 2026</div>
+                <h2>Hackathon winners</h2>
+                <p>Three solutions recognised for combining useful campus impact with a clear, responsible AI approach.
+                </p>
             </div>
-            <div class="project-showcase-grid" id="clubProjectGrid">
-                <article class="project-showcase-card reveal" data-project-card="campuseye">
+            <div class="project-showcase-grid winner-project-grid" id="challengeWinnerGrid">
+                <article class="project-showcase-card winner-card reveal" data-project-card="campuseye">
+                    <div class="project-award"><i class="bi bi-trophy-fill"></i> 1st Place</div>
                     <div class="project-cover cover-vision"><i class="bi bi-camera-video"></i><span>COMPUTER
                             VISION</span></div>
                     <div class="project-card-body">
+                        <div class="project-origin">Created for · Smart Campus AI Challenge 2026</div>
                         <div class="project-tags"><span>AI</span><span>CNN</span><span>Dashboard</span></div>
                         <h3>CampusEye</h3>
                         <p>Detect free library seats from camera frames and publish availability to a lightweight
@@ -91,10 +92,12 @@
                         </div>
                     </div>
                 </article>
-                <article class="project-showcase-card reveal" data-project-card="studybuddy">
+                <article class="project-showcase-card winner-card reveal" data-project-card="studybuddy">
+                    <div class="project-award"><i class="bi bi-award-fill"></i> 2nd Place</div>
                     <div class="project-cover cover-nlp"><i class="bi bi-chat-square-text"></i><span>NLP · RAG</span>
                     </div>
                     <div class="project-card-body">
+                        <div class="project-origin">Created for · Smart Campus AI Challenge 2026</div>
                         <div class="project-tags"><span>LLM</span><span>RAG</span><span>Citations</span></div>
                         <h3>StudyBuddy GPT</h3>
                         <p>A retrieval-augmented study assistant that answers revision questions from faculty notes with
@@ -107,9 +110,11 @@
                         </div>
                     </div>
                 </article>
-                <article class="project-showcase-card reveal" data-project-card="clubmatch">
+                <article class="project-showcase-card winner-card reveal" data-project-card="clubmatch">
+                    <div class="project-award"><i class="bi bi-award"></i> 3rd Place</div>
                     <div class="project-cover cover-match"><i class="bi bi-people"></i><span>RECOMMENDER</span></div>
                     <div class="project-card-body">
+                        <div class="project-origin">Created for · Smart Campus AI Challenge 2026</div>
                         <div class="project-tags"><span>ML</span><span>Ranking</span><span>Campus</span></div>
                         <h3>ClubMatch</h3>
                         <p>Recommend campus clubs by matching student interests with activity profiles and collaborative
@@ -122,6 +127,14 @@
                         </div>
                     </div>
                 </article>
+            </div>
+            <div class="section-head project-group-head reveal">
+                <div class="eyebrow">Club Project Lab</div>
+                <h2>Club projects</h2>
+                <p>Ongoing member experiments developed through workshops, team practice and independent exploration.
+                </p>
+            </div>
+            <div class="project-showcase-grid" id="clubProjectGrid">
                 <article class="project-showcase-card reveal" data-project-card="linechaser">
                     <div class="project-cover cover-robot"><i class="bi bi-cpu"></i><span>ROBOTICS</span></div>
                     <div class="project-card-body">
