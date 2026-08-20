@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="0.55" stop-color="#f7f9fc"/>
+    <stop offset="1" stop-color="#eef3ff"/>
+  </linearGradient>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#58a6ff"/>
+    <stop offset="1" stop-color="#a371f7"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="960" height="600" rx="34" fill="url(#bg)"/>
+<g opacity=".11" stroke="#3b82f6">
+  <path d="M0 90H960M0 180H960M0 270H960M0 360H960M0 450H960M0 540H960"/>
+  <path d="M120 0V600M240 0V600M360 0V600M480 0V600M600 0V600M720 0V600M840 0V600"/>
+</g>
+<circle cx="820" cy="100" r="92" fill="#58a6ff" opacity=".05"/>
+<circle cx="140" cy="510" r="110" fill="#a371f7" opacity=".05"/>
+
+<g transform="translate(115 125)">
+ <rect x="0" y="0" width="290" height="300" rx="30" fill="#f7f9fc" stroke="#58a6ff" stroke-width="3"/>
+ <rect x="320" y="70" width="340" height="230" rx="28" fill="#f7f9fc" stroke="#a371f7" stroke-width="3"/>
+ <g fill="#1f2937"><rect x="38" y="50" width="200" height="18" rx="9"/><rect x="38" y="92" width="160" height="18" rx="9"/><rect x="38" y="134" width="220" height="18" rx="9"/></g>
+ <path d="M42 245l55-62 48 35 65-92 45 80" fill="none" stroke="#3fb950" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M435 126l26 55 61 7-46 39 14 60-55-30-55 30 13-60-45-39 61-7z" fill="url(#g)" filter="url(#glow)"/>
+</g>
+<text x="54" y="70" fill="#79c0ff" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="4">GENERATIVE AI</text>
+<text x="54" y="548" fill="#1f2937" font-family="Arial,sans-serif" font-size="25" font-weight="700">Create text, images, audio and code</text>
+</svg>

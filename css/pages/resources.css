@@ -1,0 +1,628 @@
+/* resources.html styles — generated from the consolidated final stylesheet */
+/* Reusable dashboard-style information panel. */
+.hud {
+  position: relative;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2)), var(--grad-panel);
+  background-blend-mode: normal, normal;
+  border: 1px solid var(--line);
+  padding: 26px;
+}
+
+.hud::before,
+.hud::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--cyan);
+}
+
+.hud::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.hud::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+.hud .corner-tr,
+.hud .corner-bl {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--cyan);
+}
+
+.hud .corner-tr {
+  top: -1px;
+  right: -1px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.hud .corner-bl {
+  bottom: -1px;
+  left: -1px;
+  border-right: none;
+  border-top: none;
+}
+
+/* Two-column learning roadmap and recommendations layout. */
+.learning-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, .8fr) minmax(0, 1.35fr);
+  gap: 24px;
+  align-items: start
+}
+
+.learning-path,
+/* GitHub REST API resource recommendations. */
+.learning-recommendation {
+  padding: 30px
+}
+
+.learning-path h2,
+.learning-recommendation h2 {
+  font-size: clamp(22px, 3vw, 32px)
+}
+
+/* Current learning stage and completion progress. */
+.learning-meter-copy {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: 'JetBrains Mono';
+  font-size: 11px;
+  color: var(--dim);
+  margin: 24px 0 8px
+}
+
+.learning-meter-copy strong {
+  color: var(--cyan)
+}
+
+.learning-meter {
+  height: 7px;
+  background: rgba(135, 146, 168, .15);
+  border: 1px solid var(--line);
+  overflow: hidden
+}
+
+.learning-meter span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--grad-signal);
+  box-shadow: var(--glow-cyan);
+  transition: width .35s ease
+}
+
+/* Five selectable AI learning tracks. */
+.learning-roadmap {
+  margin-top: 18px
+}
+
+.roadmap-step {
+  display: grid;
+  grid-template-columns: 46px 1fr 20px;
+  gap: 13px;
+  align-items: center;
+  width: 100%;
+  padding: 13px 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer
+}
+
+.roadmap-step:hover,
+.roadmap-step.active {
+  border-color: var(--line);
+  background: rgba(63, 232, 200, .05)
+}
+
+.step-no {
+  font-family: 'Inter';
+  color: var(--dim);
+  font-size: 14px
+}
+
+.roadmap-step small,
+.roadmap-step strong,
+.roadmap-step em {
+  display: block
+}
+
+.roadmap-step small {
+  font-family: 'JetBrains Mono';
+  font-size: 9px;
+  letter-spacing: .14em;
+  color: var(--violet)
+}
+
+.roadmap-step strong {
+  font-family: 'Inter';
+  font-size: 13px;
+  margin: 2px 0
+}
+
+.roadmap-step em {
+  font-style: normal;
+  font-size: 12px;
+  color: var(--dim)
+}
+
+.roadmap-step.active .step-no {
+  color: var(--cyan)
+}
+
+.roadmap-step.active i:after {
+  content: '→';
+  color: var(--cyan);
+  font-style: normal
+}
+
+.roadmap-step.completed .step-no {
+  color: var(--cyan)
+}
+
+.roadmap-step.completed i:after {
+  content: '✓';
+  color: var(--cyan);
+  font-style: normal
+}
+
+/* GitHub REST API resource recommendations. */
+.learning-recommendation {
+  background: var(--panel);
+  border: 1px solid var(--line)
+}
+
+.stage-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: start;
+  margin: 18px 0 8px
+}
+
+.stage-heading .tag {
+  font-family: 'JetBrains Mono';
+  font-size: 10px;
+  color: var(--violet);
+  letter-spacing: .1em
+}
+
+.level-badge {
+  font-family: 'JetBrains Mono';
+  font-size: 10px;
+  color: var(--cyan);
+  border: 1px solid var(--line-strong);
+  padding: 6px 10px;
+  white-space: nowrap
+}
+
+.learning-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 22px 0
+}
+
+.api-disclosure {
+  font-family: 'JetBrains Mono';
+  font-size: 11px;
+  border-left: 2px solid var(--cyan);
+  padding-left: 12px
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px
+}
+
+.resource-meta {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  font-family: 'JetBrains Mono';
+  font-size: 9px;
+  color: var(--cyan)
+}
+
+.resource-buttons {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 10px
+}
+
+.resource-buttons .btn {
+  padding: 7px 10px;
+  font-size: 9px
+}
+
+.save-resource.saved {
+  color: var(--amber);
+  border-color: var(--amber)
+}
+
+.saved-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px
+}
+
+.saved-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 16px
+}
+
+.saved-item strong {
+  font-family: 'Inter';
+  font-size: 12px
+}
+
+.saved-item a {
+  font-family: 'JetBrains Mono';
+  font-size: 10px;
+  color: var(--cyan)
+}
+
+.remove-saved {
+  border: 0;
+  background: none;
+  color: var(--danger);
+  font-size: 20px;
+  cursor: pointer
+}
+
+.empty-state {
+  grid-column: 1/-1;
+  border: 1px dashed var(--line);
+  padding: 18px;
+  text-align: center;
+  font-family: 'JetBrains Mono';
+  font-size: 11px
+}
+
+.api-error {
+  grid-column: 1/-1;
+  border: 1px solid rgba(255, 93, 108, .45);
+  color: var(--danger);
+  padding: 14px;
+  font-family: 'JetBrains Mono';
+  font-size: 11px
+}
+
+@media(max-width:900px) {
+  /* Two-column learning roadmap and recommendations layout. */
+  .learning-shell {
+    grid-template-columns: 1fr
+  }
+
+  .saved-resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+}
+
+@media(max-width:600px) {
+
+  .resource-grid,
+  .saved-resource-grid {
+    grid-template-columns: 1fr
+  }
+
+  .stage-heading {
+    display: block
+  }
+
+  .level-badge {
+    display: inline-block;
+    margin-bottom: 10px
+  }
+}
+
+/* Reusable dashboard-style information panel. */
+.hud {
+  border-radius: 14px;
+}
+
+.hud::before,
+.hud::after,
+.hud .corner-tr,
+.hud .corner-bl {
+  display: none;
+}
+
+.resource-engine-section {
+  padding-top: 58px;
+  padding-bottom: 30px;
+}
+
+.resource-engine-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .88fr) minmax(420px, 1.12fr);
+  gap: 34px;
+  align-items: center;
+}
+
+.resource-engine-copy h2 {
+  font-size: clamp(30px, 4.4vw, 54px);
+  letter-spacing: -.035em;
+  max-width: 680px;
+}
+
+.resource-engine-copy>p {
+  font-size: 17px;
+  max-width: 680px;
+}
+
+.resource-engine-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.resource-engine-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: color-mix(in srgb, var(--panel) 86%, transparent);
+  font: 600 10px/1 'JetBrains Mono', monospace;
+  color: var(--dim);
+}
+
+.resource-engine-badges i {
+  color: var(--cyan);
+  font-size: 14px;
+}
+
+.resource-flow-glow {
+  position: absolute;
+  inset: 18%;
+  border: 1px dashed rgba(163, 113, 247, .2);
+  border-radius: 50%;
+  animation: resource-ring 18s linear infinite;
+}
+
+.resource-flow-line {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, .4), rgba(57, 211, 83, .34), rgba(163, 113, 247, .35), transparent);
+  transform: translateY(-50%);
+}
+
+.resource-flow-pulse {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 24px rgba(88, 166, 255, .85);
+  transform: translate(-50%, -50%);
+  animation: resource-signal 5.2s linear infinite;
+}
+
+.resource-roadmap-section {
+  padding-top: 34px;
+}
+
+.learning-path,
+/* GitHub REST API resource recommendations. */
+.learning-recommendation {
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
+}
+
+/* GitHub REST API resource recommendations. */
+.learning-recommendation {
+  position: relative;
+  overflow: hidden;
+}
+
+.learning-recommendation::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 30%, rgba(88, 166, 255, .045) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: resource-panel-scan 8s ease-in-out infinite;
+}
+
+.roadmap-step {
+  border-radius: 12px !important;
+}
+
+.roadmap-step.active {
+  box-shadow: 0 12px 34px rgba(88, 166, 255, .10), inset 0 0 0 1px rgba(88, 166, 255, .12);
+}
+
+.resource-summary-section {
+  padding: 0 0 34px;
+}
+
+.resource-grid {
+  gap: 18px
+}
+
+.resource-visual {
+  height: 142px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 62px 1fr 34px;
+  gap: 14px;
+  align-items: end;
+  padding: 22px;
+  background: radial-gradient(circle at 18% 25%, rgba(88, 166, 255, .25), transparent 28%), radial-gradient(circle at 84% 20%, rgba(163, 113, 247, .18), transparent 30%), #0a1220;
+  border-bottom: 1px solid var(--line)
+}
+
+.resource-visual-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(88, 166, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 166, 255, .06) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: .55
+}
+
+.resource-visual>img {
+  position: relative;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .35);
+  background: #fff
+}
+
+.resource-visual>div:not(.resource-visual-grid) {
+  position: relative;
+  z-index: 2;
+  min-width: 0
+}
+
+.resource-visual span {
+  display: block;
+  font: 800 8px/1 'JetBrains Mono', monospace;
+  letter-spacing: .14em;
+  color: #8fbfff;
+  margin-bottom: 7px
+}
+
+.resource-visual strong {
+  display: block;
+  color: #fff;
+  font: 800 14px/1.25 'Inter', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.resource-visual>i {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 26px;
+  opacity: .86
+}
+
+.resource-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1
+}
+
+.resource-card-body h3 {
+  font-size: 20px;
+  margin: 12px 0 8px
+}
+
+.resource-card-body p {
+  font-size: 14px;
+  line-height: 1.65
+}
+
+.resource-owner {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 12px 0 2px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 11px
+}
+
+.resource-owner img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff
+}
+
+.resource-owner b {
+  color: var(--text)
+}
+
+.resource-buttons {
+  margin-top: auto;
+  padding-top: 14px
+}
+
+.resource-buttons .btn {
+  font-size: 10px;
+  padding: 9px 11px
+}
+
+@media(max-width:820px) {
+  .resource-grid {
+    grid-template-columns: 1fr 1fr
+  }
+}
+
+@media(max-width:620px) {
+  .resource-grid {
+    grid-template-columns: 1fr
+  }
+
+  .resource-visual {
+    height: 132px
+  }
+}
+
+/* Ordered topics displayed for the selected learning track. */
+.track-sequence {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: grid;
+  gap: 8px
+}
+
+.track-sequence li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .025)
+}
+
+.track-sequence b {
+  font-family: 'Orbitron';
+  font-size: 10px;
+  color: var(--cyan)
+}
+
+.track-sequence span {
+  font-size: 12px;
+  color: var(--text)
+}

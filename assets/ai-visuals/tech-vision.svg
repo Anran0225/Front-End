@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0d1117"/>
+    <stop offset="0.55" stop-color="#101827"/>
+    <stop offset="1" stop-color="#151326"/>
+  </linearGradient>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#58a6ff"/>
+    <stop offset="1" stop-color="#a371f7"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="960" height="600" rx="34" fill="url(#bg)"/>
+<g opacity=".16" stroke="#58a6ff">
+  <path d="M0 90H960M0 180H960M0 270H960M0 360H960M0 450H960M0 540H960"/>
+  <path d="M120 0V600M240 0V600M360 0V600M480 0V600M600 0V600M720 0V600M840 0V600"/>
+</g>
+<circle cx="820" cy="100" r="92" fill="#58a6ff" opacity=".08"/>
+<circle cx="140" cy="510" r="110" fill="#a371f7" opacity=".06"/>
+
+<g transform="translate(130 130)">
+ <rect x="0" y="0" width="670" height="330" rx="30" fill="#101827" stroke="#58a6ff" stroke-width="3"/>
+ <path d="M95 175c95-115 290-115 385 0-95 115-290 115-385 0z" fill="none" stroke="#79c0ff" stroke-width="10"/>
+ <circle cx="287" cy="175" r="70" fill="#a371f7" opacity=".35"/><circle cx="287" cy="175" r="30" fill="#58a6ff"/>
+ <rect x="500" y="70" width="110" height="90" rx="12" fill="none" stroke="#3fb950" stroke-width="5"/>
+ <rect x="520" y="205" width="95" height="70" rx="12" fill="none" stroke="#f59e0b" stroke-width="5"/>
+ <path d="M0 55h45M0 0v45M625 0v45M670 55h-45M0 275h45M0 330v-45M625 330h45M670 275v45" stroke="#a371f7" stroke-width="6"/>
+</g>
+<text x="54" y="70" fill="#79c0ff" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="4">COMPUTER VISION</text>
+<text x="54" y="548" fill="#c9d1d9" font-family="Arial,sans-serif" font-size="25" font-weight="700">See, detect and understand images</text>
+</svg>
