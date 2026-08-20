@@ -1,4 +1,5 @@
 /* project-detail.html styles — generated from the consolidated final stylesheet */
+/* Dynamic project hero and category cover treatment. */
 .project-detail-hero {
   position: relative;
   min-height: 480px;
@@ -62,6 +63,7 @@
   align-items: center
 }
 
+/* Main project story and supporting information sidebar. */
 .project-detail-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.75fr) minmax(280px, .75fr);
@@ -102,6 +104,7 @@
   margin: 18px 0
 }
 
+/* Key project features. */
 .detail-feature-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -196,6 +199,7 @@
   color: var(--dim)
 }
 
+/* Related technology video and learning reference. */
 .project-demo-panel {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -230,14 +234,17 @@
 }
 
 @media(max-width:900px) {
+  /* Main project story and supporting information sidebar. */
   .project-detail-layout {
     grid-template-columns: 1fr
   }
 
+  /* Related technology video and learning reference. */
   .project-demo-panel {
     grid-template-columns: 1fr
   }
 
+  /* Dynamic project hero and category cover treatment. */
   .project-detail-hero {
     min-height: 400px
   }
@@ -248,6 +255,7 @@
     padding: 20px
   }
 
+  /* Key project features. */
   .detail-feature-grid {
     grid-template-columns: 1fr
   }
@@ -257,6 +265,7 @@
   }
 }
 
+/* Challenge, achievement, problem, solution and learning context. */
 .project-context-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -295,6 +304,7 @@
 }
 
 @media(max-width:700px) {
+  /* Challenge, achievement, problem, solution and learning context. */
   .project-context-grid {
     grid-template-columns: 1fr
   }

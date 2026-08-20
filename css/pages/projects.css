@@ -1,4 +1,5 @@
 /* projects.html styles — generated from the consolidated final stylesheet */
+/* Project showcase hero and animated background. */
 .projects-pagehead {
   position: relative;
   overflow: hidden;
@@ -23,6 +24,7 @@
   max-width: 720px !important;
 }
 
+/* Responsive grid for winners and club project cards. */
 .project-showcase-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -45,6 +47,7 @@
   box-shadow: 0 22px 60px rgba(0, 0, 0, .22)
 }
 
+/* Visual category covers used by each project card. */
 .project-cover {
   height: 190px;
   display: flex;
@@ -145,6 +148,7 @@
   color: var(--cyan)
 }
 
+/* Bootstrap quick-view modal for project summaries. */
 .project-modal .modal-content {
   position: relative;
   overflow: hidden;
@@ -214,6 +218,7 @@
 }
 
 @media(max-width:900px) {
+  /* Responsive grid for winners and club project cards. */
   .project-showcase-grid {
     grid-template-columns: 1fr
   }
@@ -224,6 +229,7 @@
 }
 
 @media(max-width:620px) {
+  /* Visual category covers used by each project card. */
   .project-cover {
     height: 160px
   }
@@ -238,6 +244,7 @@
   }
 }
 
+/* Project showcase hero and animated background. */
 .projects-pagehead {
   position: relative;
   isolation: isolate;
@@ -450,6 +457,7 @@
   font-weight: 700
 }
 
+/* Responsive grid for winners and club project cards. */
 .project-showcase-grid {
   gap: 26px
 }
@@ -472,6 +480,7 @@
   }
 }
 
+/* Hackathon winner grouping and award presentation. */
 .winner-project-grid {
   margin-bottom: clamp(64px, 9vw, 112px)
 }
@@ -512,6 +521,7 @@
   text-transform: uppercase
 }
 
+/* Hackathon winner grouping and award presentation. */
 .winner-project-grid {
   position: relative;
   display: grid;
@@ -709,6 +719,7 @@
 }
 
 @media(max-width:1040px) {
+  /* Hackathon winner grouping and award presentation. */
   .winner-project-grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr) minmax(0, 1fr);
     gap: 14px
@@ -731,6 +742,7 @@
 }
 
 @media(max-width:820px) {
+  /* Hackathon winner grouping and award presentation. */
   .winner-project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas: "first first" "second third";
@@ -759,6 +771,7 @@
 }
 
 @media(max-width:560px) {
+  /* Hackathon winner grouping and award presentation. */
   .winner-project-grid {
     display: flex;
     flex-direction: column;

@@ -1,4 +1,5 @@
 /* workshops.html styles — generated from the consolidated final stylesheet */
+/* Workshop hero and next-session countdown. */
 .event-head-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(360px, .8fr);
@@ -60,6 +61,7 @@
   padding-bottom: 44px
 }
 
+/* Workshop topic filters and introductory copy. */
 .event-toolbar {
   display: flex;
   justify-content: space-between;
@@ -200,6 +202,7 @@
   font-size: 12px
 }
 
+/* Local workshop registration form and saved summary. */
 .event-registration-section {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line)
@@ -285,6 +288,7 @@
   border-top: 1px solid var(--line)
 }
 
+/* Previous workshop highlights. */
 .past-event-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -372,11 +376,13 @@
     max-width: 720px
   }
 
+  /* Workshop topic filters and introductory copy. */
   .event-toolbar {
     align-items: flex-start;
     flex-direction: column
   }
 
+  /* Previous workshop highlights. */
   .past-event-grid {
     grid-template-columns: 1fr 1fr
   }
@@ -400,6 +406,7 @@
     grid-column: 1
   }
 
+  /* Previous workshop highlights. */
   .past-event-grid {
     grid-template-columns: 1fr
   }

@@ -1,4 +1,5 @@
 /* challenges.html styles — generated from the consolidated final stylesheet */
+/* Challenge hero and featured deadline countdown. */
 .challenge-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(340px, .7fr);
@@ -14,6 +15,7 @@
   box-shadow: 0 24px 60px rgba(0, 0, 0, .2)
 }
 
+/* Challenge-category filter controls. */
 .challenge-toolbar {
   display: flex;
   align-items: end;
@@ -45,6 +47,7 @@
   background: color-mix(in srgb, var(--panel) 82%, var(--cyan) 18%)
 }
 
+/* Responsive challenge card collection. */
 .challenge-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -174,6 +177,7 @@
   border-color: transparent
 }
 
+/* Step-by-step participation process. */
 .challenge-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -217,15 +221,18 @@
 }
 
 @media(max-width:980px) {
+  /* Challenge hero and featured deadline countdown. */
   .challenge-hero-grid {
     grid-template-columns: 1fr
   }
 
+  /* Challenge-category filter controls. */
   .challenge-toolbar {
     align-items: flex-start;
     flex-direction: column
   }
 
+  /* Step-by-step participation process. */
   .challenge-steps {
     grid-template-columns: 1fr
   }
@@ -234,6 +241,7 @@
 @media(max-width:720px) {
 
   .intro-resource-grid,
+  /* Responsive challenge card collection. */
   .challenge-grid {
     grid-template-columns: 1fr
   }
@@ -339,6 +347,7 @@
   color: var(--cyan, #59e1ff)
 }
 
+/* Smart Campus Challenge winners and linked project results. */
 .challenge-results {
   position: relative;
   z-index: 1;
@@ -414,6 +423,7 @@
     grid-template-columns: 1fr
   }
 
+  /* Smart Campus Challenge winners and linked project results. */
   .challenge-results {
     padding: 20px
   }

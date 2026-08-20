@@ -1,6 +1,7 @@
 /* Shared site styles — generated from the consolidated final stylesheet */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
+/* Global design tokens: colours, gradients, spacing and theme transitions. */
 :root {
   --bg: #060A14;
   --bg-alt: #0A1020;
@@ -63,6 +64,7 @@ html[data-theme="light"] .card:hover {
   box-shadow: 0 12px 26px rgba(20, 30, 60, .10);
 }
 
+/* Basic reset and shared document defaults. */
 * {
   transition: var(--transition-theme);
 }
@@ -134,6 +136,7 @@ textarea:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Basic reset and shared document defaults. */
   * {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
@@ -187,6 +190,7 @@ textarea:focus-visible {
   mix-blend-mode: overlay;
 }
 
+/* Shared desktop and mobile navigation. */
 .navbar {
   position: sticky;
   top: 0;
@@ -285,6 +289,7 @@ textarea:focus-visible {
   }
 }
 
+/* Reusable primary and secondary button styles. */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -402,6 +407,7 @@ html[data-theme="light"] .btn:hover {
   }
 }
 
+/* Shared section spacing, headings, grids and content cards. */
 .section {
   position: relative;
   z-index: 2;
@@ -615,6 +621,7 @@ html[data-theme="light"] .btn:hover {
   fill: currentColor;
 }
 
+/* Shared footer layout and navigation links. */
 footer {
   position: relative;
   z-index: 2;
@@ -744,6 +751,7 @@ footer {
   flex: 1
 }
 
+/* Cookie consent notice and preference controls. */
 .cookie-notice {
   position: fixed;
   left: 50%;
@@ -795,6 +803,7 @@ footer {
 }
 
 @media(max-width:600px) {
+  /* Cookie consent notice and preference controls. */
   .cookie-notice {
     grid-template-columns: 1fr
   }
@@ -804,6 +813,7 @@ footer {
   }
 }
 
+/* Global design tokens: colours, gradients, spacing and theme transitions. */
 :root {
   --gh-green: #3fb950;
   --gh-blue: #58a6ff;
@@ -811,6 +821,7 @@ footer {
   --shadow-premium: 0 24px 80px rgba(0, 0, 0, .38);
 }
 
+/* Initial loading screen and page-transition feedback. */
 .site-loader {
   display: none;
 }
@@ -863,6 +874,7 @@ footer {
   box-shadow: 0 0 14px rgba(63, 232, 200, .7);
 }
 
+/* Animated overlay used when navigating between internal pages. */
 .page-transition {
   position: fixed;
   inset: 0;
@@ -911,6 +923,7 @@ footer {
   }
 }
 
+/* Shared desktop and mobile navigation. */
 .navbar {
   transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
 }
@@ -992,6 +1005,7 @@ footer {
   transform: translate(3px, -3px);
 }
 
+/* Shared section spacing, headings, grids and content cards. */
 .section {
   overflow: clip;
 }
@@ -1075,6 +1089,7 @@ footer {
   box-shadow: 0 16px 60px rgba(0, 0, 0, .18);
 }
 
+/* Reusable primary and secondary button styles. */
 .btn {
   overflow: hidden;
   isolation: isolate;
@@ -1104,6 +1119,7 @@ footer {
 @media(prefers-reduced-motion:reduce) {
 
   .page-transition,
+  /* Initial loading screen and page-transition feedback. */
   .site-loader {
     transition: none !important;
   }
@@ -1122,6 +1138,7 @@ footer {
   }
 }
 
+/* Global design tokens: colours, gradients, spacing and theme transitions. */
 :root {
   --bg: #0d1117;
   --bg-alt: #0b0f14;
@@ -1229,6 +1246,7 @@ p {
   color: var(--dim);
 }
 
+/* Shared desktop and mobile navigation. */
 .navbar {
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   border-bottom-color: var(--line);
@@ -1292,6 +1310,7 @@ p {
   line-height: 1;
 }
 
+/* Reusable primary and secondary button styles. */
 .btn {
   border-radius: 8px;
   border-color: var(--cyan);
@@ -1416,6 +1435,7 @@ html[data-theme="light"] .terminal {
   border-color: var(--line);
 }
 
+/* Shared section spacing, headings, grids and content cards. */
 .section {
   padding: 76px 0;
 }
@@ -1454,6 +1474,7 @@ html[data-theme="light"] .field select {
   background: #fff;
 }
 
+/* Shared footer layout and navigation links. */
 footer {
   background: var(--bg-alt);
 }
@@ -1483,6 +1504,7 @@ footer {
     font-size: clamp(38px, 12vw, 54px);
   }
 
+  /* Shared section spacing, headings, grids and content cards. */
   .section {
     padding: 58px 0;
   }
@@ -1677,6 +1699,7 @@ footer {
   }
 }
 
+/* Cookie consent notice and preference controls. */
 .cookie-notice {
   position: fixed;
   inset: 0;
@@ -1850,6 +1873,7 @@ body.cookie-open {
     padding: 4px 6px;
   }
 
+  /* Cookie consent notice and preference controls. */
   .cookie-notice {
     padding: 14px;
   }
@@ -3550,6 +3574,7 @@ html[data-theme="light"] .join-visual-panel .aws-brand-emblem img {
     padding-right: 16px !important
   }
 
+  /* Shared section spacing, headings, grids and content cards. */
   .section {
     padding: 52px 0 !important
   }
