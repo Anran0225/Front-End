@@ -1,3 +1,5 @@
+/* PROJECTS PAGE: handles project quick views, favourites and card/orbit motion. */
+// Connect each Quick View button to the shared project catalogue and modal.
 function initProjectQuickViews() {
   var modalEl = document.getElementById('projectQuickView');
   if (!modalEl || !window.bootstrap) return;
@@ -15,6 +17,7 @@ function initProjectQuickViews() {
       var visual = document.getElementById('projectModalVisual'); visual.className = 'project-modal-visual ' + project.cover; visual.innerHTML = '<i class="bi ' + project.icon + '"></i>';
       document.getElementById('projectModalDetails').href = 'project-detail.html?id=' + encodeURIComponent(id);
       var save = document.getElementById('projectModalSave');
+      // Keep the modal favourite button consistent with localStorage.
       function syncSave() { var favs = JSON.parse(localStorage.getItem('nexus_favorites') || '[]'); var on = favs.indexOf(id) > -1; save.textContent = on ? '★ Saved' : '☆ Save project'; save.classList.toggle('on', on); }
       save.onclick = function () { var favs = JSON.parse(localStorage.getItem('nexus_favorites') || '[]'); favs = favs.indexOf(id) > -1 ? favs.filter(function (x) { return x !== id; }) : favs.concat(id); localStorage.setItem('nexus_favorites', JSON.stringify(favs)); syncSave(); };
       syncSave(); modal.show();
@@ -24,6 +27,7 @@ function initProjectQuickViews() {
 
 /* V5 interactive orbit + project motion */
 (function () {
+  // Add accessible orbit links and pointer-based card depth effects.
   function initV5Motion() {
     var stage = document.querySelector('.ai-orbit-stage');
     if (stage) {

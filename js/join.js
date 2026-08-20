@@ -1,3 +1,5 @@
+/* JOIN PAGE: validates membership fields, preserves a session draft and saves a password-free local profile. */
+// Initialise form validation, draft recovery and the local member profile preview.
 function initJoinForm() {
   var form = document.getElementById('joinForm');
   if (!form) return;
@@ -109,6 +111,7 @@ function initJoinForm() {
     }, 520);
   }
 
+  // Render only non-sensitive profile details; passwords are never stored.
   function renderProfile(profile) {
     var nameEl = document.getElementById('joinPreviewName');
     var emailEl = document.getElementById('joinPreviewEmail');

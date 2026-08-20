@@ -1,6 +1,9 @@
+/* ABOUT PAGE: animates club milestone counters when they enter the viewport. */
+// Initialise counters only on pages containing .about-count elements.
     function initAboutCounters(){
     var counters=[].slice.call(document.querySelectorAll('.about-count'));
     if(!counters.length)return;
+    // Animate one counter once, then mark it as completed.
     function run(el){
       if(el.dataset.counted==='true')return;
       el.dataset.counted='true';

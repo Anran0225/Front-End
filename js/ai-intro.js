@@ -1,4 +1,6 @@
+/* AI INTRO PAGE: controls the ecosystem orbit, technology explorer, AI workflow, use cases and GitHub resource previews. */
 (function () {
+  // Position each ecosystem node around the orbit while keeping its label upright.
   function initUprightOrbit() {
     var stage = document.querySelector('.ai-orbit-stage');
     var track = stage && stage.querySelector('.ai-orbit-track-single');
@@ -26,6 +28,7 @@
     window.addEventListener('resize', function () { if (reduce) layout(performance.now()); });
   }
 
+  // Curated content displayed by the interactive AI technology tabs.
   var techData={
     ml:{
       videoId:'znF2U_3Z210',
@@ -90,6 +93,7 @@
   };
 
 
+  // Replace the selected technology video, explanation and example facts.
    function initTechExplorer(){
     var detail=document.getElementById('aiTechDetail'); if(!detail) return;
     var buttons=[].slice.call(document.querySelectorAll('.ai-tech-tab'));
@@ -122,14 +126,17 @@
     });
   }
 
+  // Explanations for the four clickable stages of a basic AI workflow.
   var flowData = {
     data: ['01 · Data', 'AI starts with examples such as text, images, sensor readings or labelled records. Better-quality data usually produces more useful learning.'],
     train: ['02 · Training', 'During training, an algorithm adjusts internal parameters so its outputs become closer to the desired pattern or objective.'],
     model: ['03 · Model', 'The trained model stores the learned relationships. It is not a database of perfect answers; it is a mathematical system that estimates useful outputs.'],
     output: ['04 · Output', 'During inference, the model uses new input to produce a prediction, classification, recommendation or generated result.']
   };
+  // Show the explanation that belongs to the selected workflow stage.
   function initFlow() { var box = document.getElementById('aiFlowExplain'); if (!box) return; document.querySelectorAll('.ai-flow-step').forEach(function (btn) { btn.addEventListener('click', function () { document.querySelectorAll('.ai-flow-step').forEach(function (b) { b.classList.remove('active') }); btn.classList.add('active'); var d = flowData[btn.dataset.flow]; box.querySelector('strong').textContent = d[0]; box.querySelector('p').textContent = d[1]; if (window.gsap) gsap.fromTo(box, { opacity: .55, x: -8 }, { opacity: 1, x: 0, duration: .25 }) }) }) }
 
+  // Real-world AI examples and fallback images for each application area.
   var cases = {
     education: ['https://images.unsplash.com/photo-1758270705317-3ef6142d306f?auto=format&fit=crop&w=1400&q=80', 'University students collaborating around a laptop', 'Education', 'Personalised learning and study support', 'AI can recommend practice material, summarise difficult content and help students receive feedback at their own pace.', 'Example: adaptive quiz recommendations based on previous answers.', 'assets/ai-visuals/usecase-education.svg'],
     health: ['https://images.unsplash.com/photo-1758691461932-d0aa0ebf6b31?auto=format&fit=crop&w=1400&q=80', 'Doctor consulting a patient through a laptop', 'Healthcare', 'Assist clinicians with patterns in medical data', 'AI can help analyse scans, prioritise cases and identify patterns, while qualified professionals remain responsible for decisions.', 'Example: highlighting suspicious regions in medical images for review.', 'assets/ai-visuals/usecase-health.svg'],
@@ -137,6 +144,7 @@
     creative: ['https://images.unsplash.com/photo-1753164597967-b41945a05e89?auto=format&fit=crop&w=1400&q=80', 'Designer working with a laptop in a creative studio', 'Creative Work', 'Generate and refine ideas across media', 'Generative AI can support writing, images, audio, video and design ideation when users provide clear goals and evaluate outputs.', 'Example: generating concept variations for a campaign poster.', 'assets/ai-visuals/usecase-creative.svg'],
     campus: ['https://images.unsplash.com/photo-1753613648120-d2c8d1d49002?auto=format&fit=crop&w=1400&q=80', 'University student working on a laptop in a library', 'Smart Campus', 'Use AI to improve campus services', 'AI can support scheduling, smart facilities, student services and campus operations when privacy and responsible-use requirements are considered.', 'Example: an FAQ assistant that routes students to the correct university service.', 'assets/ai-visuals/usecase-campus.svg']
   };
+  // Update the real-world use-case panel when a category is selected.
   function initUsecases(){
     var panel=document.getElementById('aiUsecasePanel');if(!panel)return;
     document.querySelectorAll('.ai-usecase-tab').forEach(function(btn){
@@ -161,9 +169,11 @@
       })
     })
   }
+  // Start all interactive AI Intro components after the document is ready.
   function init() { initUprightOrbit(); initTechExplorer(); initFlow(); initUsecases(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
+// Load curated public GitHub learning repositories into the Explore More cards.
 function initIntroResourcePreview() {
   var grid = document.getElementById('introResourceGrid');
   if (!grid || typeof window.jQuery === 'undefined') return;

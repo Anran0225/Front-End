@@ -1,8 +1,11 @@
+/* WORKSHOPS PAGE: controls filtering, countdown, detail modal and local workshop registrations. */
+// Initialise workshop filters, countdown, modal details and registration storage.
 function initEventsPage() {
   if (!document.body.hasAttribute('data-events-page')) return;
 
   var $cards = $('.event-card');
   var $filters = $('.event-filter');
+  // Show workshop cards matching the selected learning category.
   function applyFilter(filter) {
     filter = filter || 'All';
     $filters.removeClass('active').filter('[data-event-filter="' + filter + '"]').addClass('active');
@@ -19,6 +22,7 @@ function initEventsPage() {
 
   var countdown = document.getElementById('eventCountdown');
   var countdownCard = document.querySelector('[data-countdown-target]');
+  // Update the next-workshop countdown once per second.
   function tickCountdown() {
     if (!countdown || !countdownCard) return;
     var target = new Date(countdownCard.getAttribute('data-countdown-target')).getTime();
@@ -32,6 +36,7 @@ function initEventsPage() {
   var detailEl = document.getElementById('eventDetailModal');
   var detailModal = detailEl && window.bootstrap ? new bootstrap.Modal(detailEl) : null;
   var selectedEvent = '';
+  // Copy the selected workshop data into the Bootstrap detail modal.
   function fillDetail(card) {
     selectedEvent = card.dataset.eventName || '';
     var img = document.getElementById('eventModalImage'); if (img) img.src = card.dataset.eventImage || 'assets/nexus-motion-poster.jpg';
@@ -55,7 +60,9 @@ function initEventsPage() {
   var status = document.getElementById('eventRegisterStatus');
   var summary = document.getElementById('eventRegistrationSummary');
   var registrationKey = document.body.getAttribute('data-registration-key') || 'nexus_event_registrations';
+  // Read locally saved workshop registrations safely.
   function registrations() { try { return JSON.parse(localStorage.getItem(registrationKey) || '[]'); } catch (e) { return []; } }
+  // Refresh the registration summary shown below the form.
   function updateSummary() {
     var list = registrations();
     if (summary) summary.innerHTML = '<span class="status-dot"></span><strong>' + list.length + ' saved registration' + (list.length === 1 ? '' : 's') + '</strong>' + (list.length ? '<small>Latest: ' + escapeHtml(list[list.length - 1].event) + '</small>' : '<small>Register for an event to demonstrate localStorage.</small>');

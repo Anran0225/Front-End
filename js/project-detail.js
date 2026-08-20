@@ -1,10 +1,14 @@
+/* PROJECT DETAIL PAGE: renders club project records or live public GitHub repository information. */
+// Convert a list of labels into the tag markup used by the detail page.
 function detailTags(tags) { return (tags || []).map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join(''); }
+// Select club data or GitHub API data according to the URL query parameters.
 function initProjectDetailPage() {
   if (!document.body.hasAttribute('data-project-detail')) return;
   var params = new URLSearchParams(location.search); var repoName = params.get('repo'); var id = params.get('id');
   if (repoName) loadRepositoryDetail(repoName); else renderClubProjectDetail(clubProjects[id] || clubProjects.studybuddy, id || 'studybuddy');
 }
 
+// Populate the detail layout for an internally defined club project.
 function renderClubProjectDetail(project, id) {
   document.title = project.title + ' | AI AWS Club';
   $('#detailTitle').text(project.title); $('#detailSubtitle').text(project.category + ' · ' + project.focus); $('#detailDescription').text(project.description);
@@ -35,6 +39,7 @@ function renderClubProjectDetail(project, id) {
   $('#projectDetailHero').addClass(project.cover);
 }
 
+// Fetch and render public repository metadata through the GitHub REST API.
 function loadRepositoryDetail(repoName) {
   $('#projectContextGrid').hide();
   $('#detailChallengeBack').hide();

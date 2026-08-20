@@ -1,6 +1,9 @@
+/* RESOURCES PAGE: manages learning stages, GitHub recommendations, progress and saved resources. */
+// Initialise the staged learning roadmap and its GitHub resource recommendations.
 function initLearningResources() {
   if (!document.getElementById('learningRoadmap')) return;
 
+  // Five fixed learning tracks, each with a sequence and curated repositories.
   var stages = [
     { slug: 'ai-fundamentals', title: 'AI Fundamentals', level: 'Beginner', description: 'Build a responsible foundation before choosing a specialised AI area.', sequence: ['What is AI? · Video', 'Basic AI concepts · Article', 'Data and AI · Documentation', 'Responsible AI · Tutorial', 'First AI experiment · Practice'], repositories: ['microsoft/AI-For-Beginners', 'microsoft/Data-Science-For-Beginners', 'microsoft/generative-ai-for-beginners'] },
     { slug: 'machine-learning', title: 'Machine Learning', level: 'Beginner → Intermediate', description: 'Learn the path from Python and training data to a working classification or regression model.', sequence: ['Machine Learning Basics · Video', 'Python for Data · Tutorial', 'Training Data · Notebook', 'Classification & Regression · Course', 'Build a Simple ML Model · Practice'], repositories: ['microsoft/ML-For-Beginners', 'ageron/handson-ml3', 'scikit-learn/scikit-learn'] },
@@ -17,10 +20,12 @@ function initLearningResources() {
   var latestResources = [];
 
   function esc(value) { return $('<div>').text(value == null ? '' : String(value)).html(); }
+  // Read saved resources from localStorage and recover safely from invalid data.
   function savedResources() { try { return JSON.parse(localStorage.getItem('nexus_saved_resources') || '[]'); } catch (e) { return []; } }
   function persistProgress() { localStorage.setItem('nexus_learning_stage', stages[currentStage].slug); localStorage.setItem('nexus_learning_completed', String(completedCount)); }
   function stars(value) { return value >= 1000 ? (value / 1000).toFixed(value >= 10000 ? 0 : 1) + 'K' : String(value); }
 
+  // Update the active track, progress display and recommended repositories.
   function renderStage() {
     var stage = stages[currentStage];
     var percent = completedCount * 20;
@@ -53,6 +58,7 @@ function initLearningResources() {
     }).join('');
     $('#githubResult').html(html || '<div class="api-error">Assigned resources could not be displayed.</div>');
   }
+  // Display resources the visitor previously saved in this browser.
   function renderSaved() {
     var saved = savedResources();
     if (!saved.length) { $('#savedResources').html('<p class="empty-state">No saved resources yet. Load your assigned resources and select SAVE.</p>'); return; }
