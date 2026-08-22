@@ -68,6 +68,21 @@
                 page.</p>
         </div>
     </header>
+    <!-- MY SAVED PROJECTS: rendered from the existing localStorage favourites array -->
+    <section aria-labelledby="savedProjectsTitle" class="section saved-projects-section" id="savedProjectsSection"
+        hidden>
+        <div class="wrap">
+            <div class="saved-projects-heading">
+                <div>
+                    <div class="eyebrow">Personal Collection</div>
+                    <h2 id="savedProjectsTitle">My Saved Projects</h2>
+                    <p>Your bookmarked projects for quick access.</p>
+                </div>
+                <span aria-live="polite" class="saved-projects-count" id="savedProjectsCount">0 SAVED</span>
+            </div>
+            <div class="saved-projects-grid" id="savedProjectsGrid"></div>
+        </div>
+    </section>
     <!-- PROJECT SHOWCASE: HACKATHON WINNERS AND CLUB PROJECTS -->
     <section class="section">
         <div class="wrap">
