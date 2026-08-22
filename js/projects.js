@@ -1,4 +1,4 @@
-/* PROJECTS PAGE: handles project quick views, favourites and card/orbit motion. */
+/* PROJECTS PAGE: handles project quick views, favourites and card motion. */
 var PROJECT_FAVOURITES_KEY = 'nexus_favorites';
 
 // Read and validate the single existing favourites array from localStorage.
@@ -106,5 +106,21 @@ function initProjectQuickViews() {
   });
 }
 
+// Give project cards a subtle pointer-following depth effect on suitable devices.
+function initProjectCardMotion() {
+  if (!window.matchMedia('(pointer:fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.project-showcase-card').forEach(function (card) {
+    card.addEventListener('mousemove', function (event) {
+      var rect = card.getBoundingClientRect();
+      var pointerX = (event.clientX - rect.left) / rect.width - .5;
+      var pointerY = (event.clientY - rect.top) / rect.height - .5;
+      card.style.transform = 'perspective(900px) rotateX(' + (-pointerY * 4.5) + 'deg) rotateY(' + (pointerX * 5.5) + 'deg) translateY(-5px)';
+    });
+    card.addEventListener('mouseleave', function () { card.style.transform = ''; });
+  });
+}
 
-document.addEventListener('DOMContentLoaded', initProjectQuickViews);
+document.addEventListener('DOMContentLoaded', function () {
+  initProjectQuickViews();
+  initProjectCardMotion();
+});

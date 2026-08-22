@@ -203,7 +203,7 @@
   --radius: calc(var(--orbit-size) * .41);
   width: 82px;
   animation: orbit-single-face 34s linear infinite;
-  cursor: default;
+  cursor: pointer;
   z-index: 7;
   outline: none;
 }
@@ -278,15 +278,6 @@
 .ai-orbit-stage.orbit-paused .ai-orbit-track-single,
 .ai-orbit-stage.orbit-paused .ai-orbit-track-single .ai-orbit-node {
   animation-play-state: paused;
-}
-
-.ai-text-logo b {
-  display: grid !important;
-  font-size: 20px;
-  background: linear-gradient(135deg, #58a6ff, #a371f7);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent
 }
 
 .codex-logo i {

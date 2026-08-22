@@ -195,10 +195,9 @@ function initIntroResourcePreview() {
       });
   });
 }
-/* V5 interactive orbit + project motion */
+/* Pause the ecosystem animation while a tool is being inspected or opened. */
 (function () {
-  // Add accessible orbit links and pointer-based card depth effects.
-  function initV5Motion() {
+  function initOrbitLinks() {
     var stage = document.querySelector('.ai-orbit-stage');
     if (stage) {
       stage.querySelectorAll('.ai-orbit-node').forEach(function (node) {
@@ -208,30 +207,19 @@ function initIntroResourcePreview() {
         node.addEventListener('blur', function () { stage.classList.remove('orbit-paused'); });
         node.addEventListener('click', function () {
           var url = node.getAttribute('data-url');
-          if (url) window.open(url, '_blank', 'noopener,noreferrer');
+          if (url) window.location.assign(url);
         });
         node.addEventListener('keydown', function (event) {
           if ((event.key === 'Enter' || event.key === ' ') && node.getAttribute('data-url')) {
             event.preventDefault();
-            window.open(node.getAttribute('data-url'), '_blank', 'noopener,noreferrer');
+            window.location.assign(node.getAttribute('data-url'));
           }
         });
       });
     }
 
-    if (window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.project-showcase-card').forEach(function (card) {
-        card.addEventListener('mousemove', function (event) {
-          var r = card.getBoundingClientRect();
-          var px = (event.clientX - r.left) / r.width - .5;
-          var py = (event.clientY - r.top) / r.height - .5;
-          card.style.transform = 'perspective(900px) rotateX(' + (-py * 4.5) + 'deg) rotateY(' + (px * 5.5) + 'deg) translateY(-5px)';
-        });
-        card.addEventListener('mouseleave', function () { card.style.transform = ''; });
-      });
-    }
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initV5Motion);
-  else initV5Motion();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initOrbitLinks);
+  else initOrbitLinks();
 })();
 document.addEventListener('DOMContentLoaded', initIntroResourcePreview);
